@@ -1,6 +1,14 @@
-const PackageDetailsPage = () =>{
-    return(
-        <h1>PackageDetailsPage</h1>
+import AddPackageForm from "../../components/AddPackageForm/AddPackageForm"
+import { Container } from "react-bootstrap"
+
+
+
+const PackageDetailsPage = () => {
+    return (
+
+        <Container>
+            <AddPackageForm />
+        </Container>
     )
 }
 export default PackageDetailsPage
