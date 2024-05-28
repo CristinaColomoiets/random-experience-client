@@ -1,7 +1,7 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 import {Button, Form} from 'react-bootstrap';
 import authServices from './../../services/auth.services'
-import { useNavigate } from "react-router-dom";
 
 
 
@@ -26,7 +26,7 @@ const SignUpForm = ()=>{
             .catch(err => console.log(err))
     }
 
-    const handleIputChang = event =>{
+    const handleIputChange = event =>{
         const {value, name} = event.target
         setSignupData({...singupData, [name]: value})
     }
@@ -40,7 +40,7 @@ const SignUpForm = ()=>{
                 placeholder="Enter your email please"
                 value={singupData.email}
                 name="email"
-                onChange={handleIputChang}
+                onChange={handleIputChange}
                 />
             </Form.Group>
 
@@ -51,7 +51,7 @@ const SignUpForm = ()=>{
                 placeholder="Password"
                 value={singupData.password}
                 name="password"
-                onChange={handleIputChang}
+                onChange={handleIputChange}
                 />
             </Form.Group>
 
@@ -62,7 +62,7 @@ const SignUpForm = ()=>{
                 placeholder="Username"
                 value={singupData.username}
                 name="username"
-                onChange={handleIputChang}
+                onChange={handleIputChange}
                 />
             </Form.Group>
 
@@ -73,7 +73,7 @@ const SignUpForm = ()=>{
                 placeholder="Add your profile image please" 
                 value={singupData.image}
                 name="image"
-                onChange={handleIputChang}
+                onChange={handleIputChange}
                 />
             </Form.Group>
   

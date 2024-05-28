@@ -1,11 +1,9 @@
-import SignUpForm from "../../components/SignUpForm/SignUpForm"
+import { Container } from "react-bootstrap"
 
 const HomePage =()=>{
     return(
-        <>
-            <h1>Home Page</h1>
-            <SignUpForm/>
-        </>
+        <Container>
+        </Container>
     )
 }
 export default HomePage

@@ -3,7 +3,7 @@ import axios from 'axios'
 class AuthService {
     constructor(){
         this.axiosApp = axios.create({
-            baseURL: `${import.meta.env.VITE_API_URL}`
+            baseURL: `${import.meta.env.VITE_API_URL}/api/user`
         })
     }
 
@@ -15,7 +15,7 @@ class AuthService {
         return this.axiosApp.post('/login', userData)
     }
 
-    verifyUser(userData){
+    verifyUser(token){
         return this.axiosApp.get('/verify', {headers: {Authorization: `Bearer${token}`}})
     }
 }
