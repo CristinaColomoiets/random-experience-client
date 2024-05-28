@@ -9,7 +9,6 @@ const Navigation = () => {
 
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-<<<<<<< HEAD
 
           <Link to='/' style={{ textDecoration: 'none' }}>
             <Navbar.Brand >Navbar</Navbar.Brand>
@@ -23,9 +22,6 @@ const Navigation = () => {
           </Nav>
 
 
-=======
-          <Navbar.Brand href="/">Navbar</Navbar.Brand>
->>>>>>> edb258e50489233d6bac0a447d10cf608811f64c
           <Nav className="me-auto">
             <Link to='/profile' style={{ textDecoration: 'none' }}>
               <img
