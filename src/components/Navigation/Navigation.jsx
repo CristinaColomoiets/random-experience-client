@@ -9,7 +9,19 @@ const Navigation = () => {
 
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="/">Navbar</Navbar.Brand>
+
+          <Link to='/' style={{ textDecoration: 'none' }}>
+            <Navbar.Brand >Navbar</Navbar.Brand>
+          </Link>
+
+          <Nav className="me-auto">
+            <Link to='/package/add' style={{ textDecoration: 'none' }}>
+              <Navbar.Brand >Add Package</Navbar.Brand>
+
+            </Link>
+          </Nav>
+
+
           <Nav className="me-auto">
             <Link to='/profile' style={{ textDecoration: 'none' }}>
               <img

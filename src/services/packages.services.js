@@ -15,9 +15,14 @@ class PackageServices {
         return this.axiosApp.get('/', packageData)
     }
 
-    putPackage(packageData, param) {
+    putPackage(param, packageData) {
         return this.axiosApp.put(`/${param}`, packageData)
     }
+
+    deletePackage(param) {
+        return this.axiosApp.delete(`/${param}`)
+    }
+
 }
 
 const packageServices = new PackageServices()

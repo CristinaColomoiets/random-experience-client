@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { Form, Button } from "react-bootstrap"
-import axios from "axios"
 import packageServices from "../../services/packages.services"
-// const API_URL = import.meta.env.VITE_API_URL
-const api = 'http://localhost:5005'
 
 const EditPackageForm = () => {
 
@@ -20,7 +17,6 @@ const EditPackageForm = () => {
     const navigate = useNavigate()
 
     const { packageId } = useParams()
-
     useEffect(() => {
         fetchFormData()
     }, [])
@@ -48,16 +44,22 @@ const EditPackageForm = () => {
         e.preventDefault()
 
         packageServices
+
             .putPackage(packageId, editPackage)
-            // .put(`${api}/api/packages/${packageId}`, editPackage)
             .then(() => navigate('/'))
             .catch(err => console.log(err))
     }
 
-    const handleCancel = () => {
+    const handleDelete = () => {
+
+        packageServices
+            .deletePackage(packageId)
+            .then(({ data }) => { setEditPackage(data) })
+            .catch(err => console.log(err))
+    }
+    const handleClear = () => {
         setEditPackage(initialState)
     }
-
     return (
         <div className="editPackageForm">
 
@@ -109,19 +111,19 @@ const EditPackageForm = () => {
                 </Form.Group>
                 <hr />
                 <Button variant="dark" type="submit" className="w-100 mb-4">
-                    Submit
+                    Apply Changes
                 </Button>
 
-                <Button variant="secondary" type="button" className="w-100 mb-4" onClick={handleCancel}>
-                    delete
+                <Button variant="secondary" type="button" className="w-100 mb-4" onClick={handleClear}>
+                    Clear
                 </Button>
 
-                <Link to='/'>
-                    <Button variant="danger" type="button" className="w-100" onClick={handleCancel}>
-                        Cancel
-                    </Button>
+                <Button variant="danger" type="button" className="w-100 mb-4" onClick={handleDelete}>
+                    Delete
+                </Button>
 
-                </Link>
+
+
             </Form>
 
         </div>

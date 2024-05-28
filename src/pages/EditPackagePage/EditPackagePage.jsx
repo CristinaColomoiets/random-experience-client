@@ -1,10 +1,11 @@
 import { Container } from "react-bootstrap"
 import EditPackageForm from "../../components/EditPackageForm/EditPackageForm"
 
-const AboutUs = () => {
+const EditPackagePage = () => {
     return (
         <Container>
+            <EditPackageForm />
         </Container>
     )
 }
-export default AboutUs
+export default EditPackagePage
