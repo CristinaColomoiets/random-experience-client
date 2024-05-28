@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { Form, Button } from "react-bootstrap"
 import axios from "axios"
+import packageServices from "../../services/packages.services"
 // const API_URL = import.meta.env.VITE_API_URL
 const api = 'http://localhost:5005'
 
@@ -22,14 +23,15 @@ const EditPackageForm = () => {
 
     useEffect(() => {
         fetchFormData()
-    })
+    }, [])
 
     const fetchFormData = () => {
-        axios
-            .get(`${api}/packages/${packageId}`)                      //get data
+
+        packageServices
+            .getOnePackage(packageId)
             .then(({ data }) => {
                 setEditPackage(data)
-                // setIsLoading(false)
+
             })
             .
             catch((err) => console.log(err))
@@ -45,8 +47,9 @@ const EditPackageForm = () => {
     const handleFormSubmit = e => {
         e.preventDefault()
 
-        axios
-            .put(`${api}/api/packages/:packageId`, editPackage)
+        packageServices
+            .putPackage(packageId, editPackage)
+            // .put(`${api}/api/packages/${packageId}`, editPackage)
             .then(() => navigate('/'))
             .catch(err => console.log(err))
     }
@@ -110,7 +113,7 @@ const EditPackageForm = () => {
                 </Button>
 
                 <Button variant="secondary" type="button" className="w-100 mb-4" onClick={handleCancel}>
-                    Clear
+                    delete
                 </Button>
 
                 <Link to='/'>

@@ -1,9 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Form, Button } from "react-bootstrap"
-import axios from "axios"
-// const API_URL = import.meta.env.VITE_API_URL
-const api = 'http://localhost:5005'
+import packageServices from "../../services/packages.services"
 
 
 const AddPackageForm = () => {
@@ -27,9 +25,9 @@ const AddPackageForm = () => {
     const handleFormSubmit = e => {
         e.preventDefault()
 
-        axios
+        packageServices
 
-            .post(`${api}/api/packages/`, newPackage)
+            .savePackage(newPackage)
             .then(() => navigate('/'))
             .catch(err => console.log(err))
     }
