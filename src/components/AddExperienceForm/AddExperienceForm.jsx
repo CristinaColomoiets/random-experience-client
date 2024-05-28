@@ -1,9 +1,7 @@
 import { Form, Button } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
-import axios from "axios"
-const apiURL = 'http://localhost:5005'
-
+import experiencesServices from '../../../services/experiences.services'
 
 const AddExpForm = () => {
 
@@ -30,9 +28,8 @@ const AddExpForm = () => {
     const handleFormSubmit = e => {
         e.preventDefault()
 
-        axios
-
-            .post(`${apiURL}/api/experiences/`, newExp)
+        experiencesServices
+            .createExperience(newExp)
             .then(() => navigate('/'))
             .catch(err => console.log(err))
     }

@@ -2,12 +2,11 @@ import { Button, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-
-const apiURL = 'http://localhost:5005'
+import experiencesServices from '../../../services/experiences.services'
 
 const EditExpForm = () => {
-    const navigate = useNavigate();
-    const { expId } = useParams();
+    const navigate = useNavigate()
+    const { expId } = useParams()
 
     const [expData, setExpData] = useState({
         country: "",
@@ -19,27 +18,36 @@ const EditExpForm = () => {
     });
 
     useEffect(() => {
-        loadFormData();
+        loadFormData()
     }, []);
 
     const loadFormData = () => {
         axios
-            .get(`${apiURL}/api/experiences/${expId}`)
+            .get(`${API_URL}/api/experiences/${expId}`)
             .then(({ data }) => setExpData(data))
-            .catch(err => console.log(err));
+            .catch(err => console.log(err))
     };
 
     const handleInputChange = event => {
         const { name, value } = event.target;
-        setExpData({ ...expData, [name]: value });
+        setExpData({ ...expData, [name]: value })
     };
 
     const handleFormSubmit = e => {
         e.preventDefault();
+
+        editExperience
         axios
-            .put(`${apiURL}/api/experiences/${expId}`, expData)
-            .then(() => navigate(`/details-experience/${expId}`))
-            .catch(err => console.log(err));
+            .put(`${API_URL}/api/experiences/${expId}`, expData)
+            .then(() => navigate(`/experiences/${expId}`))
+            .catch(err => console.log(err))
+    };
+
+    const handleDelete = () => {
+        axios
+            .delete(`${API_URL}/api/experiences/${expId}`)
+            .then(() => navigate('/'))
+            .catch(err => console.log(err))
     };
 
     return (
@@ -105,16 +113,16 @@ const EditExpForm = () => {
                     />
                 </Form.Group>
 
-                <Button variant="dark" type="submit" className="w-100 mb-4">
-                    Edit Experience
+                <Button variant="dark" type="submit" className="w-50">
+                    Apply Edition
                 </Button>
 
-                <Link to='/'><Button variant="danger" type="button" className="w-100">
+                <Button variant="danger" type="button" className="w-50" onClick={handleDelete}>
                     Delete
-                </Button></Link>
+                </Button>
             </Form>
         </div>
     );
 };
 
-export default EditExpForm;
+export default EditExpForm

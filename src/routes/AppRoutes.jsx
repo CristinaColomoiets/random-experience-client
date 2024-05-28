@@ -6,7 +6,7 @@ import PackageDetailsPage from "../pages/PackageDetailsPage/PackageDetailsPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import HomePage from "../pages/HomePage/HomePage";
 import AddExperiencePage from "../pages/AddExperiencePage/AddExperiencePage";
-
+import EditExperienceForm from "../components/EditExperienceForm/EditExperienceForm"
 
 const AppRoutes = () => {
     return (
@@ -18,6 +18,7 @@ const AppRoutes = () => {
             <Route path="/aboutUs" element={<AboutUs />} />
             <Route path="*" element={<ErrorPage />} />
             <Route path='/experiences/add' element={<AddExperiencePage />} />
+            <Route path='/experiences/:experienceId' element={<EditExperienceForm />} />
 
         </Routes>
     )
