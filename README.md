@@ -11,6 +11,7 @@ ROUTES - CLIENT
 | home page         | `/`                     | 
 | profile           |`/profile `              | 
 | Package details   |`/package/:packageID`    |
+| Add Package Page  |`/addPackage`            |
 | about page        |`/aboutUs`               |
 | error page        |`*`                      |
 

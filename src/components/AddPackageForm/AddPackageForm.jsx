@@ -1,9 +1,7 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Form, Button } from "react-bootstrap"
-import axios from "axios"
-// const API_URL = import.meta.env.VITE_API_URL
-const api = 'http://localhost:5005'
+import packageServices from "../../services/packages.services"
 
 
 const AddPackageForm = () => {
@@ -11,8 +9,8 @@ const AddPackageForm = () => {
 
     const initialState = {
         title: "",
-        image: "",
         price: "",
+        image: "",
         description: "",
     }
 
@@ -27,9 +25,9 @@ const AddPackageForm = () => {
     const handleFormSubmit = e => {
         e.preventDefault()
 
-        axios
+        packageServices
 
-            .post(`${api}/api/package/addPackage`, newPackage)
+            .savePackage(newPackage)
             .then(() => navigate('/'))
             .catch(err => console.log(err))
     }
@@ -39,6 +37,7 @@ const AddPackageForm = () => {
     }
 
     return (
+
         <div className="addPackageForm">
 
             <Form onSubmit={handleFormSubmit} className="mt-4">
@@ -86,22 +85,22 @@ const AddPackageForm = () => {
                         value={newPackage.price}
                         onChange={handleInputChange}
                     />
-
                 </Form.Group>
-
-
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-
+                <hr />
                 <Button variant="dark" type="submit" className="w-100 mb-4">
                     Submit
                 </Button>
 
-                <Button variant="secondary" type="submit" className="w-100" onClick={handleCancel}>
-                    Cancel
+                <Button variant="secondary" type="button" className="w-100 mb-4" onClick={handleCancel}>
+                    Clear
                 </Button>
 
+                <Link to='/'>
+                    <Button variant="danger" type="button" className="w-100" onClick={handleCancel}>
+                        Cancel
+                    </Button>
+
+                </Link>
             </Form>
 
         </div>
