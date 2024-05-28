@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-const EditExperienceForm = () => {
-    return (
-        <h1>Edit Experience Form</h1>
-    )
-}
-export default EditExperienceForm
-=======
 import { Button, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import experiencesServices from '../../../services/experiences.services'
+import experiencesServices from '../../services/experiences.services'
 
 const EditExpForm = () => {
     const navigate = useNavigate()
@@ -134,4 +126,3 @@ const EditExpForm = () => {
 };
 
 export default EditExpForm
->>>>>>> edb258e50489233d6bac0a447d10cf608811f64c

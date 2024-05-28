@@ -1,5 +1,6 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../../contexts/auth.context"
 import authServices from "../../services/auth.services"
 import { Form, Button } from "react-bootstrap"
 
@@ -24,7 +25,8 @@ const LoginForm = ()=>{
 
         authServices
             .loginUser(loginData)
-            .then(({data})=>{
+            .then(({data})=>{ // data es token
+
                 const newTokenGenerated = data.authToken
                 localStorage.setItem('authToken', newTokenGenerated)
     
