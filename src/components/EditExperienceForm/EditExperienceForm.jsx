@@ -1,41 +1,45 @@
-// import { Button, Form } from "react-bootstrap";
-// import { useState, useEffect } from "react";
-// import { Link, useNavigate, useParams } from "react-router-dom";
-// import axios from "axios";
-// import experiencesServices from '../../../services/experiences.services'
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
+import experiencesServices from '../../services/experiences.services';
 
-// const EditExpForm = () => {
-//     const navigate = useNavigate()
-//     const { expId } = useParams()
+const EditExpForm = () => {
 
-//     const [expData, setExpData] = useState({
-//         country: "",
-//         hotel: "",
-//         places: "",
-//         package: "",
-//         latitude: "",
-//         longitude: ""
-//     });
+    const initialState = {
+        country: "",
+        hotel: "",
+        places: "",
+        package: "",
+        latitude: "",
+        longitude: ""
+    };
 
-//     useEffect(() => {
-//         loadFormData()
-//     }, []);
+    const { experienceId } = useParams();
+    const navigate = useNavigate();
 
-//     const loadFormData = () => {
-//         axios
-//             .get(`${API_URL}/api/experiences/${expId}`)
-//             .then(({ data }) => setExpData(data))
-//             .catch(err => console.log(err))
-//     };
+    const [expData, setExpData] = useState(initialState);
 
-//     const handleInputChange = event => {
-//         const { name, value } = event.target;
-//         setExpData({ ...expData, [name]: value })
-//     };
+    useEffect(() => {
+        loadFormData();
+    }, []);
+
+    const loadFormData = () => {
+
+        experiencesServices
+            .getOneExperience(experienceId)
+            .then(({ data }) => setExpData(data))
+            .catch(err => console.log(err));
+    };
+
+    const handleInputChange = e => {
+        const { name, value } = e.target;
+        setExpData({ ...expData, [name]: value });
+    };
 
 //     const handleFormSubmit = e => {
 //         e.preventDefault();
 
+<<<<<<< HEAD
 //         editExperience
 //         axios
 //             .put(`${API_URL}/api/experiences/${expId}`, expData)
@@ -72,6 +76,49 @@
 //                         onChange={handleInputChange}
 //                     />
 //                 </Form.Group>
+=======
+        experiencesServices
+            .editExperience(experienceId, expData)
+            .then(() => navigate(`/experiences/edit/${experienceId}`))
+        // Deberia de llevar a ExperiencesList
+        alert('¡Edited!')
+            .catch(err => console.log(err))
+    };
+
+    const handleCancel = () => {
+        setExpData(initialState)
+    };
+
+    const handleDelete = () => {
+        experiencesServices
+            .deleteExperience(experienceId)
+            .then(() => navigate('/'))
+            .catch(err => console.log(err))
+    };
+
+    return (
+        <div className="editExpForm mt-5">
+            <Form onSubmit={handleFormSubmit} className="mt-4">
+                <Form.Group className="mb-3" controlId="country">
+                    <Form.Label>Country</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="country"
+                        value={expData.country}
+                        onChange={handleInputChange}
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="hotel">
+                    <Form.Label>Hotel</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="hotel"
+                        value={expData.hotel}
+                        onChange={handleInputChange}
+                    />
+                </Form.Group>
+>>>>>>> e3f9683403b7690714c6a2e0fcfbbf4860ba08d2
 
 //                 <Form.Group className="mb-3" controlId="places">
 //                     <Form.Label>Places</Form.Label>
@@ -113,6 +160,7 @@
 //                     />
 //                 </Form.Group>
 
+<<<<<<< HEAD
 //                 <Button variant="dark" type="submit" className="w-50">
 //                     Apply Edition
 //                 </Button>
@@ -126,3 +174,24 @@
 // };
 
 // export default EditExpForm
+=======
+                <hr />
+
+                <Button variant="dark" type="submit" className="w-100 mb-4">
+                    Apply Changes
+                </Button>
+
+                <Button variant="secondary" type="button" className="w-100 mb-4" onClick={handleCancel}>
+                    Clear
+                </Button>
+
+                <Button variant="danger" type="button" className="w-100" onClick={handleDelete}>
+                    Delete
+                </Button>
+            </Form>
+        </div>
+    );
+};
+
+export default EditExpForm;
+>>>>>>> e3f9683403b7690714c6a2e0fcfbbf4860ba08d2
