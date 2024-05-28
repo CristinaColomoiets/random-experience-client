@@ -1,6 +1,11 @@
-const HomePage =()=>{
-    return(
-        <h1>Home Page</h1>
+import { Container } from 'react-bootstrap'
+
+const HomePage = () => {
+    return (
+
+        <Container>
+        </Container>
+
     )
 }
 export default HomePage
