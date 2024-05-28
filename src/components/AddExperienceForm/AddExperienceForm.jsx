@@ -1,7 +1,7 @@
 import { Form, Button } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
-import experiencesServices from '../../../services/experiences.services'
+import experiencesServices from '../../services/experiences.services'
 
 const AddExpForm = () => {
 

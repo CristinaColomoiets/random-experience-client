@@ -1,65 +1,65 @@
-<<<<<<< HEAD
-const EditExperienceForm = () => {
-    return (
-        <h1>Edit Experience Form</h1>
-    )
-}
-export default EditExperienceForm
-=======
-import { Button, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import experiencesServices from '../../../services/experiences.services'
+import { useNavigate, useParams } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
+import experiencesServices from '../../services/experiences.services';
 
 const EditExpForm = () => {
-    const navigate = useNavigate()
-    const { expId } = useParams()
 
-    const [expData, setExpData] = useState({
+    const initialState = {
         country: "",
         hotel: "",
         places: "",
         package: "",
         latitude: "",
         longitude: ""
-    });
+    };
+
+    const { experienceId } = useParams();
+    const navigate = useNavigate();
+
+    const [expData, setExpData] = useState(initialState);
 
     useEffect(() => {
-        loadFormData()
+        loadFormData();
     }, []);
 
     const loadFormData = () => {
-        axios
-            .get(`${API_URL}/api/experiences/${expId}`)
+
+        experiencesServices
+            .getOneExperience(experienceId)
             .then(({ data }) => setExpData(data))
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
     };
 
-    const handleInputChange = event => {
-        const { name, value } = event.target;
-        setExpData({ ...expData, [name]: value })
+    const handleInputChange = e => {
+        const { name, value } = e.target;
+        setExpData({ ...expData, [name]: value });
     };
 
     const handleFormSubmit = e => {
         e.preventDefault();
 
-        editExperience
-        axios
-            .put(`${API_URL}/api/experiences/${expId}`, expData)
-            .then(() => navigate(`/experiences/${expId}`))
+        experiencesServices
+            .editExperience(experienceId, expData)
+            .then(() => navigate(`/experiences/edit/${experienceId}`))
+        // Deberia de llevar a ExperiencesList
+        alert('¡Edited!')
             .catch(err => console.log(err))
     };
 
+    const handleCancel = () => {
+        setExpData(initialState)
+    };
+
     const handleDelete = () => {
-        axios
-            .delete(`${API_URL}/api/experiences/${expId}`)
+        experiencesServices
+            .deleteExperience(experienceId)
             .then(() => navigate('/'))
             .catch(err => console.log(err))
     };
 
     return (
-        <div className='EditExpForm mt-5'>
+        <div className="editExpForm mt-5">
             <Form onSubmit={handleFormSubmit} className="mt-4">
                 <Form.Group className="mb-3" controlId="country">
                     <Form.Label>Country</Form.Label>
@@ -75,7 +75,7 @@ const EditExpForm = () => {
                     <Form.Label>Hotel</Form.Label>
                     <Form.Control
                         type="text"
-                        name='hotel'
+                        name="hotel"
                         value={expData.hotel}
                         onChange={handleInputChange}
                     />
@@ -121,11 +121,17 @@ const EditExpForm = () => {
                     />
                 </Form.Group>
 
-                <Button variant="dark" type="submit" className="w-50">
-                    Apply Edition
+                <hr />
+
+                <Button variant="dark" type="submit" className="w-100 mb-4">
+                    Apply Changes
                 </Button>
 
-                <Button variant="danger" type="button" className="w-50" onClick={handleDelete}>
+                <Button variant="secondary" type="button" className="w-100 mb-4" onClick={handleCancel}>
+                    Clear
+                </Button>
+
+                <Button variant="danger" type="button" className="w-100" onClick={handleDelete}>
                     Delete
                 </Button>
             </Form>
@@ -133,5 +139,4 @@ const EditExpForm = () => {
     );
 };
 
-export default EditExpForm
->>>>>>> edb258e50489233d6bac0a447d10cf608811f64c
+export default EditExpForm;
