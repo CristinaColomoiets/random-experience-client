@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/auth.context"
 import authServices from "../../services/auth.services"
-import { Form, Button } from "react-bootstrap"
+import { Form, Button, Row, Col } from "react-bootstrap"
 
 
 const LoginForm = ()=>{
@@ -39,35 +39,36 @@ const LoginForm = ()=>{
 
 
     return(
-        <Form onSubmit={handleSubmit}>
+        <Row>
+            <Col md={{offset: 3, span: 6, offset: 3}}>
+                <Form onSubmit={handleSubmit}>
 
-            <Form.Group className="mb-3" controlId="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control 
-                type="email" 
-                placeholder="Enter your email please"
-                value={loginData.email} 
-                name="email"
-                onChange={handleInputChange}
-                />
-            </Form.Group>
+                    <Form.Group className="mb-3" controlId="email">
+                        <Form.Control 
+                        type="email" 
+                        placeholder="Enter your email please"
+                        value={loginData.email} 
+                        name="email"
+                        onChange={handleInputChange}
+                        />
+                    </Form.Group>
 
-            <Form.Group className="mb-3" controlId="password">
-                <Form.Label>Contraseña</Form.Label>
-                <Form.Control 
-                type="password" 
-                placeholder="Password"
-                value={loginData.password} 
-                name="password"
-                onChange={handleInputChange} 
-                 />
-            </Form.Group>
+                    <Form.Group className="mb-3" controlId="password">
+                        <Form.Control 
+                        type="password" 
+                        placeholder="Password"
+                        value={loginData.password} 
+                        name="password"
+                        onChange={handleInputChange} 
+                        />
+                    </Form.Group>
 
-            <div className="d-grid">
-                <Button variant="dark" type="submit">Acceder</Button>
-            </div>
-
-        </Form>
+                    <div className="d-grid">
+                        <Button variant="dark" type="submit">Enter</Button>
+                    </div>
+                </Form>
+            </Col>
+        </Row>
     )
 }
 export default LoginForm

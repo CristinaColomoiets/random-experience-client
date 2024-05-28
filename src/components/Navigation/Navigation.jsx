@@ -1,9 +1,12 @@
+import {useContext} from 'react'
 import { Link } from 'react-router-dom'
 import imageIconProfile from './../../assets/Avatar-Profile.png'
 import { Container, Navbar, Nav } from 'react-bootstrap';
+import { AuthContext } from '../../contexts/auth.context';
 
 
 const Navigation = () => {
+  const{loggedUser, logout} = useContext(AuthContext)
   return (
     <div className="navigation">
 
@@ -11,18 +14,34 @@ const Navigation = () => {
         <Container>
 
           <Link to='/' style={{ textDecoration: 'none' }}>
-            <Navbar.Brand >Navbar</Navbar.Brand>
+            <Navbar.Brand >Trip Bliss</Navbar.Brand>
           </Link>
 
           <Nav className="me-auto">
             <Link to='/package/add' style={{ textDecoration: 'none' }}>
-              <Navbar.Brand >Add Package</Navbar.Brand>
-
+              <Navbar.Text >Add Package</Navbar.Text>
             </Link>
+          </Nav>
+
+          <Nav className="me-auto">
+            <Link to='/profile/signup' style={{ textDecoration: 'none' }}>
+              <Navbar.Text >Sign up</Navbar.Text>
+            </Link>
+          </Nav>
+
+          <Nav className="me-auto">
+            <Link to='/profile/login' style={{ textDecoration: 'none' }}>
+              <Navbar.Text >Login</Navbar.Text>
+            </Link>
+          </Nav>
+
+          <Nav className="me-auto">
+              <Navbar.Text >Logout</Navbar.Text>
           </Nav>
 
 
           <Nav className="me-auto">
+            {loggedUser && <Navbar.Text>¡Bienvenido, {loggedUser.username}!</Navbar.Text>}
             <Link to='/profile' style={{ textDecoration: 'none' }}>
               <img
                 alt=''

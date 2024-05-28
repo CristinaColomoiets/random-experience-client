@@ -10,12 +10,7 @@ const ProfilePage = () =>{
 
     return(
         <>
-        <h1>ProfilePage</h1>
-        <h3>SignUp</h3>
-        <SignUpForm/>
-        <h3>Login</h3>
-        <LoginForm/>
-        <Button onClick={logout}>Logout</Button>
+            <h1>ProfilePage</h1>
         </>
     )
 }

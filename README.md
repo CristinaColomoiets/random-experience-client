@@ -9,7 +9,8 @@ ROUTES - CLIENT
 |   DESCRIPTION     |           PATH          | 
 | ----------------  | ----------------------- |
 | home page         | `/`                     | 
-| profile           |`/profile `              | 
+| profile-signup    |`/profile/signup`        | 
+| profile-login     |`/profile/login`         | 
 | Package details   |`/package/:packageID`    |
 | Add Package Page  |`/addPackage`            |
 | about page        |`/aboutUs`               |
