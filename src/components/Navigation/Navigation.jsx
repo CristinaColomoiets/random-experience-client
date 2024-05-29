@@ -46,12 +46,12 @@ const Navigation = () => {
           }
           <Nav className="me-auto">
             <Link to='/experiences/add' style={{ textDecoration: 'none' }}>
-              <Navbar.Brand >Add Experience</Navbar.Brand>
+              <Navbar.Text >Add Experience</Navbar.Text>
             </Link>
           </Nav>
           <Nav className="me-auto">
             <Link to='/experiences/all' style={{ textDecoration: 'none' }}>
-              <Navbar.Brand >See all experiences</Navbar.Brand>
+              <Navbar.Text >See all experiences</Navbar.Text>
 
             </Link>
           </Nav>
