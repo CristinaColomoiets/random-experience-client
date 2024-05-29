@@ -5,7 +5,7 @@ import authServices from "../../services/auth.services"
 import { Form, Button} from "react-bootstrap"
 
 
-const LoginForm = ()=>{
+const LoginForm = () => {
 
     const [loginData, setLoginData] = useState({
         email: '',
@@ -13,23 +13,23 @@ const LoginForm = ()=>{
     })
 
     const navigate = useNavigate()
-    const {authenticateUser} = useContext(AuthContext)
+    const { authenticateUser } = useContext(AuthContext)
 
-    const handleInputChange = (event) =>{
-        const {value, name} = event.target
-        setLoginData({...loginData, [name]: value})
+    const handleInputChange = (event) => {
+        const { value, name } = event.target
+        setLoginData({ ...loginData, [name]: value })
     }
 
-    const handleSubmit = event =>{
+    const handleSubmit = event => {
         event.preventDefault()
 
         authServices
             .loginUser(loginData)
-            .then(({data})=>{ // data es token
+            .then(({ data }) => { // data es token
 
                 const newTokenGenerated = data.authToken
                 localStorage.setItem('authToken', newTokenGenerated)
-    
+
                 authenticateUser()
                 navigate('/')
             })

@@ -26,7 +26,6 @@ const AddPackageForm = () => {
         e.preventDefault()
 
         packageServices
-
             .savePackage(newPackage)
             .then(() => navigate('/'))
             .catch(err => console.log(err))
@@ -38,7 +37,7 @@ const AddPackageForm = () => {
 
     return (
 
-        <div className="addPackageForm">
+        <div className="AddPackageForm">
 
             <Form onSubmit={handleFormSubmit} className="mt-4">
 
@@ -99,7 +98,6 @@ const AddPackageForm = () => {
                     <Button variant="danger" type="button" className="w-100" onClick={handleCancel}>
                         Cancel
                     </Button>
-
                 </Link>
             </Form>
 

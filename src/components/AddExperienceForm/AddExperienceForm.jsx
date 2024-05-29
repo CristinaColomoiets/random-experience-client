@@ -2,7 +2,9 @@ import { Form, Button } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
 import experiencesServices from '../../services/experiences.services'
+
 const AddExpForm = () => {
+
     const initialState = {
         country: "",
         hotel: "",
@@ -11,28 +13,38 @@ const AddExpForm = () => {
         latitude: "",
         longitude: ""
     }
+
     const [newExp, setNewExp] = useState(initialState)
+
     const navigate = useNavigate()
+
     const handleInputChange = e => {
-        const {
-            name,
-            value } = e.target
+<<<<<<< HEAD
+        const { name, value } = e.target
+=======
+
+        const { name, value } = e.target
+
+>>>>>>> e53e4d1553d120bd7f957015a2595411bcca814c
         setNewExp({ ...newExp, [name]: value })
     }
+
     const handleFormSubmit = e => {
+
         e.preventDefault()
+
         experiencesServices
             .createExperience(newExp)
             .then(() => navigate('/'))
             .catch(err => console.log(err))
     }
+
     const handleCancel = () => {
         setNewExp(initialState)
     }
+
     return (
         <div className="addExpForm">
-            <h1>Add a new experiencie</h1>
-            <hr />
             <Form onSubmit={handleFormSubmit} className="mt-4">
                 <Form.Group className="mb-3" controlId="country">
                     <Form.Label>Country</Form.Label>
@@ -100,6 +112,6 @@ const AddExpForm = () => {
                 </Button></Link>
             </Form>
         </div>
-    );
+    )
 }
 export default AddExpForm

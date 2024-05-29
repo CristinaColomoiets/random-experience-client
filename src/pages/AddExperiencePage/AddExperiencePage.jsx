@@ -2,12 +2,16 @@ import AddExperienceForm from '../../components/AddExperienceForm/AddExperienceF
 import { Container } from "react-bootstrap"
 
 const AddExperiencePage = () => {
+
     return (
-
-        <Container>
-            <AddExperienceForm />
-        </Container>
-
+        <div className='AddExperienceForm'>
+            <h1>Add a new experience</h1>
+            <hr />
+            <Container>
+                <AddExperienceForm />
+            </Container>
+        </div>
     )
 }
+
 export default AddExperiencePage

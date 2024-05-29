@@ -4,14 +4,14 @@ import { Button } from "react-bootstrap"
 import { useContext } from "react"
 import { AuthContext } from "../../contexts/auth.context"
 
-const ProfilePage = () =>{
+const ProfilePage = () => {
 
-    const {logout} = useContext(AuthContext)
+    const { logout } = useContext(AuthContext)
 
-    return(
-        <>
+    return (
+        <div className="ProfilePage">
             <h1>ProfilePage</h1>
-        </>
+        </div>
     )
 }
 export default ProfilePage

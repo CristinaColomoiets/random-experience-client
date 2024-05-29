@@ -5,6 +5,7 @@ import experiencesServices from '../../services/experiences.services'
 
 
 const ExperienceList = () => {
+
     const [experiences, setExperiences] = useState([])
 
     useEffect(() => {
@@ -21,8 +22,6 @@ const ExperienceList = () => {
     return (
         <div className='ExperiencesList'>
             <Container>
-                <h1>Experiences List</h1>
-                <hr />
                 <Row>
                     {experiences.map((experience) => (
                         <Col key={experience._id} md={4} className='mb-4'>

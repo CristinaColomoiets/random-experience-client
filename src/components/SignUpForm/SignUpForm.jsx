@@ -1,12 +1,9 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-import {Button, Form, Row, Col} from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import authServices from './../../services/auth.services'
 
-
-
-
-const SignUpForm = ()=>{
+const SignUpForm = () => {
 
     const [singupData, setSignupData] = useState({
         email: '',
@@ -22,13 +19,13 @@ const SignUpForm = ()=>{
 
         authServices
             .signupUser(singupData)
-            .then(()=>navigate('/'))
+            .then(() => navigate('/'))
             .catch(err => console.log(err))
     }
 
-    const handleIputChange = event =>{
-        const {value, name} = event.target
-        setSignupData({...singupData, [name]: value})
+    const handleIputChange = event => {
+        const { value, name } = event.target
+        setSignupData({ ...singupData, [name]: value })
     }
 
     return(
