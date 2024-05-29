@@ -10,7 +10,7 @@ const PackageCard = ({ _id: packageId, image, title, price }) => {
 
             <Link to={`/package/${packageId}`}>
 
-                <Card style={{ width: '18rem' }}>
+                <Card >
                     <Card.Img variant="top" src={image} />
                     <Card.Body>
 

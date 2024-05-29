@@ -19,13 +19,9 @@ const AddExpForm = () => {
     const navigate = useNavigate()
 
     const handleInputChange = e => {
-<<<<<<< HEAD
-        const { name, value } = e.target
-=======
 
         const { name, value } = e.target
 
->>>>>>> e53e4d1553d120bd7f957015a2595411bcca814c
         setNewExp({ ...newExp, [name]: value })
     }
 
