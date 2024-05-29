@@ -1,16 +1,14 @@
 import { Route, Routes } from "react-router-dom";
-
 import AboutUs from "../pages/AboutUs/AboutUs";
 import ErrorPage from "../pages/ErrorPage/ErrorPage"
 import PackageDetailsPage from "../pages/PackageDetailsPage/PackageDetailsPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import HomePage from "../pages/HomePage/HomePage";
 import AddPackagePage from "../pages/AddPackagePage/AddPackagePage";
-
 import AddExperiencePage from "../pages/AddExperiencePage/AddExperiencePage";
 import EditPackagePage from "../pages/EditPackagePage/EditPackagePage";
-import AddExperiencePage from "../pages/AddExperiencePage/AddExperiencePage";
 import EditExperiencePage from '../pages/EditExperiencePage/EditExperiencePage'
+import ExperienceList from "../components/ExperienceList/ExperienceList";
 
 const AppRoutes = () => {
     return (
@@ -29,6 +27,8 @@ const AppRoutes = () => {
             {/* Experience */}
             <Route path='/experiences/add' element={<AddExperiencePage />} />
             <Route path='/experiences/edit/:experienceId' element={<EditExperiencePage />} />
+            <Route path='/experiences/all' element={<ExperienceList />} />
+
 
         </Routes>
     )

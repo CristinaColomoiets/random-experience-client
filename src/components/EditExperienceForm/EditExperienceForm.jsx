@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
-import experiencesServices from '../../services/experiences.services';
+import experiencesServices from '../../services/experiences.services'
 const EditExpForm = () => {
     const initialState = {
         country: "",
@@ -13,25 +13,25 @@ const EditExpForm = () => {
     };
     const { experienceId } = useParams();
     const navigate = useNavigate();
-    const [expData, setExpData] = useState(initialState);
+    const [expData, setExpData] = useState(initialState)
     useEffect(() => {
-        loadFormData();
+        loadFormData()
     }, []);
     const loadFormData = () => {
         experiencesServices
             .getOneExperience(experienceId)
             .then(({ data }) => setExpData(data))
-            .catch(err => console.log(err));
+            .catch(err => console.log(err))
     };
     const handleInputChange = e => {
         const { name, value } = e.target;
-        setExpData({ ...expData, [name]: value });
+        setExpData({ ...expData, [name]: value })
     };
     const handleFormSubmit = e => {
-        e.preventDefault();
+        e.preventDefault()
         experiencesServices
             .editExperience(experienceId, expData)
-            .then(() => navigate(`/experiences/edit/${experienceId}`))
+            .then(() => navigate(`/experiences/all`))
         // Deberia de llevar a ExperiencesList
         alert('¡Edited!')
             .catch(err => console.log(err))
@@ -47,6 +47,8 @@ const EditExpForm = () => {
     };
     return (
         <div className="editExpForm mt-5">
+            <h1>Editing <p style={{ color: 'red' }}>{experienceId}</p></h1>
+            <hr />
             <Form onSubmit={handleFormSubmit} className="mt-4">
                 <Form.Group className="mb-3" controlId="country">
                     <Form.Label>Country</Form.Label>
@@ -116,4 +118,4 @@ const EditExpForm = () => {
         </div>
     );
 };
-export default EditExpForm;
+export default EditExpForm
