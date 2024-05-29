@@ -1,7 +1,7 @@
 import EditExperienceForm from '../../components/EditExperienceForm/EditExperienceForm'
 import { Container } from "react-bootstrap"
 
-const AddExperiencePage = () => {
+const EditExperiencePage = () => {
     return (
 
         <Container>
@@ -10,4 +10,4 @@ const AddExperiencePage = () => {
 
     )
 }
-export default AddExperiencePage
+export default EditExperiencePage

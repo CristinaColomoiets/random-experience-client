@@ -5,7 +5,7 @@ import authServices from "../../services/auth.services"
 import { Form, Button, Row, Col } from "react-bootstrap"
 
 
-const LoginForm = ()=>{
+const LoginForm = () => {
 
     const [loginData, setLoginData] = useState({
         email: '',
@@ -13,23 +13,23 @@ const LoginForm = ()=>{
     })
 
     const navigate = useNavigate()
-    const {authenticateUser} = useContext(AuthContext)
+    const { authenticateUser } = useContext(AuthContext)
 
-    const handleInputChange = (event) =>{
-        const {value, name} = event.target
-        setLoginData({...loginData, [name]: value})
+    const handleInputChange = (event) => {
+        const { value, name } = event.target
+        setLoginData({ ...loginData, [name]: value })
     }
 
-    const handleSubmit = event =>{
+    const handleSubmit = event => {
         event.preventDefault()
 
         authServices
             .loginUser(loginData)
-            .then(({data})=>{ // data es token
+            .then(({ data }) => { // data es token
 
                 const newTokenGenerated = data.authToken
                 localStorage.setItem('authToken', newTokenGenerated)
-    
+
                 authenticateUser()
                 navigate('/')
             })
@@ -38,28 +38,28 @@ const LoginForm = ()=>{
 
 
 
-    return(
+    return (
         <Row>
-            <Col md={{offset: 3, span: 6, offset: 3}}>
+            <Col md={{ offset: 3, span: 6 }}>
                 <Form onSubmit={handleSubmit}>
 
                     <Form.Group className="mb-3" controlId="email">
-                        <Form.Control 
-                        type="email" 
-                        placeholder="Enter your email please"
-                        value={loginData.email} 
-                        name="email"
-                        onChange={handleInputChange}
+                        <Form.Control
+                            type="email"
+                            placeholder="Enter your email please"
+                            value={loginData.email}
+                            name="email"
+                            onChange={handleInputChange}
                         />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="password">
-                        <Form.Control 
-                        type="password" 
-                        placeholder="Password"
-                        value={loginData.password} 
-                        name="password"
-                        onChange={handleInputChange} 
+                        <Form.Control
+                            type="password"
+                            placeholder="Password"
+                            value={loginData.password}
+                            name="password"
+                            onChange={handleInputChange}
                         />
                     </Form.Group>
 

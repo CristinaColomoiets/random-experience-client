@@ -8,43 +8,52 @@ const EditExpForm = () => {
         hotel: "",
         places: "",
         package: "",
-        latitude: "",
-        longitude: ""
+        location: {
+            coordinates: []
+        }
+
     };
     const { experienceId } = useParams();
+
     const navigate = useNavigate();
+
     const [expData, setExpData] = useState(initialState)
+
     useEffect(() => {
         loadFormData()
     }, []);
+
     const loadFormData = () => {
         experiencesServices
             .getOneExperience(experienceId)
             .then(({ data }) => setExpData(data))
             .catch(err => console.log(err))
     };
+
     const handleInputChange = e => {
         const { name, value } = e.target;
         setExpData({ ...expData, [name]: value })
     };
+
     const handleFormSubmit = e => {
         e.preventDefault()
         experiencesServices
             .editExperience(experienceId, expData)
             .then(() => navigate(`/experiences/all`))
-        // Deberia de llevar a ExperiencesList
-        alert('¡Edited!')
             .catch(err => console.log(err))
     };
+
     const handleCancel = () => {
         setExpData(initialState)
     };
+
     const handleDelete = () => {
         experiencesServices
             .deleteExperience(experienceId)
             .then(() => navigate('/'))
             .catch(err => console.log(err))
     };
+
     return (
         <div className="editExpForm mt-5">
             <h1>Editing <p style={{ color: 'red' }}>{experienceId}</p></h1>
@@ -86,21 +95,23 @@ const EditExpForm = () => {
                         onChange={handleInputChange}
                     />
                 </Form.Group>
+
                 <Form.Group className="mb-3" controlId="latitude">
                     <Form.Label>Latitude</Form.Label>
                     <Form.Control
-                        type="text"
-                        name="latitude"
-                        value={expData.latitude}
+                        type="number"
+                        name="0"
+                        value={expData.location.coordinates[0]}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
+
                 <Form.Group className="mb-3" controlId="longitude">
                     <Form.Label>Longitude</Form.Label>
                     <Form.Control
-                        type="text"
-                        name="longitude"
-                        value={expData.longitude}
+                        type="number"
+                        name="1"
+                        value={expData.location.coordinates[1]}
                         onChange={handleInputChange}
                     />
                 </Form.Group>

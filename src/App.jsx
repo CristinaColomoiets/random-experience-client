@@ -5,11 +5,10 @@ import AppRoutes from './routes/AppRoutes'
 
 function App() {
 
-
   return (
     <>
-      <Navigation/>
-      <AppRoutes/>
+      <Navigation />
+      <AppRoutes />
     </>
   )
 }

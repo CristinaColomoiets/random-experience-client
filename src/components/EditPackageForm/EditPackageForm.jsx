@@ -17,6 +17,7 @@ const EditPackageForm = () => {
     const navigate = useNavigate()
 
     const { packageId } = useParams()
+
     useEffect(() => {
         fetchFormData()
     }, [])
@@ -27,10 +28,8 @@ const EditPackageForm = () => {
             .getOnePackage(packageId)
             .then(({ data }) => {
                 setEditPackage(data)
-
             })
-            .
-            catch((err) => console.log(err))
+            .catch((err) => console.log(err))
     }
 
 
@@ -57,11 +56,13 @@ const EditPackageForm = () => {
             .then(({ data }) => { setEditPackage(data) })
             .catch(err => console.log(err))
     }
+
     const handleClear = () => {
         setEditPackage(initialState)
     }
+
     return (
-        <div className="editPackageForm">
+        <div className="EditPackageForm">
 
             <Form onSubmit={handleFormSubmit} className="mt-4">
 
@@ -109,7 +110,9 @@ const EditPackageForm = () => {
                         onChange={handleInputChange}
                     />
                 </Form.Group>
+
                 <hr />
+
                 <Button variant="dark" type="submit" className="w-100 mb-4">
                     Apply Changes
                 </Button>
