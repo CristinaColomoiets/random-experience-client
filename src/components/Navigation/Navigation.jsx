@@ -29,16 +29,21 @@ const Navigation = () => {
             </Link>
           </Nav>
 
-          <Nav className="me-auto">
-            <Link to='/profile/login' style={{ textDecoration: 'none' }}>
-              <Navbar.Text >Login</Navbar.Text>
-            </Link>
-          </Nav>
+          {
+            loggedUser ?
 
-          <Nav className="me-auto">
-              <Navbar.Text >Logout</Navbar.Text>
-          </Nav>
+            <Nav className="me-auto">
+                <Navbar.Text  onClick={logout}>Logout</Navbar.Text>
+            </Nav>
 
+            :
+
+            <Nav className="me-auto">
+              <Link to='/profile/login' style={{ textDecoration: 'none' }}>
+                <Navbar.Text >Login</Navbar.Text>
+              </Link>
+            </Nav>
+          }
 
           <Nav className="me-auto">
             {loggedUser && <Navbar.Text>¡Bienvenido, {loggedUser.username}!</Navbar.Text>}
