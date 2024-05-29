@@ -22,14 +22,4 @@ class ExperiencesServices {
     }
 }
 const experiencesServices = new ExperiencesServices();
-export default experiencesServices;
-
-
-
-
-
-
-
-
-
-
+export default experiencesServices

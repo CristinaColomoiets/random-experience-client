@@ -8,6 +8,7 @@ import AddPackagePage from "../pages/AddPackagePage/AddPackagePage";
 import AddExperiencePage from "../pages/AddExperiencePage/AddExperiencePage";
 import EditPackagePage from "../pages/EditPackagePage/EditPackagePage";
 import EditExperiencePage from '../pages/EditExperiencePage/EditExperiencePage'
+import ExperienceList from "../components/ExperienceList/ExperienceList";
 
 const AppRoutes = () => {
     return (
@@ -26,6 +27,8 @@ const AppRoutes = () => {
             {/* Experience */}
             <Route path='/experiences/add' element={<AddExperiencePage />} />
             <Route path='/experiences/edit/:experienceId' element={<EditExperiencePage />} />
+            <Route path='/experiences/all' element={<ExperienceList />} />
+
 
         </Routes>
     )

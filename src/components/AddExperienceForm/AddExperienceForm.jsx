@@ -31,6 +31,8 @@ const AddExpForm = () => {
     }
     return (
         <div className="addExpForm">
+            <h1>Add a new experiencie</h1>
+            <hr />
             <Form onSubmit={handleFormSubmit} className="mt-4">
                 <Form.Group className="mb-3" controlId="country">
                     <Form.Label>Country</Form.Label>
