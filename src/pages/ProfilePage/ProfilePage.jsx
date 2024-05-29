@@ -6,7 +6,7 @@ import { AuthContext } from "../../contexts/auth.context"
 
 const ProfilePage = () => {
 
-    const { logout } = useContext(AuthContext)
+    const { loggedUser } = useContext(AuthContext)
 
     return (
         <div className="ProfilePage">
