@@ -19,7 +19,13 @@ const AddExpForm = () => {
     const navigate = useNavigate()
 
     const handleInputChange = e => {
+<<<<<<< HEAD
         const { name, value } = e.target
+=======
+
+        const { name, value } = e.target
+
+>>>>>>> e53e4d1553d120bd7f957015a2595411bcca814c
         setNewExp({ ...newExp, [name]: value })
     }
 
@@ -39,7 +45,6 @@ const AddExpForm = () => {
 
     return (
         <div className="addExpForm">
-
             <Form onSubmit={handleFormSubmit} className="mt-4">
                 <Form.Group className="mb-3" controlId="country">
                     <Form.Label>Country</Form.Label>
@@ -107,6 +112,6 @@ const AddExpForm = () => {
                 </Button></Link>
             </Form>
         </div>
-    );
+    )
 }
 export default AddExpForm

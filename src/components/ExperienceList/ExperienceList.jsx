@@ -22,9 +22,6 @@ const ExperienceList = () => {
     return (
         <div className='ExperiencesList'>
             <Container>
-                <h1>Experiences List</h1>
-                <hr />
-                {/* TODO DESACOPLAR EN EXPERIENCESLIST */}
                 <Row>
                     {experiences.map((experience) => (
                         <Col key={experience._id} md={4} className='mb-4'>
