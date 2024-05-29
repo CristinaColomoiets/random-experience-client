@@ -7,8 +7,14 @@ class PackageServices {
             baseURL: `${import.meta.env.VITE_API_URL}/api/packages`
         })
     }
+
+
     getOnePackage(param) {
         return this.axiosApp.get(`/${param}`)
+    }
+
+    getAllPackages() {
+        return this.axiosApp.get(`/`)
     }
 
     savePackage(packageData) {

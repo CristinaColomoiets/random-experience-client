@@ -44,6 +44,17 @@ const Navigation = () => {
               </Link>
             </Nav>
           }
+          <Nav className="me-auto">
+            <Link to='/experiences/add' style={{ textDecoration: 'none' }}>
+              <Navbar.Brand >Add Experience</Navbar.Brand>
+            </Link>
+          </Nav>
+          <Nav className="me-auto">
+            <Link to='/experiences/all' style={{ textDecoration: 'none' }}>
+              <Navbar.Brand >See all experiences</Navbar.Brand>
+
+            </Link>
+          </Nav>
 
           <Nav className="me-auto">
             {loggedUser && <Navbar.Text>¡Bienvenido, {loggedUser.username}!</Navbar.Text>}
