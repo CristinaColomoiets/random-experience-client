@@ -6,13 +6,7 @@ import { AuthContext } from '../../contexts/auth.context';
 
 
 const Navigation = () => {
-<<<<<<< HEAD
-
   const { loggedUser, logout } = useContext(AuthContext)
-
-=======
-  const { loggedUser, logout } = useContext(AuthContext)
->>>>>>> e53e4d1553d120bd7f957015a2595411bcca814c
   return (
     <div className="navigation">
 
