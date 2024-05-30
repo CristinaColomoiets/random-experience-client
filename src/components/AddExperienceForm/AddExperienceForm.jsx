@@ -12,6 +12,7 @@ const AddExpForm = () => {
         places: "",
         package: "",
         location: {
+            type: "Point",
             coordinates: []
         },
         geocode: ""
@@ -29,7 +30,8 @@ const AddExpForm = () => {
         setNewExp({
             ...newExp,
             location: {
-                coordinates: [location.latitude, location.longitude]
+                type: "Point",
+                coordinates: [location.longitude, location.latitude]
             },
             geocode: location.address
         })
@@ -90,7 +92,7 @@ const AddExpForm = () => {
                 <GeoForm onLocationSelect={handleLocationSelect} />
 
                 <Form.Group className="mb-3" controlId="address">
-                    <Form.Label></Form.Label>
+                    <Form.Label>Address</Form.Label>
                     <Form.Control
                         type="text"
                         name="address"
@@ -103,7 +105,7 @@ const AddExpForm = () => {
                     <Form.Control
                         type="number"
                         name="latitude"
-                        value={newExp.location.coordinates[0]}
+                        value={newExp.location.coordinates[1]}
                         readOnly
                     />
                 </Form.Group>
@@ -112,11 +114,10 @@ const AddExpForm = () => {
                     <Form.Control
                         type="number"
                         name="longitude"
-                        value={newExp.location.coordinates[1]}
+                        value={newExp.location.coordinates[0]}
                         readOnly
                     />
                 </Form.Group>
-
 
                 <Button variant="dark" type="submit" className="w-100 mb-4">
                     Submit
