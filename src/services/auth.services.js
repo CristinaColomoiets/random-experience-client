@@ -3,7 +3,7 @@ import axios from 'axios'
 class AuthService {
     constructor() {
         this.axiosApp = axios.create({
-            baseURL: `${import.meta.env.VITE_API_URL}/api/user`
+            baseURL: `${import.meta.env.VITE_API_URL}/api/auth`
         })
     }
 

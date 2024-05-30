@@ -23,12 +23,12 @@ const Navigation = () => {
             </Link>
           </Nav>
 
-
           <Nav className="me-auto">
             <Link to='/experiences/add' style={{ textDecoration: 'none' }}>
               <Navbar.Text >Add Experience</Navbar.Text>
             </Link>
           </Nav>
+
           <Nav className="me-auto">
             <Link to='/experiences/all' style={{ textDecoration: 'none' }}>
               <Navbar.Text >See all experiences</Navbar.Text>
@@ -56,16 +56,15 @@ const Navigation = () => {
                     <Navbar.Text >Sign up</Navbar.Text>
                   </Link>
                 </Nav>
-
               </>
           }
 
           <Nav className="me-auto">
             {loggedUser && <Navbar.Text>¡Bienvenido, {loggedUser.username}!</Navbar.Text>}
-            <Link to='/profile' style={{ textDecoration: 'none' }}>
+            <Link to={loggedUser && `/profile/${loggedUser._id}`} style={{ textDecoration: 'none' }}>
               <img
                 alt=''
-                src={imageIconProfile}
+                src={loggedUser ? loggedUser.image  : imageIconProfile}
                 height={30}
                 className="d-inline-block align-top"
               ></img>

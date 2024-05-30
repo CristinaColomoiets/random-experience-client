@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import ErrorPage from "../pages/ErrorPage/ErrorPage"
 import PackageDetailsPage from "../pages/PackageDetailsPage/PackageDetailsPage";
-import ProfilePage from "../pages/ProfilePage/ProfilePage";
+import UserProfilePage from "../pages/UserProfilePage/UserProfilePage";
 import HomePage from "../pages/HomePage/HomePage";
 import AddPackagePage from "../pages/AddPackagePage/AddPackagePage";
 import AddExperiencePage from "../pages/AddExperiencePage/AddExperiencePage";
@@ -25,7 +25,7 @@ const AppRoutes = () => {
 
             <Route element={<PrivateRoutes />} >
 
-                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/profile/:userId" element={<UserProfilePage/>} />
                 <Route path="/package/:packageId" element={<PackageDetailsPage />} />
                 <Route path="/package/add" element={<AddPackagePage />} />
                 <Route path='/experiences/add' element={<AddExperiencePage />} />
