@@ -29,10 +29,8 @@ const PackageList = () => {
                 {
 
                     packages.map(eachPackage => (
-                        <Col className="mt-5">
-                            <div key={eachPackage._id}>
-                                <PackageCard {...eachPackage} />
-                            </div>
+                        <Col key={eachPackage._id} className="mt-5">
+                            <PackageCard {...eachPackage} />
                         </Col>
                     ))
                 }

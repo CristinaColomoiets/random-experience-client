@@ -18,7 +18,7 @@ class PackageServices {
     }
 
     savePackage(packageData) {
-        return this.axiosApp.get('/', packageData)
+        return this.axiosApp.post('/', packageData)
     }
 
     putPackage(param, packageData) {

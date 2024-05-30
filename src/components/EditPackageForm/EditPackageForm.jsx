@@ -9,7 +9,9 @@ const EditPackageForm = () => {
         title: "",
         price: "",
         image: "",
-        description: "",
+        sortDescription: "",
+        extendedDescription: "",
+
     }
 
     const [editPackage, setEditPackage] = useState(initialState)
@@ -78,13 +80,24 @@ const EditPackageForm = () => {
 
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="description">
-                    <Form.Label>Description</Form.Label>
+                <Form.Group className="mb-3" controlId="sortDescription">
+                    <Form.Label>Sort Description</Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="introduce a sort description for your new Package"
-                        name='description'
-                        value={editPackage.description}
+                        name='sortDescription'
+                        value={editPackage.sortDescription}
+                        onChange={handleInputChange}
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="extendedDescription">
+                    <Form.Label>Extended Description</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="introduce a sort description for your new Package"
+                        name='extendedDescription'
+                        value={editPackage.extendedDescription}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
