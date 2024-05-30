@@ -1,6 +1,7 @@
 import { Form, Button } from "react-bootstrap"
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
+import GeoForm from "../GeoForm/GeoForm"
 import experiencesServices from '../../services/experiences.services'
 
 const AddExpForm = () => {
@@ -10,25 +11,32 @@ const AddExpForm = () => {
         hotel: "",
         places: "",
         package: "",
-        latitude: "",
-        longitude: ""
+        location: {
+            coordinates: []
+        },
+        geocode: ""
     }
 
     const [newExp, setNewExp] = useState(initialState)
-
     const navigate = useNavigate()
 
     const handleInputChange = e => {
-
         const { name, value } = e.target
-
         setNewExp({ ...newExp, [name]: value })
     }
 
+    const handleLocationSelect = (location) => {
+        setNewExp({
+            ...newExp,
+            location: {
+                coordinates: [location.latitude, location.longitude]
+            },
+            geocode: location.address
+        })
+    }
+
     const handleFormSubmit = e => {
-
         e.preventDefault()
-
         experiencesServices
             .createExperience(newExp)
             .then(() => navigate('/'))
@@ -78,26 +86,39 @@ const AddExpForm = () => {
                         onChange={handleInputChange}
                     />
                 </Form.Group>
+
+                <GeoForm onLocationSelect={handleLocationSelect} />
+
+                <Form.Group className="mb-3" controlId="address">
+                    <Form.Label></Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="address"
+                        value={newExp.geocode}
+                        readOnly
+                    />
+                </Form.Group>
                 <Form.Group className="mb-3" controlId="latitude">
                     <Form.Label>Latitude</Form.Label>
                     <Form.Control
-                        type="text"
+                        type="number"
                         name="latitude"
-                        value={newExp.latitude}
-                        onChange={handleInputChange}
+                        value={newExp.location.coordinates[0]}
+                        readOnly
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="longitude">
                     <Form.Label>Longitude</Form.Label>
                     <Form.Control
-                        type="text"
+                        type="number"
                         name="longitude"
-                        value={newExp.longitude}
-                        onChange={handleInputChange}
+                        value={newExp.location.coordinates[1]}
+                        readOnly
                     />
                 </Form.Group>
-                <hr />
-                <Button variant="dark" type="submit" className="w-100 mb-4" onClick={handleFormSubmit}>
+
+
+                <Button variant="dark" type="submit" className="w-100 mb-4">
                     Submit
                 </Button>
                 <Button variant="secondary" type="button" className="w-100 mb-4" onClick={handleCancel}>
@@ -110,4 +131,5 @@ const AddExpForm = () => {
         </div>
     )
 }
+
 export default AddExpForm
