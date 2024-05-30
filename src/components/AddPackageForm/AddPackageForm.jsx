@@ -11,7 +11,8 @@ const AddPackageForm = () => {
         title: "",
         price: "",
         image: "",
-        description: "",
+        sortDescription: "",
+        extendedDescription: ""
     }
 
     const [newPackage, setNewPackage] = useState(initialState)
@@ -53,13 +54,24 @@ const AddPackageForm = () => {
 
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="description">
-                    <Form.Label>Description</Form.Label>
+                <Form.Group className="mb-3" controlId="sortDescription">
+                    <Form.Label>Sort Description</Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="introduce a sort description for your new Package"
-                        name='description'
-                        value={newPackage.description}
+                        name='sortdescription'
+                        value={newPackage.sortDescription}
+                        onChange={handleInputChange}
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="extendedDescription">
+                    <Form.Label> Extended Description</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="introduce a extended description for your new Package"
+                        name='extendedDescription'
+                        value={newPackage.extendedDescription}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
@@ -86,7 +98,7 @@ const AddPackageForm = () => {
                     />
                 </Form.Group>
                 <hr />
-                <Button variant="dark" type="submit" className="w-100 mb-4">
+                <Button variant="dark" type="submit" className="w-100 mb-4" onClick={handleFormSubmit}>
                     Submit
                 </Button>
 

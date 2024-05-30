@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
+import GeoForm from "../GeoForm/GeoForm";
 import experiencesServices from '../../services/experiences.services'
 
 const EditExpForm = () => {
@@ -12,13 +13,11 @@ const EditExpForm = () => {
         package: "",
         location: {
             coordinates: []
-        }
-
-    };
-    const { experienceId } = useParams();
-
-    const navigate = useNavigate();
-
+        },
+        geocode: ""
+    }
+    const { experienceId } = useParams()
+    const navigate = useNavigate()
     const [expData, setExpData] = useState(initialState)
 
     useEffect(() => {
@@ -26,7 +25,6 @@ const EditExpForm = () => {
     }, [])
 
     const loadFormData = () => {
-
         experiencesServices
             .getOneExperience(experienceId)
             .then(({ data }) => setExpData(data))
@@ -34,16 +32,22 @@ const EditExpForm = () => {
     }
 
     const handleInputChange = e => {
-
         const { name, value } = e.target
-
         setExpData({ ...expData, [name]: value })
     }
 
+    const handleLocationSelect = (location) => {
+        setExpData({
+            ...expData,
+            location: {
+                coordinates: [location.latitude, location.longitude]
+            },
+            geocode: location.address
+        })
+    }
+
     const handleFormSubmit = e => {
-
         e.preventDefault()
-
         experiencesServices
             .editExperience(experienceId, expData)
             .then(() => navigate(`/experiences/all`))
@@ -51,12 +55,10 @@ const EditExpForm = () => {
     }
 
     const handleCancel = () => {
-
         setExpData(initialState)
     }
 
     const handleDelete = () => {
-
         experiencesServices
             .deleteExperience(experienceId)
             .then(() => navigate('/'))
@@ -103,13 +105,15 @@ const EditExpForm = () => {
                     />
                 </Form.Group>
 
+                <GeoForm onLocationSelect={handleLocationSelect} initialAddress={expData.geocode} />
+
                 <Form.Group className="mb-3" controlId="latitude">
                     <Form.Label>Latitude</Form.Label>
                     <Form.Control
                         type="number"
-                        name="location.coordinates.latitude"
+                        name="latitude"
                         value={expData.location.coordinates[0]}
-                        onChange={handleInputChange}
+                        readOnly
                     />
                 </Form.Group>
 
@@ -117,9 +121,9 @@ const EditExpForm = () => {
                     <Form.Label>Longitude</Form.Label>
                     <Form.Control
                         type="number"
-                        name="location.coordinates[1]"
+                        name="longitude"
                         value={expData.location.coordinates[1]}
-                        onChange={handleInputChange}
+                        readOnly
                     />
                 </Form.Group>
                 <hr />
@@ -134,6 +138,7 @@ const EditExpForm = () => {
                 </Button>
             </Form>
         </div>
-    );
-};
+    )
+}
+
 export default EditExpForm
