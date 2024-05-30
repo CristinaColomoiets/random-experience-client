@@ -19,8 +19,8 @@ function GeoForm({ onLocationSelect }) {
             .then((coordinates) => {
                 onLocationSelect({
                     address: addressValue.label,
-                    latitude: location.coordinates.lat,
-                    longitude: location.coordinates.lng
+                    latitude: coordinates.lat,
+                    longitude: coordinates.lng
                 })
             })
             .catch((error) => console.error(error))

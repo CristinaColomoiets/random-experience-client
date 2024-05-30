@@ -5,13 +5,13 @@ import GeoForm from "../GeoForm/GeoForm";
 import experiencesServices from '../../services/experiences.services'
 
 const EditExpForm = () => {
-
     const initialState = {
         country: "",
         hotel: "",
         places: "",
         package: "",
         location: {
+            type: "Point",
             coordinates: []
         },
         geocode: ""
@@ -40,7 +40,8 @@ const EditExpForm = () => {
         setExpData({
             ...expData,
             location: {
-                coordinates: [location.latitude, location.longitude]
+                type: "Point",
+                coordinates: [location.longitude, location.latitude]
             },
             geocode: location.address
         })
@@ -107,12 +108,21 @@ const EditExpForm = () => {
 
                 <GeoForm onLocationSelect={handleLocationSelect} initialAddress={expData.geocode} />
 
+                <Form.Group className="mb-3" controlId="address">
+                    <Form.Label>Address</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="geocode"
+                        value={expData.geocode}
+                        readOnly
+                    />
+                </Form.Group>
                 <Form.Group className="mb-3" controlId="latitude">
                     <Form.Label>Latitude</Form.Label>
                     <Form.Control
                         type="number"
                         name="latitude"
-                        value={expData.location.coordinates[0]}
+                        value={expData.location.coordinates[1]}
                         readOnly
                     />
                 </Form.Group>
@@ -122,7 +132,7 @@ const EditExpForm = () => {
                     <Form.Control
                         type="number"
                         name="longitude"
-                        value={expData.location.coordinates[1]}
+                        value={expData.location.coordinates[0]}
                         readOnly
                     />
                 </Form.Group>
