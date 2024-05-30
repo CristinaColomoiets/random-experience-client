@@ -6,13 +6,14 @@ const PackageDetailsPage = () => {
 
     const { packageId } = useParams()
     const navigate = useNavigate()
+    const { purchaseId } = useParams()
 
     const handlePurchase = () => {
 
         purchaseServices
             .postPurchase({ package: packageId })
             .then(({ data }) => {
-                navigate('/purchase/:purchaseId')
+                navigate(`/purchase/${purchaseId}`)
 
             })
             .catch(err => console.log(err))

@@ -1,6 +1,8 @@
+import Purchase from "../../components/Purchase/Purchase"
+
 const PurchasePage = () => {
     return (
-        <h1>Hola soy la purchase page</h1>
+        <Purchase />
     )
 }
 export default PurchasePage
