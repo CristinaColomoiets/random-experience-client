@@ -15,7 +15,9 @@ import PrivateRoutes from "./PrivateRoutes";
 import PurchasePage from "../pages/PurchasePage/PurchasePage";
 
 const AppRoutes = () => {
+
     return (
+
         <Routes>
 
             <Route path="/" element={<HomePage />} />
@@ -24,16 +26,17 @@ const AppRoutes = () => {
             <Route path="/aboutUs" element={<AboutUs />} />
             <Route path="*" element={<ErrorPage />} />
 
+
             <Route element={<PrivateRoutes />} >
 
-                <Route path="/profile/:userId" element={<UserProfilePage/>} />
+                <Route path="/profile/:userId" element={<UserProfilePage />} />
                 <Route path="/package/:packageId" element={<PackageDetailsPage />} />
                 <Route path="/package/add" element={<AddPackagePage />} />
-                <Route path='/experiences/add' element={<AddExperiencePage />} />
+                <Route path='/experiences/all' element={<ExperienceList />} />
                 <Route path="/package/edit/:packageId" element={<EditPackagePage />} />
                 <Route path='/experiences/edit/:experienceId' element={<EditExperiencePage />} />
-                <Route path='/experiences/all' element={<ExperienceList />} />
                 <Route path="/purchase/:purchaseId" element={<PurchasePage />} />
+                <Route path='/experiences/add' element={<AddExperiencePage />} />
 
             </Route>
 
