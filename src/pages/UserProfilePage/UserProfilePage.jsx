@@ -1,13 +1,16 @@
 import userServices from "../../services/user.services"
-import { useParams } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Container, Row, Col, Button} from "react-bootstrap"
+
 
 
 const UserProfilePage = () => {
     
     const [userData, setUserData] = useState({})
     const {userId} = useParams()
+    const navigate = useNavigate()
+
     
     useEffect(()=>{
         loadOneUser()
@@ -18,6 +21,13 @@ const UserProfilePage = () => {
             .getOneUser(userId)
             .then(({data}) => {setUserData(data)})
             .catch(err => console.log(err))
+    }
+
+    const deleteUser = ()=>{
+        userServices
+            .deleteUser(userId)
+            .then(()=> navigate('/'))
+            .catch((error) => console.log(error))
     }
 
     return (
@@ -36,8 +46,13 @@ const UserProfilePage = () => {
 
                 <Row>
                     <Col md={{offset: 3, span: 6}}>
-                        <Button variant="secondary" size="lg">edit profile</Button>
-                        <Button variant="secondary" size="lg">delete profile</Button>
+
+                        <Link to={`/profile/edit/${userId}`}>
+                            <Button variant="secondary" size="lg">edit profile</Button>
+                        </Link>
+
+                        <Button variant="secondary" size="lg" onClick={deleteUser}>delete profile</Button>
+                        
                     </Col>
                 </Row>
 

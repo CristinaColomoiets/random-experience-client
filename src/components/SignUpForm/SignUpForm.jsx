@@ -23,7 +23,7 @@ const SignUpForm = () => {
             .catch(err => console.log(err))
     }
 
-    const handleIputChange = event => {
+    const handleInputChange = event => {
         const { value, name } = event.target
         setSignupData({ ...singupData, [name]: value })
     }
@@ -36,7 +36,7 @@ const SignUpForm = () => {
                 placeholder="Enter your email please"
                 value={singupData.email}
                 name="email"
-                onChange={handleIputChange}
+                onChange={handleInputChange}
                 />
             </Form.Group>
 
@@ -46,7 +46,7 @@ const SignUpForm = () => {
                 placeholder="Password"
                 value={singupData.password}
                 name="password"
-                onChange={handleIputChange}
+                onChange={handleInputChange}
                 />
             </Form.Group>
 
@@ -56,7 +56,7 @@ const SignUpForm = () => {
                 placeholder="Username"
                 value={singupData.username}
                 name="username"
-                onChange={handleIputChange}
+                onChange={handleInputChange}
                 />
             </Form.Group>
 
@@ -66,7 +66,7 @@ const SignUpForm = () => {
                 placeholder="Add your profile image please" 
                 value={singupData.image}
                 name="image"
-                onChange={handleIputChange}
+                onChange={handleInputChange}
                 />
             </Form.Group>
 
