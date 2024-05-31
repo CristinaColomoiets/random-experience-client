@@ -43,7 +43,6 @@ const Navigation = () => {
                 <Nav className="me-auto">
                   <Link to='/experiences/all' style={{ textDecoration: 'none' }}>
                     <Navbar.Text >See all experiences</Navbar.Text>
-
                   </Link>
                 </Nav>
               </>
