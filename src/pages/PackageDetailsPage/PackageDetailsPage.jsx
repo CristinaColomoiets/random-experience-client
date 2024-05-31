@@ -13,15 +13,15 @@ const PackageDetailsPage = () => {
         purchaseServices
             .postPurchase({ package: packageId })
             .then(({ data }) => {
-                navigate(`/purchase/${purchaseId}`)
+                navigate(`/purchase/${data._id}`)
+                console.log('este va a ser tu viaje', data)
+                console.log(data._id)
 
             })
             .catch(err => console.log(err))
     }
 
-
     return (
-
 
         <div className="PackageDetailsPage">
 
