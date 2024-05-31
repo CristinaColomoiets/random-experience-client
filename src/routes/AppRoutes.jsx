@@ -13,7 +13,6 @@ import SignupFormPage from '../pages/SignupFormPage/SignupFormPage'
 import ExperienceList from "../components/ExperienceList/ExperienceList";
 import PrivateRoutes from "./PrivateRoutes";
 import PurchasePage from "../pages/PurchasePage/PurchasePage";
-import EditUserProfilePage from "../pages/EditUserProfilePage/EditUserProfilePage";
 
 const AppRoutes = () => {
 
@@ -31,7 +30,6 @@ const AppRoutes = () => {
             <Route element={<PrivateRoutes />} >
 
                 <Route path="/profile/:userId" element={<UserProfilePage />} />
-                <Route path="/profile/edit/:userId" element={<EditUserProfilePage/>}/>
                 <Route path="/package/:packageId" element={<PackageDetailsPage />} />
                 <Route path="/package/edit/:packageId" element={<EditPackagePage />} />
                 <Route path="/package/add" element={<AddPackagePage />} />

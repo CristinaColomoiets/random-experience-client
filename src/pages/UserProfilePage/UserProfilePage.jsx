@@ -4,14 +4,12 @@ import { useState, useEffect } from "react"
 import { Container, Row, Col, Button} from "react-bootstrap"
 
 
-
 const UserProfilePage = () => {
     
     const [userData, setUserData] = useState({})
     const {userId} = useParams()
     const navigate = useNavigate()
-
-    
+        
     useEffect(()=>{
         loadOneUser()
     }, [])
@@ -26,7 +24,10 @@ const UserProfilePage = () => {
     const deleteUser = ()=>{
         userServices
             .deleteUser(userId)
-            .then(()=> navigate('/'))
+
+            .then(()=> {
+                localStorage.setItem()
+                navigate('/')})
             .catch((error) => console.log(error))
     }
 
@@ -41,18 +42,6 @@ const UserProfilePage = () => {
                     <Col md={{span: 6}}>
                         <h3>Name: {userData.username}</h3>
                         <h4>Your balance: {userData.balance} tokens</h4>
-                    </Col>
-                </Row>
-
-                <Row>
-                    <Col md={{offset: 3, span: 6}}>
-
-                        <Link to={`/profile/edit/${userId}`}>
-                            <Button variant="secondary" size="lg">edit profile</Button>
-                        </Link>
-
-                        <Button variant="secondary" size="lg" onClick={deleteUser}>delete profile</Button>
-                        
                     </Col>
                 </Row>
 

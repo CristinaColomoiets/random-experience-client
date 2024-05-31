@@ -1,8 +1,9 @@
 import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import imageIconProfile from './../../assets/Avatar-Profile.png'
-import { Container, Navbar, Nav } from 'react-bootstrap';
-import { AuthContext } from '../../contexts/auth.context';
+import { Container, Navbar, Nav } from 'react-bootstrap'
+import { AuthContext } from '../../contexts/auth.context'
+import './Navigation.css'
 
 
 const Navigation = () => {
@@ -60,7 +61,6 @@ const Navigation = () => {
                     <Navbar.Text >Sign up</Navbar.Text>
                   </Link>
                 </Nav>
-
               </>
           }
 
