@@ -19,11 +19,12 @@ class PurchaseServices {
         })
     }
 
-
-
-
     postPurchase(purchaseData) {
         return this.axiosApp.post(`/`, purchaseData)
+    }
+
+    getOnePurchase(param) {
+        return this.axiosApp.get(`/${param}`)
     }
 
 

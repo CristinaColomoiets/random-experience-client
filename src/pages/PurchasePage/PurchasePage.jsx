@@ -1,6 +1,13 @@
+import Purchase from "../../components/Purchase/Purchase"
+import { Container } from "react-bootstrap"
+
 const PurchasePage = () => {
+
     return (
-        <h1>Hola soy la purchase page</h1>
+
+        <Container className='mt-4'>
+            <Purchase />
+        </Container>
     )
 }
 export default PurchasePage

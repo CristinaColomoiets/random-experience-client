@@ -43,11 +43,7 @@ const PackageList = () => {
                             ))
                         }
                     </Row>
-
-
-
                     :
-
                     <Row>
                         {
 

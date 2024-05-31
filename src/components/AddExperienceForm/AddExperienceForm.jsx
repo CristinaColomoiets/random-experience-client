@@ -1,8 +1,9 @@
-import { Form, Button } from "react-bootstrap"
-import { useNavigate, Link } from "react-router-dom"
-import { useState } from "react"
-import GeoForm from "../GeoForm/GeoForm"
-import experiencesServices from '../../services/experiences.services'
+import { Form, Button } from "react-bootstrap";
+import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
+import GeoForm from "../GeoForm/GeoForm";
+import experiencesServices from '../../services/experiences.services';
+import uploadServices from "../../services/upload.services";
 
 const AddExpForm = () => {
 
@@ -11,6 +12,7 @@ const AddExpForm = () => {
         hotel: "",
         places: "",
         package: "",
+        imageUrl: "",
         location: {
             type: "Point",
             coordinates: []
@@ -19,10 +21,10 @@ const AddExpForm = () => {
     }
 
     const [newExp, setNewExp] = useState(initialState)
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleInputChange = e => {
-        const { name, value } = e.target
+        const { name, value } = e.target;
         setNewExp({ ...newExp, [name]: value })
     }
 
@@ -37,8 +39,20 @@ const AddExpForm = () => {
         })
     }
 
+    const handleFileUpload = e => {
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+
+        uploadServices
+            .uploadimage(formData)
+            .then(({ data }) => {
+                setNewExp({ ...newExp, imageUrl: data.cloudinary_url })
+            })
+            .catch(err => console.log(err))
+    }
+
     const handleFormSubmit = e => {
-        e.preventDefault()
+        e.preventDefault();
         experiencesServices
             .createExperience(newExp)
             .then(() => navigate('/'))
@@ -88,6 +102,13 @@ const AddExpForm = () => {
                         onChange={handleInputChange}
                     />
                 </Form.Group>
+                <Form.Group className="mb-3" controlId="imageUrl">
+                    <Form.Label>Imagen</Form.Label>
+                    <Form.Control
+                        type="file"
+                        name="imageUrl"
+                        onChange={handleFileUpload} />
+                </Form.Group>
 
                 <GeoForm onLocationSelect={handleLocationSelect} />
 
@@ -129,7 +150,7 @@ const AddExpForm = () => {
                     Cancel
                 </Button></Link>
             </Form>
-        </div>
+        </div >
     )
 }
 
