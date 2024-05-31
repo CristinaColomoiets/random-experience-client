@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Form, Button } from "react-bootstrap";
-import GeoForm from "../GeoForm/GeoForm";
+import { useState, useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+import { Form, Button, Image } from "react-bootstrap"
+import GeoForm from "../GeoForm/GeoForm"
 import experiencesServices from '../../services/experiences.services'
+import uploadServices from "../../services/upload.services"
 
 const EditExpForm = () => {
     const initialState = {
@@ -10,6 +11,7 @@ const EditExpForm = () => {
         hotel: "",
         places: "",
         package: "",
+        imageUrl: "",
         location: {
             type: "Point",
             coordinates: []
@@ -19,6 +21,7 @@ const EditExpForm = () => {
     const { experienceId } = useParams()
     const navigate = useNavigate()
     const [expData, setExpData] = useState(initialState)
+    const [imagePreview, setImagePreview] = useState("")
 
     useEffect(() => {
         loadFormData()
@@ -27,7 +30,10 @@ const EditExpForm = () => {
     const loadFormData = () => {
         experiencesServices
             .getOneExperience(experienceId)
-            .then(({ data }) => setExpData(data))
+            .then(({ data }) => {
+                setExpData(data)
+                setImagePreview(data.imageUrl)
+            })
             .catch(err => console.log(err))
     }
 
@@ -45,6 +51,19 @@ const EditExpForm = () => {
             },
             geocode: location.address
         })
+    }
+
+    const handleFileUpload = e => {
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+
+        uploadServices
+            .uploadimage(formData)
+            .then(({ data }) => {
+                setExpData({ ...expData, imageUrl: data.cloudinary_url })
+                setImagePreview(data.cloudinary_url)
+            })
+            .catch(err => console.log(err))
     }
 
     const handleFormSubmit = e => {
@@ -95,6 +114,18 @@ const EditExpForm = () => {
                         value={expData.places}
                         onChange={handleInputChange}
                     />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="image">
+                    <Form.Label>Imagen</Form.Label>
+                    <Form.Control
+                        type="file"
+                        onChange={handleFileUpload}
+                    />
+                    {imagePreview && (
+                        <div className="mt-3">
+                            <Image src={imagePreview} rounded fluid />
+                        </div>
+                    )}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="package">
                     <Form.Label>Package</Form.Label>
