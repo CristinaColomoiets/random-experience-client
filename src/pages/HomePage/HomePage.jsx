@@ -1,13 +1,13 @@
-import { Container } from 'react-bootstrap'
 import PackageList from '../../components/PackageList/PackageList'
+import InfoBoxHDW from '../../components/InfoBoxHDW/InfoBoxHDW'
 
 
 const HomePage = () => {
     return (
-
-        <Container>
+        <div className="HomePage">
+            <InfoBoxHDW/>
             <PackageList />
-        </Container>
+        </div>
 
     )
 }

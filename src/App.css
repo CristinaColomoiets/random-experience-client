@@ -2,14 +2,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 
-:root {
+/* :root {
   --primary-color: #2CA2D0;
   --secondary-color: #1C75A1;
   --background-color: #F5F5F5;
   --accent-color: #F29D38;
+  --accent-color: #f9b225;
+
   --neutral-color: #333333;
   --font-primary: 'Montserrat', sans-serif;
   --font-secondary: 'Roboto', sans-serif;
+} */
+
+:root {
+  --primary-color: #3c096c;
+  --secondary-color: #f20089;
+  --background-color: #F5F5F5;
+
+  --accent-color: #ff6d00;
+
+  --neutral-color: #9d4edd;
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Roboto', sans-serif;
+  --txt-color: #240046
+}
+
+body{
+  color: var(--txt-color)
 }
 
 img {
