@@ -19,6 +19,10 @@ const PackageDetailsPage = () => {
             .catch(err => console.log(err))
     }
 
+    const handleBuy = () => {
+
+    }
+
     return (
 
         <div className="PackageDetailsPage">
@@ -27,6 +31,8 @@ const PackageDetailsPage = () => {
                 <Button variant="danger" type="button" className="w-100" onClick={handlePurchase} >
                     Buy your Experience
                 </Button>
+
+                <Button variant='primary' type='button' className='w-100' onClick={handleBuy}>Botón de resta</Button>
 
             </Container>
 
