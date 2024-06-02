@@ -27,6 +27,10 @@ class PurchaseServices {
         return this.axiosApp.get(`/${param}`)
     }
 
+    getAllPurchasesByUser() {
+        return this.axiosApp.get(`/byuser/userId`)
+    }
+
 
 
 }
