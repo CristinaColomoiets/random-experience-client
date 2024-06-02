@@ -4,11 +4,17 @@ import PackageList from '../../components/PackageList/PackageList'
 
 const HomePage = () => {
     return (
-
-        <Container>
-            <PackageList />
-        </Container>
+        <>
+            <video autoPlay loop playsInline muted className="mb-5 w-100 h-80">
+                <source src="http://togarestaurante.com/wp-content/uploads/2021/08/toga_hero_web_video_1920_1080_.mp4" type="video/mp4" />
+            </video>
+            <Container>
+                <PackageList />
+            </Container>
+        </>
 
     )
 }
 export default HomePage
+
+

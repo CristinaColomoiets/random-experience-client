@@ -1,30 +1,46 @@
-import { Link, useParams } from 'react-router-dom'
-import { Card, Button } from "react-bootstrap"
+import { Link } from 'react-router-dom';
+import { Card, Button, Row, Col } from "react-bootstrap";
 
-const PackageCard = ({ _id: packageId, image, title, price }) => {
-
-
+const PackageCard = ({ _id: packageId, image, title, price, isLoggedIn }) => {
     return (
-
         <div className="packageCard">
+            <Card className='mb-5'>
+                <Card.Img variant="top" src={image} />
+                <Card.Body>
+                    <Card.Title>{title}</Card.Title>
 
-            <Link to={`/package/${packageId}`}>
+                    <Card.Text>From: {price}</Card.Text>
 
-                <Card >
-                    <Card.Img variant="top" src={image} />
-                    <Card.Body>
+                    <Row>
+                        <Col>
+                            <Link to={isLoggedIn ? `/package/${packageId}` : "/profile/signup"}>
 
-                        <Card.Title>{title}</Card.Title>
-                        <Card.Text>{price}</Card.Text>
-                        <Button variant="primary">Go to view details</Button>
+                                <Button className='w-100'
+                                    variant={isLoggedIn ? "primary" : "secondary"}
+                                    disabled={!isLoggedIn}>
+                                    {isLoggedIn ? "Go to view details" : "🔒"}
+                                </Button>
 
-                    </Card.Body>
-                </Card>
+                            </Link>
+                        </Col>
 
-            </Link>
+                        {isLoggedIn && (
+                            <Col>
+                                <Link to={`/package/edit/${packageId}`}>
 
-        </div >
+                                    <Button className='w-100' variant="success">
+                                        Edit Package
+                                    </Button>
 
-    )
-}
-export default PackageCard
+                                </Link>
+                            </Col>
+                        )}
+
+                    </Row>
+                </Card.Body>
+            </Card>
+        </div>
+    );
+};
+
+export default PackageCard;

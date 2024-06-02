@@ -46,27 +46,27 @@ const Navigation = () => {
               loggedUser ?
                 <>
 
-                  <Nav className="me-auto">
+                  <Nav className="me-auto mt-4">
                     <Link to='/package/add' style={{ textDecoration: 'none' }}>
                       <Navbar.Text onClick={() => setExpanded(false)}>Add Package</Navbar.Text>
                     </Link>
                   </Nav>
 
-                  <Nav className="me-auto">
+                  <Nav className="me-auto mt-4 ">
                     <Link to='/experiences/add' style={{ textDecoration: 'none' }}>
                       <Navbar.Text onClick={() => setExpanded(false)}>Add Experience</Navbar.Text>
                     </Link>
                   </Nav>
 
-                  <Nav className="me-auto">
+                  <Nav className="me-auto mt-4">
                     <Link to='/experiences/all' style={{ textDecoration: 'none' }}>
                       <Navbar.Text onClick={() => setExpanded(false)}>See all experiences</Navbar.Text>
                     </Link>
                   </Nav>
-                  <Nav className="me-auto" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
+                  <Nav className="me-auto mt-4" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
                     <Navbar.Text onClick={logout}>Logout</Navbar.Text>
                   </Nav>
-                  <Nav className="userNav" onClick={() => setExpanded(false)}>
+                  <Nav className="userNav mt-4" onClick={() => setExpanded(false)}>
                     <Link to={loggedUser && `/profile/${loggedUser._id}`} style={{ textDecoration: 'none' }}>
                       <img
                         alt=''
@@ -80,13 +80,13 @@ const Navigation = () => {
 
                 :
                 <>
-                  <Nav className="me-auto">
+                  <Nav className="me-auto mt-2">
                     <Link to='/profile/login' style={{ textDecoration: 'none' }}>
                       <Navbar.Text onClick={() => setExpanded(false)}>Login</Navbar.Text>
                     </Link>
                   </Nav>
 
-                  <Nav className="me-auto">
+                  <Nav className="me-auto mt-2">
                     <Link to='/profile/signup' style={{ textDecoration: 'none' }}>
                       <Navbar.Text onClick={() => setExpanded(false)}>Sign up</Navbar.Text>
                     </Link>

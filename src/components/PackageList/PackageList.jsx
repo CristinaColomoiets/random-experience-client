@@ -27,39 +27,17 @@ const PackageList = () => {
 
     return (
 
-        <>
-            {
-                loggedUser ?
 
-                    <Row>
-                        {
 
-                            packages.map(eachPackage => (
-                                <Col key={eachPackage._id} className="mt-5">
-                                    <div className="muted-text">
-                                        <PackageCard {...eachPackage} />
-                                    </div>
-                                </Col>
-                            ))
-                        }
-                    </Row>
-                    :
-                    <Row>
-                        {
-
-                            packages.map(eachPackage => (
-                                <Col key={eachPackage._id} className="mt-5 text-muted">
-                                    <div >
-                                        <PackageCard {...eachPackage} />
-                                    </div>
-                                </Col>
-                            ))
-                        }
-                    </Row>
-
-            }
-
-        </>
+        <Row>
+            {packages.map(eachPackage => (
+                <Col key={eachPackage._id} className="mt-5">
+                    <div className={loggedUser ? "" : "text-muted"}>
+                        <PackageCard {...eachPackage} isLoggedIn={!!loggedUser} />
+                    </div>
+                </Col>
+            ))}
+        </Row>
 
     );
 }
