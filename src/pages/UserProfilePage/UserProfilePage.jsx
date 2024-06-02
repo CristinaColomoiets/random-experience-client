@@ -1,7 +1,7 @@
 import userServices from "../../services/user.services"
 import { Link, useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect, useContext } from "react"
-import { Container, Row, Col, Button } from "react-bootstrap"
+import { Container, Row, Col, Button, InputGroup, Form } from "react-bootstrap"
 import PurchaseCard from "../../components/PurchaseCard/PurchaseCard"
 import purchaseServices from "../../services/purchase.services"
 
@@ -9,10 +9,12 @@ import purchaseServices from "../../services/purchase.services"
 const UserProfilePage = () => {
 
     const [userData, setUserData] = useState({})
+
     const [purchaseData, setPurchaseData] = useState([])
     const { purchaseId } = useParams()
     const { userId } = useParams()
     const navigate = useNavigate()
+
 
     useEffect(() => {
         loadOneUser()
@@ -26,7 +28,6 @@ const UserProfilePage = () => {
             .catch(err => console.log(err))
     }
 
-
     const renderPurchases = () => {
 
         purchaseServices
@@ -34,6 +35,9 @@ const UserProfilePage = () => {
             .then(({ data }) => setPurchaseData(data))
             .catch(err => console.log(err))
     }
+
+
+
 
     return (
         <div className="ProfilePage">
