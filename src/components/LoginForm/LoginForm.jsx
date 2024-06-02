@@ -1,9 +1,9 @@
 import { useContext, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { AuthContext } from "../../contexts/auth.context"
 import authServices from "../../services/auth.services"
-import { Form, Button} from "react-bootstrap"
-
+import { Form, Button } from "react-bootstrap"
+import { toast } from "sonner"
 
 const LoginForm = () => {
 
@@ -25,47 +25,57 @@ const LoginForm = () => {
 
         authServices
             .loginUser(loginData)
-            .then(({ data }) => { // data es token
+            .then(({ data }) => {
 
                 const newTokenGenerated = data.authToken
                 localStorage.setItem('authToken', newTokenGenerated)
 
                 authenticateUser()
                 navigate('/')
+                toast.success('Successful login')
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                toast.error('Login failed')
+
+            })
     }
 
 
 
-    return(
-        
+    return (
+
         <Form onSubmit={handleSubmit}>
 
             <Form.Group className="mb-3" controlId="email">
-                <Form.Control 
-                type="email" 
-                placeholder="Enter your email please"
-                value={loginData.email} 
-                name="email"
-                onChange={handleInputChange}
+                <Form.Control
+                    type="email"
+                    placeholder="Enter your email please"
+                    value={loginData.email}
+                    name="email"
+                    onChange={handleInputChange}
                 />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="password">
-                <Form.Control 
-                type="password" 
-                placeholder="Password"
-                value={loginData.password} 
-                name="password"
-                onChange={handleInputChange} 
+                <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    value={loginData.password}
+                    name="password"
+                    onChange={handleInputChange}
                 />
+            </Form.Group>
+            <Form.Group>
+                <Link to='/profile/signup'>
+                    <p>Not registered yet?</p>
+                </Link>
             </Form.Group>
 
             <div className="d-grid">
                 <Button variant="dark" type="submit">Enter</Button>
             </div>
-        </Form>
+        </Form >
     )
 }
 export default LoginForm

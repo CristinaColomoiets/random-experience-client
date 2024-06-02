@@ -1,0 +1,18 @@
+.image-links-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.image-link-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.remove-button {
+    margin-right: 10px;
+}
+
+.image-link-text {
+    flex-grow: 1;
+}
