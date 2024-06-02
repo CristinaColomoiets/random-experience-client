@@ -1,22 +1,20 @@
 import { Container, Button } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import purchaseServices from "../../services/purchase.services"
-
+import { AuthContext } from "../../contexts/auth.context"
+import { useContext } from "react"
 const PackageDetailsPage = () => {
 
     const { packageId } = useParams()
     const navigate = useNavigate()
-    const { purchaseId } = useParams()
+    const { loggedUser } = useContext(AuthContext)
 
     const handlePurchase = () => {
 
         purchaseServices
             .postPurchase({ package: packageId })
             .then(({ data }) => {
-                navigate(`/purchase/${data._id}`)
-                console.log('este va a ser tu viaje', data)
-                console.log(data._id)
-
+                navigate(`/profile/${loggedUser._id}`)
             })
             .catch(err => console.log(err))
     }

@@ -1,34 +1,38 @@
 import userServices from "../../services/user.services"
 import { Link, useParams, useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
-import { Container, Row, Col, Button} from "react-bootstrap"
+import { useState, useEffect, useContext } from "react"
+import { Container, Row, Col, Button } from "react-bootstrap"
+import PurchaseCard from "../../components/PurchaseCard/PurchaseCard"
+import purchaseServices from "../../services/purchase.services"
 
 
 const UserProfilePage = () => {
-    
+
     const [userData, setUserData] = useState({})
-    const {userId} = useParams()
+    const [purchaseData, setPurchaseData] = useState([])
+    const { purchaseId } = useParams()
+    const { userId } = useParams()
     const navigate = useNavigate()
-        
-    useEffect(()=>{
+
+    useEffect(() => {
         loadOneUser()
+        renderPurchases()
     }, [])
-    
-    const loadOneUser = ()=>{
+
+    const loadOneUser = () => {
         userServices
             .getOneUser(userId)
-            .then(({data}) => {setUserData(data)})
+            .then(({ data }) => setUserData(data))
             .catch(err => console.log(err))
     }
 
-    const deleteUser = ()=>{
-        userServices
-            .deleteUser(userId)
 
-            .then(()=> {
-                localStorage.setItem()
-                navigate('/')})
-            .catch((error) => console.log(error))
+    const renderPurchases = () => {
+
+        purchaseServices
+            .getAllPurchasesByUser()
+            .then(({ data }) => setPurchaseData(data))
+            .catch(err => console.log(err))
     }
 
     return (
@@ -36,10 +40,10 @@ const UserProfilePage = () => {
             <Container>
                 <h1>ProfilePage</h1>
                 <Row>
-                    <Col md={{span: 3}}>
+                    <Col md={{ span: 3 }}>
                         <img src={userData.image} alt="profile photo" />
                     </Col>
-                    <Col md={{span: 6}}>
+                    <Col md={{ span: 6 }}>
                         <h3>Name: {userData.username}</h3>
                         <h4>Your balance: {userData.balance} tokens</h4>
                     </Col>
@@ -50,11 +54,12 @@ const UserProfilePage = () => {
                 </Row>
 
                 <Row>
-                    <Col>Card experience</Col>
-                </Row>
+                    {purchaseData.map(purchase => (
 
-                <Row>
-                    <Col>Card experience...</Col>
+                        <Col key={purchase._id} md={4}>
+                            <PurchaseCard purchase={purchase} />
+                        </Col>
+                    ))}
                 </Row>
             </Container>
         </div>

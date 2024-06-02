@@ -3,21 +3,22 @@ import { Container, Row, Col } from 'react-bootstrap'
 import ExperienceCard from '../../components/ExperienceCard/ExperienceCard'
 import experiencesServices from '../../services/experiences.services'
 
-
 const ExperienceList = () => {
 
     const [experiences, setExperiences] = useState([])
 
     useEffect(() => {
-        getAllExperiences();
-    }, []);
+
+        getAllExperiences()
+    }, [])
 
     const getAllExperiences = () => {
+
         experiencesServices
             .getAllExperiences()
             .then(({ data }) => setExperiences(data))
             .catch(err => console.log(err))
-    };
+    }
 
     return (
         <div className='ExperiencesList'>
@@ -31,7 +32,7 @@ const ExperienceList = () => {
                 </Row>
             </Container>
         </div>
-    );
-};
+    )
+}
 
 export default ExperienceList

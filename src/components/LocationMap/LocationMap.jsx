@@ -31,7 +31,7 @@ const LocationMap = ({ address }) => {
                 </GoogleMap>
             )}
         </div>
-    );
-};
+    )
+}
 
 export default LocationMap
