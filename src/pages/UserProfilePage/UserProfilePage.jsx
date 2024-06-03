@@ -4,7 +4,6 @@ import { useState, useEffect, useContext } from "react"
 import { Container, Row, Col, Button, InputGroup, Form } from "react-bootstrap"
 import PurchaseCard from "../../components/PurchaseCard/PurchaseCard"
 import purchaseServices from "../../services/purchase.services"
-// import {useBalance} from './../../contexts/balance.context'
 
 
 const UserProfilePage = () => {
@@ -39,17 +38,6 @@ const UserProfilePage = () => {
             .catch(err => console.log(err))
     }
 
-    // const handleInputChange=(event)=>{
-    //     let valueInput = event.target.value
-    //     setInputBalance(valueInput)
-    // }
-
-    // const handleBtnChange = ()=>{
-    //     let totalBalance = balance + inputBalance
-    //     setBalance(totalBalance)
-    // }
-
-
 
 
     return (
@@ -65,23 +53,6 @@ const UserProfilePage = () => {
                         <h4>Your balance: {userData.balance} tokens</h4>
                     </Col>
                 </Row>
-
-                {/* <Row>
-                    <Col>
-                        <InputGroup className="mb-3">
-                            <Form.Control
-                            type="number"
-                            name="inputTokens"
-                            value={setInputBalance.inputTokens}
-                            placeholder="Recipient's username"
-                            // aria-label="Recipient's username"
-                            // aria-describedby="basic-addon2"
-                            onClick={handleInputChange}
-                            />
-                            <Button variant="outline-secondary" id="button-addon2" onClick={handleBtnChange}>add tokens</Button>
-                        </InputGroup>
-                    </Col>
-                </Row> */}
 
                 <Row>
                     <Col><h3>My experiences:</h3></Col>

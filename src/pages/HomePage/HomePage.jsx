@@ -1,5 +1,6 @@
 import PackageList from '../../components/PackageList/PackageList'
 import InfoBoxHDW from '../../components/InfoBoxHDW/InfoBoxHDW'
+import { Container } from 'react-bootstrap'
 
 const HomePage = () => {
     return (
@@ -8,6 +9,7 @@ const HomePage = () => {
                 <source src="http://togarestaurante.com/wp-content/uploads/2021/08/toga_hero_web_video_1920_1080_.mp4" type="video/mp4" />
             </video>
             <Container>
+                <InfoBoxHDW/>
                 <PackageList />
             </Container>
         </>
