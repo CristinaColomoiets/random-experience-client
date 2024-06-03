@@ -1,14 +1,30 @@
-// import { createContext } from "react";
+import { createContext, useState } from "react";
+import userServices from "../services/user.services";
 
-// const BonusContext = createContext()
+const BalanceContext = createContext();
 
-// function BonusProviderWrapper(props){
+function BalanceProviderWrapper(props) {
+    const [balance, setBalance] = useState(0);
 
-//     return (
-//         <BonusContext.Provider value={{ tokens, addTokens, spendTokens }}>
-//             {props.children}
-//         </BonusContext.Provider>
-//     )
+    const addFunds = amount => {
+        userServices
+            .addBalance({ amount })
+            .then(({ data }) => setBalance(data.balance))
+            .catch(err => console.log(err));
+    };
 
-// }
-// export {BonusContext, BonusProviderWrapper}
+    const spendFunds = amount => {
+        userServices
+            .spendBalance({ amount })
+            .then(({ data }) => setBalance(data.balance))
+            .catch(err => console.log(err));
+    };
+
+    return (
+        <BalanceContext.Provider value={{ balance, addFunds, spendFunds }}>
+            {props.children}
+        </BalanceContext.Provider>
+    );
+}
+
+export { BalanceContext, BalanceProviderWrapper };

@@ -42,7 +42,8 @@ const AddPackageForm = () => {
 
     const handleFormSubmit = e => {
         e.preventDefault()
-        packageServices.savePackage(newPackage)
+        packageServices
+            .savePackage(newPackage)
             .then(() => {
                 navigate('/')
                 toast.success('Package created successfully!')
