@@ -16,7 +16,7 @@ const PackageCard = ({ _id: packageId, image, title, price }) => {
 
                         <Card.Title>{title}</Card.Title>
                         <Card.Text>{price}</Card.Text>
-                        <Button variant="primary">Go to view details</Button>
+                        <Button variant="primary" className='btn-gradient'>Go to view details</Button>
 
                     </Card.Body>
                 </Card>
