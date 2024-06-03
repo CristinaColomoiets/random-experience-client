@@ -11,7 +11,9 @@ const HomePage = () => {
             <Container>
                 <InfoBoxHDW/>
                 <PackageList />
+                <InfoBoxHDW />
             </Container>
+
         </>
 
     )

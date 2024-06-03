@@ -5,6 +5,7 @@ import { Container, Navbar, Nav, Image } from 'react-bootstrap'
 import { AuthContext } from '../../contexts/auth.context'
 import './Navigation.css'
 import { toast } from 'sonner'
+import Stripe from '../Stripe/Stripe'
 
 const Navigation = () => {
   const { loggedUser, logout } = useContext(AuthContext)
@@ -42,6 +43,14 @@ const Navigation = () => {
                     <Navbar.Text onClick={() => setExpanded(false)}>See all experiences</Navbar.Text>
                   </Link>
                 </Nav>
+
+
+                <Nav className="me-auto nav-link">
+                  <Link to='/stripe' className='nav-link' style={{ textDecoration: 'none' }}>
+                    <Navbar.Text onClick={() => setExpanded(false)}>Stripe</Navbar.Text>
+                  </Link>
+                </Nav>
+
                 <Nav className="me-auto nav-link" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
                   <Navbar.Text onClick={logout}>Logout</Navbar.Text>
                 </Nav>
