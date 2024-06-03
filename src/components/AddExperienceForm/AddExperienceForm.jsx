@@ -215,13 +215,13 @@ const AddExpForm = () => {
                         </li>
                     ))}
                 </ul>
-                <Button variant="success" type="submit" className="w-100 mb-4">
+                <Button type="submit" className="btn-primary w-100 mb-4">
                     Submit
                 </Button>
                 <Button variant="secondary" type="button" className="w-100 mb-4" onClick={handleClear}>
                     Clear
                 </Button>
-                <Link to='/'><Button variant="dark" type="button" className="w-100 mb-4" onClick={handleCancel}>
+                <Link to='/'><Button variant="dark" type="button" className="btn-neutral w-100 mb-4" onClick={handleCancel}>
                     Cancel
                 </Button></Link>
             </Form>

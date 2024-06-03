@@ -1,37 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-
-/* :root {
-  --primary-color: #2CA2D0;
-  --secondary-color: #1C75A1;
-  --background-color: #F5F5F5;
-  --accent-color: #F29D38;
-  --accent-color: #f9b225;
-
-  --neutral-color: #333333;
-  --font-primary: 'Montserrat', sans-serif;
-  --font-secondary: 'Roboto', sans-serif;
-} */
-
 :root {
-  --primary-color: #3c096c;
-  --secondary-color: #f20089;
-  --background-color: #F5F5F5;
-
-  --accent-color: #ff6d00;
-
-  --neutral-color: #9d4edd;
-  --font-primary: 'Montserrat', sans-serif;
-  --font-secondary: 'Roboto', sans-serif;
-  --txt-color: #240046
-}
-
-body{
-  color: var(--txt-color);
-  font-family: "Montserrat", sans-serif;
+  --primary-color: #3b1ca1 !important;
+  --secondary-color: #ff7e00 !important;
+  --neutral-color: #333333 !important;
+  --font-primary: 'Montserrat', sans-serif !important;
+  --font-secondary: 'Roboto', sans-serif !important;
 }
 
 img {
-  width: 100%;
+  width: 100% !important;
+}
+
+.logo {
+  width: 7rem !important;
+  height: auto !important;
+}
+
+/* BUTTONS */
+.btn-gradient {
+  font-family: var(--font-primary) !important;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)) !important;
+  border: none !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  font-size: 16px !important;
+  margin: 4px 2px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 5px !important;
+}
+
+.btn-primary {
+  font-family: var(--font-primary) !important;
+  background-color: var(--primary-color) !important;
+  border: none !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  font-size: 16px !important;
+  margin: 4px 2px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 5px !important;
+}
+
+.btn-secondary {
+  font-family: var(--font-primary) !important;
+  background-color: var(--secondary-color) !important;
+  border: none !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  font-size: 16px !important;
+  margin: 4px 2px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 5px !important;
+}
+
+.btn-neutral {
+  font-family: var(--font-primary) !important;
+  background-color: var(--neutral-color) !important;
+  border: none !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  font-size: 16px !important;
+  margin: 4px 2px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 5px !important;
+}
+
+.btn-gradient:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-neutral:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* HEADINGS */
+.h1-gradient {
+  font-family: var(--font-primary) !important;
+  font-weight: 700 !important;
+  font-size: 2.5rem !important;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.h1-primary {
+  font-family: var(--font-primary) !important;
+  font-weight: 700 !important;
+  font-size: 2.5rem !important;
+  color: var(--primary-color) !important;
+}
+
+/* NAV LINKS */
+.nav-link {
+  font-size: 1.2rem !important;
+  margin-right: 1.5rem !important;
+  font-family: var(--font-primary) !important;
 }
