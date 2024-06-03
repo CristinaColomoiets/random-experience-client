@@ -28,7 +28,8 @@
 }
 
 body{
-  color: var(--txt-color)
+  color: var(--txt-color);
+  font-family: "Montserrat", sans-serif;
 }
 
 img {

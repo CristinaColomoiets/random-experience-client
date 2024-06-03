@@ -17,7 +17,7 @@ const InfoBoxHDW = ()=>{
                     <div className="box-info">
                         <img src={icon1} alt="icon" style={{width: '4rem'}}/>
                         <h5 className="sub-title">step 1</h5>
-                        <p>We offer you to know our offers within Package that have different experiences.</p>
+                        <p>We offer you to know our promotions within Standard, Premium and Delux Packages that have different experiences.</p>
                     </div>
                 </Col>
                 <Col  md={{offset: 1,span: 3}}>
