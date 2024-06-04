@@ -15,10 +15,10 @@ const PackageCard = ({ _id: packageId, image, title, price, isLoggedIn }) => {
                         <Col>
                             <Link to={isLoggedIn ? `/package/${packageId}` : "/profile/signup"}>
 
-                                <Button className='w-100'
-                                    variant={isLoggedIn ? "primary" : "secondary"}
+                                <Button className='w-100 mb-4'
+                                    variant={isLoggedIn ? "gradient" : "neutral"}
                                     disabled={!isLoggedIn}>
-                                    {isLoggedIn ? "Go to view details" : "🔒"}
+                                    {isLoggedIn ? "View details" : "🔒"}
                                 </Button>
 
                             </Link>
@@ -28,8 +28,8 @@ const PackageCard = ({ _id: packageId, image, title, price, isLoggedIn }) => {
                             <Col>
                                 <Link to={`/package/edit/${packageId}`}>
 
-                                    <Button className='w-100' variant="success">
-                                        {price}
+                                    <Button className='w-100 mb-4' variant="primary">
+                                        Edit
                                     </Button>
 
                                 </Link>

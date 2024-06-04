@@ -24,7 +24,7 @@ const ExperienceCard = ({ _id: experienceId, country, hotel, imageUrl, imageLink
                     </Carousel>
                     <LocationMap address={{ latitude: location.coordinates[1], longitude: location.coordinates[0] }} />
                     <div className="d-grid">
-                        <Link to={`/experiences/edit/${experienceId}`} className="btn btn-dark btn-sm">Edit ADMIN</Link>
+                        <Link to={`/experiences/edit/${experienceId}`} className="btn btn-dark btn-sm">Edit experience</Link>
                     </div>
                 </Card.Body>
             </Card>

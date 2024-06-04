@@ -4,7 +4,7 @@ import purchaseServices from "../../services/purchase.services"
 import packageServices from "../../services/packages.services"
 import { AuthContext } from "../../contexts/auth.context"
 import { useContext, useEffect, useState } from "react"
-import { BalanceContext } from "../../contexts/balance.context"
+// import { BalanceContext } from "../../contexts/balance.context"
 
 const PackageDetailsPage = () => {
 
@@ -53,7 +53,7 @@ const PackageDetailsPage = () => {
                 <p>{packages.title}</p>
 
 
-                <Button variant="danger" type="button" className="w-100" onClick={handlePurchase} >
+                <Button variant="gradient" type="button" className="w-100" onClick={handlePurchase} >
                     Buy your Experience
                 </Button>
 

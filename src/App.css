@@ -5,6 +5,7 @@
   --primary-color: #3b1ca1 !important;
   --secondary-color: #ff7e00 !important;
   --neutral-color: #333333 !important;
+  --red-color: rgb(198, 21, 21)3 !important;
   --font-primary: 'Montserrat', sans-serif !important;
   --font-secondary: 'Roboto', sans-serif !important;
 }
@@ -74,6 +75,23 @@ img {
 .btn-neutral {
   font-family: var(--font-primary) !important;
   background-color: var(--neutral-color) !important;
+  border: none !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  font-size: 16px !important;
+  margin: 4px 2px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 5px !important;
+}
+
+.btn-red {
+  font-family: var(--font-primary) !important;
+  background-color: var(--red-color) !important;
   border: none !important;
   color: white !important;
   padding: 10px 20px !important;

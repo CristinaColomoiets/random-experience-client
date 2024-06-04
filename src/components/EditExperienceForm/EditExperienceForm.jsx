@@ -241,18 +241,18 @@ const EditExpForm = () => {
                     ))}
                 </ul>
 
-                <Button variant="success" type="submit" className="w-100 mb-4">
+                <Button variant="gradient" type="submit" className="w-100 mb-4">
                     Apply Changes
                 </Button>
                 <Button variant="secondary" type="button" className="w-100 mb-4" onClick={handleClear}>
                     Clear
                 </Button>
                 <Link to='/'>
-                    <Button variant="dark" type="button" className="w-100 mb-4" onClick={handleCancel}>
+                    <Button variant="neutral" type="button" className="w-100 mb-4" onClick={handleCancel}>
                         Cancel
                     </Button>
                 </Link>
-                <Button variant="danger" type="button" className="w-100 mb-4" onClick={handleDelete}>
+                <Button variant="red" type="button" className="w-100 mb-4" onClick={handleDelete}>
                     Delete
                 </Button>
             </Form>
