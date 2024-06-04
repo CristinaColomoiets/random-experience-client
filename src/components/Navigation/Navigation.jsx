@@ -47,11 +47,12 @@ const Navigation = () => {
 
           <Nav className="userNav" onClick={() => setExpanded(false)}>
             <Link to={loggedUser ? `/profile/${loggedUser._id}` : '/profile/login'} className='nav-link' style={{ textDecoration: 'none' }}>
-              <img
+              <Image
                 alt=''
                 src={loggedUser ? loggedUser.image : imageIconProfile}
                 height={30}
                 className="d-inline-block align-top"
+                roundedCircle
               />
             </Link>
           </Nav>

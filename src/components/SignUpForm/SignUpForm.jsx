@@ -93,7 +93,6 @@ const SignUpForm = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicImage">
-                <Form.Label>Profile Image</Form.Label>
                 <Form.Control
                     type="file"
                     placeholder="Upload your profile image"

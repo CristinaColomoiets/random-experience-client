@@ -8,8 +8,6 @@ const SignupFormPage = () => {
 
         <div className="SignupFormPage">
 
-            <h1>Here you can signup</h1>
-
             <Row>
                 <Col md={{ offset: 3, span: 6 }}>
                     <SignUpForm />

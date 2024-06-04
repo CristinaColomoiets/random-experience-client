@@ -4,7 +4,7 @@ import './InfoBoxHDW.css'
 
 const InfoBoxHDW = ()=>{
 
-    const icon1 = 'https://res.cloudinary.com/drpdy7tju/image/upload/v1717350206/person_ftbfu4.png'
+    const icon1 = 'https://res.cloudinary.com/drpdy7tju/image/upload/v1717350207/select_vhhqjf.png'
     const icon2 = 'https://res.cloudinary.com/drpdy7tju/image/upload/v1717350207/calendar_mrnd4b.png'
     const icon3 = 'https://res.cloudinary.com/drpdy7tju/image/upload/v1717350206/person_ftbfu4.png'
 
