@@ -66,7 +66,7 @@ const Navigation = () => {
 
           <Navbar.Collapse id="basic-navbar-nav">
 
-            {loggedUser?.role === 'ADMIN' ? 
+            {loggedUser?.role === 'ADMIN' ?
               <>
                 <Nav className="me-auto nav-link">
                   <Link to='/package/add' className='nav-link' style={{ textDecoration: 'none' }}>
@@ -91,7 +91,7 @@ const Navigation = () => {
                 </Nav>
 
               </>
-             : 
+              :
               <>
                 {/* <Nav className="me-auto nav-link">
                   <Link to='/profile/login' className='nav-link' style={{ textDecoration: 'none' }}>
@@ -108,31 +108,31 @@ const Navigation = () => {
 
             {
               loggedUser?.role === 'USER' ?
-              <>
-                <Nav className="me-auto nav-link">
-                  <Link to='/stripe' className='nav-link' style={{ textDecoration: 'none' }}>
-                    <Navbar.Text onClick={() => setExpanded(false)}>Stripe</Navbar.Text>
-                  </Link>
-                </Nav>
+                <>
+                  <Nav className="me-auto nav-link">
+                    <Link to='/stripe' className='nav-link' style={{ textDecoration: 'none' }}>
+                      <Navbar.Text onClick={() => setExpanded(false)}>Stripe</Navbar.Text>
+                    </Link>
+                  </Nav>
 
-                <Nav className="me-auto nav-link" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
-                  <Navbar.Text onClick={logout}>Logout</Navbar.Text>
-                </Nav>
+                  <Nav className="me-auto nav-link" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
+                    <Navbar.Text onClick={logout}>Logout</Navbar.Text>
+                  </Nav>
 
-              </>
-              :
-              <>
-              <Nav className="me-auto nav-link">
-                <Link to='/profile/login' className='nav-link' style={{ textDecoration: 'none' }}>
-                  <Navbar.Text onClick={() => setExpanded(false)}>Login es de USER</Navbar.Text>
-                </Link>
-              </Nav>
-              <Nav className="me-auto nav-link">
-                <Link to='/profile/signup' className='nav-link' style={{ textDecoration: 'none' }}>
-                  <Navbar.Text onClick={() => setExpanded(false)}>Sign up</Navbar.Text>
-                </Link>
-              </Nav>
-              </>
+                </>
+                :
+                <>
+                  <Nav className="me-auto nav-link">
+                    <Link to='/profile/login' className='nav-link' style={{ textDecoration: 'none' }}>
+                      <Navbar.Text onClick={() => setExpanded(false)}>Login es de USER</Navbar.Text>
+                    </Link>
+                  </Nav>
+                  <Nav className="me-auto nav-link">
+                    <Link to='/profile/signup' className='nav-link' style={{ textDecoration: 'none' }}>
+                      <Navbar.Text onClick={() => setExpanded(false)}>Sign up</Navbar.Text>
+                    </Link>
+                  </Nav>
+                </>
             }
 
           </Navbar.Collapse>

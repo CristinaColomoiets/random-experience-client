@@ -31,7 +31,7 @@ const PackageList = () => {
 
         <Row>
             {packages.map(eachPackage => (
-                <Col key={eachPackage._id} className="mt-5">
+                <Col key={eachPackage._id} xs={12} md={6} lg={4} className="mt-5">
                     <div className={loggedUser ? "" : "text-muted"}>
                         <PackageCard {...eachPackage} isLoggedIn={!!loggedUser} />
                     </div>

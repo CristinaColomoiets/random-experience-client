@@ -1,0 +1,8 @@
+.PackageDetailsPage {
+    padding: 20px 0;
+}
+
+.package-image {
+    max-width: 100%;
+    height: auto;
+}

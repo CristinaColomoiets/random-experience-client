@@ -28,22 +28,22 @@ const AppRoutes = () => {
             <Route path="*" element={<ErrorPage />} />
 
 
-            <Route element={<PrivateRoutes onlyAdmin={true}/>} >
+            <Route element={<PrivateRoutes onlyAdmin={true} />} >
 
-                <Route path="/profile/:userId" element={<UserProfilePage />} />
                 <Route path="/package/add" element={<AddPackagePage />} />
-                <Route path="/package/edit/:packageId" element={<EditPackagePage />} />
                 <Route path='/experiences/all' element={<ExperienceList />} />
                 <Route path='/experiences/add' element={<AddExperiencePage />} />
                 <Route path='/experiences/edit/:experienceId' element={<EditExperiencePage />} />
 
+
             </Route>
 
-            <Route element={<PrivateRoutes onlyAdmin={false}/>} >
+            <Route element={<PrivateRoutes onlyAdmin={false} />} >
 
                 <Route path="/profile/:userId" element={<UserProfilePage />} />
                 <Route path="/package/:packageId" element={<PackageDetailsPage />} />
                 <Route path="/purchase/:purchaseId" element={<PurchasePage />} />
+                <Route path="/package/edit/:packageId" element={<EditPackagePage />} />
                 <Route path="/stripe" element={<StripePage />} />
 
             </Route>
