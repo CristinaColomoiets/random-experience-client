@@ -29,7 +29,7 @@ const PackageCard = ({ _id: packageId, image, title, price, isLoggedIn }) => {
                                 <Link to={`/package/edit/${packageId}`}>
 
                                     <Button className='w-100' variant="success">
-                                        Edit Package
+                                        {price}
                                     </Button>
 
                                 </Link>

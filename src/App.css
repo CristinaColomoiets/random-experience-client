@@ -19,6 +19,7 @@ img {
 }
 
 /* BUTTONS */
+
 .btn-gradient {
   font-family: var(--font-primary) !important;
   background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)) !important;
@@ -95,7 +96,8 @@ img {
   transform: translateY(-1px) !important;
 }
 
-/* HEADINGS */
+/* H1 */
+
 .h1-gradient {
   font-family: var(--font-primary) !important;
   font-weight: 700 !important;
@@ -113,6 +115,7 @@ img {
 }
 
 /* NAV LINKS */
+
 .nav-link {
   font-size: 1.2rem !important;
   margin-right: 1.5rem !important;
