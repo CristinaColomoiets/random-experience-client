@@ -2,13 +2,19 @@ import { useContext, useState } from "react";
 import { Col, InputGroup, Row, Form, Button } from "react-bootstrap";
 import { BalanceContext } from "./../../contexts/balance.context";
 
-const Stripe = () => {
-    const { balance, addFunds } = useContext(BalanceContext);
+const Stripe = ({ setShowFundsModal }) => {
 
-    const [inputData, setInputData] = useState(null);
+    const { addFunds } = useContext(BalanceContext);
+
+    const [inputData, setInputData] = useState([]);
 
     const handleChange = e => {
         setInputData(Number(e.target.value));
+    };
+
+    const handleButtonClick = () => {
+        addFunds(inputData);
+        setShowFundsModal(false);
     };
 
     return (
@@ -23,12 +29,15 @@ const Stripe = () => {
                         aria-label="Amount"
                         aria-describedby="basic-addon2"
                     />
-                    <Button variant="outline-secondary" id="button-addon2" onClick={() => addFunds(inputData)}>
-                        Add founds
-                    </Button>
+
                 </InputGroup>
-                <p>Current Balance: {balance}</p>
+
             </Col>
+
+            <Button variant="outline-secondary" className="pd-2" onClick={handleButtonClick}>
+                Add founds
+            </Button>
+
         </Row>
     );
 };
