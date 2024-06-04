@@ -27,6 +27,11 @@ const Navigation = () => {
     handleShowLogin()
   }
 
+  const handleBtnClickLogout = ()=>{
+    handleCloseLogin()
+    logout()
+  }
+
 
 
 
@@ -46,15 +51,20 @@ const Navigation = () => {
           </Link>
 
           <Nav className="userNav" onClick={() => setExpanded(false)}>
-            <Link to={loggedUser ? `/profile/${loggedUser._id}` : '/profile/login'} className='nav-link' style={{ textDecoration: 'none' }}>
-              <Image
-                alt=''
-                src={loggedUser ? loggedUser.image : imageIconProfile}
-                height={30}
-                className="d-inline-block align-top"
-                roundedCircle
-              />
-            </Link>
+              <Link to={
+                loggedUser ?
+                `/profile/${loggedUser?._id}`
+                : 
+                '/'}>
+                <Image
+                  alt=''
+                  src={loggedUser ? loggedUser.image : imageIconProfile}
+                  height={30}
+                  className="d-inline-block align-top"
+                  roundedCircle
+                  onClick={(e) => !loggedUser && handleShowLogin()}
+                />
+              </Link>
           </Nav>
 
 
@@ -107,7 +117,7 @@ const Navigation = () => {
             }
 
             {
-             loggedUser?.role === 'ADMIN' &&
+              loggedUser?.role === 'ADMIN' &&
               <>
                 <Nav className="me-auto nav-link">
                   <Link to='/package/add' className='nav-link' style={{ textDecoration: 'none' }}>
@@ -128,7 +138,7 @@ const Navigation = () => {
                 </Nav>
 
                 <Nav className="me-auto nav-link" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
-                  <Navbar.Text onClick={logout}>Logout</Navbar.Text>
+                  <Navbar.Text onClick={handleBtnClickLogout}>Logout</Navbar.Text>
                 </Nav>
               </>
             }
@@ -143,7 +153,7 @@ const Navigation = () => {
                 </Nav>
 
                 <Nav className="me-auto nav-link" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
-                  <Navbar.Text onClick={logout}>Logout</Navbar.Text>
+                  <Navbar.Text onClick={handleBtnClickLogout}>Logout</Navbar.Text>
                 </Nav>
               </>
             }

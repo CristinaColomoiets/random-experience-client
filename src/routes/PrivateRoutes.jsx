@@ -12,7 +12,7 @@ const PrivateRoutes = ({onlyAdmin}) => {
     }
     
     if (!loggedUser) {
-        return <Navigate to="/profile/signup" />
+        return <Navigate to="/" />
     }
 
     if(loggedUser.role != 'ADMIN' && onlyAdmin === true){

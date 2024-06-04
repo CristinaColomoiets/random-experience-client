@@ -30,7 +30,6 @@ const AppRoutes = () => {
 
             <Route element={<PrivateRoutes onlyAdmin={true}/>} >
 
-                <Route path="/profile/:userId" element={<UserProfilePage />} />
                 <Route path="/package/add" element={<AddPackagePage />} />
                 <Route path="/package/edit/:packageId" element={<EditPackagePage />} />
                 <Route path='/experiences/all' element={<ExperienceList />} />
