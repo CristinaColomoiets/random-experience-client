@@ -6,6 +6,7 @@ import { AuthContext } from '../../contexts/auth.context'
 import './Navigation.css'
 import { toast } from 'sonner'
 import Stripe from '../Stripe/Stripe'
+import LoginForm from '../LoginForm/LoginForm'
 
 const Navigation = () => {
 
@@ -17,10 +18,23 @@ const Navigation = () => {
   const handleShow = () => setShowFundsModal(true)
 
 
+  const [showLoginModal, setShowLoginModal] = useState(false) 
+  const handleCloseLogin = () => setShowLoginModal(false)
+  const handleShowLogin = () => setShowLoginModal(true)
+
+  const handleBtnClickLogin = () => {
+    setExpanded(false)
+    handleShowLogin()
+  }
+
+
+
+
   return (
     <div className="Navigation mb-5 pb-2">
       <Navbar expand='' expanded={expanded} className="bg-body-tertiary fixed-top">
         <Container>
+
           <Link to='/'>
             <Navbar.Brand onClick={() => setExpanded(false)}>
               <img
@@ -31,11 +45,22 @@ const Navigation = () => {
             </Navbar.Brand>
           </Link>
 
-          {loggedUser && (
+          <Nav className="userNav" onClick={() => setExpanded(false)}>
+            <Link to={loggedUser ? `/profile/${loggedUser._id}` : '/profile/login'} className='nav-link' style={{ textDecoration: 'none' }}>
+              <img
+                alt=''
+                src={loggedUser ? loggedUser.image : imageIconProfile}
+                height={30}
+                className="d-inline-block align-top"
+              />
+            </Link>
+          </Nav>
+
+
+          { 
+            loggedUser && (
             <>
-              <Button variant="primary" onClick={handleShow}>
-                💲
-              </Button>
+              <Button variant="primary" onClick={handleShow}>💲</Button>
 
               <Modal show={showFundsModal} onHide={handleClose} animation={true}>
                 <Modal.Header closeButton>
@@ -49,24 +74,39 @@ const Navigation = () => {
                 </Modal.Body>
               </Modal>
             </>
-          )}
-
-          <Nav className="userNav" onClick={() => setExpanded(false)}>
-            <Link to={loggedUser ? `/profile/${loggedUser._id}` : '/profile/login'} className='nav-link' style={{ textDecoration: 'none' }}>
-              <img
-                alt=''
-                src={loggedUser ? loggedUser.image : imageIconProfile}
-                height={30}
-                className="d-inline-block align-top"
-              />
-            </Link>
-          </Nav>
-
+            )
+          }
           <Navbar.Toggle onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" style={{ border: 'none ' }} />
 
           <Navbar.Collapse id="basic-navbar-nav">
+            {
+              !loggedUser && (
+                <>
+                  <Nav className="me-auto nav-link">
+                    <Link to='/profile/signup' className='nav-link' style={{ textDecoration: 'none' }}>
+                      <Navbar.Text onClick={() => setExpanded(false)}>Sign up</Navbar.Text>
+                    </Link>
+                  </Nav>
 
-            {loggedUser?.role === 'ADMIN' ? 
+                  <Nav className="me-auto nav-link">
+                      <Navbar.Text onClick={handleBtnClickLogin} style={{cursor:"pointer"}}>Login</Navbar.Text>
+                  </Nav>
+
+                  <Modal show={showLoginModal} onHide={handleCloseLogin} animation={true}> 
+                    <Modal.Header closeButton>
+                      <Modal.Title>Login</Modal.Title>
+                    </Modal.Header>
+
+                    <Modal.Body>
+                      <LoginForm setShowLoginModal={setShowLoginModal} />
+                    </Modal.Body>
+                  </Modal>
+                </>
+              )
+            }
+
+            {
+             loggedUser?.role === 'ADMIN' &&
               <>
                 <Nav className="me-auto nav-link">
                   <Link to='/package/add' className='nav-link' style={{ textDecoration: 'none' }}>
@@ -89,53 +129,26 @@ const Navigation = () => {
                 <Nav className="me-auto nav-link" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
                   <Navbar.Text onClick={logout}>Logout</Navbar.Text>
                 </Nav>
-
-              </>
-             : 
-              <>
-                {/* <Nav className="me-auto nav-link">
-                  <Link to='/profile/login' className='nav-link' style={{ textDecoration: 'none' }}>
-                    <Navbar.Text onClick={() => setExpanded(false)}>Login es de ADMIN</Navbar.Text>
-                  </Link>
-                </Nav>
-                <Nav className="me-auto nav-link">
-                  <Link to='/profile/signup' className='nav-link' style={{ textDecoration: 'none' }}>
-                    <Navbar.Text onClick={() => setExpanded(false)}>Sign up</Navbar.Text>
-                  </Link>
-                </Nav> */}
               </>
             }
 
             {
-              loggedUser?.role === 'USER' ?
+              loggedUser?.role === 'USER' &&
               <>
                 <Nav className="me-auto nav-link">
-                  <Link to='/stripe' className='nav-link' style={{ textDecoration: 'none' }}>
-                    <Navbar.Text onClick={() => setExpanded(false)}>Stripe</Navbar.Text>
+                  <Link to='/' className='nav-link' style={{ textDecoration: 'none' }}>
+                    <Navbar.Text onClick={() => setExpanded(false)}>All Packages</Navbar.Text>
                   </Link>
                 </Nav>
 
                 <Nav className="me-auto nav-link" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
                   <Navbar.Text onClick={logout}>Logout</Navbar.Text>
                 </Nav>
-
-              </>
-              :
-              <>
-              <Nav className="me-auto nav-link">
-                <Link to='/profile/login' className='nav-link' style={{ textDecoration: 'none' }}>
-                  <Navbar.Text onClick={() => setExpanded(false)}>Login es de USER</Navbar.Text>
-                </Link>
-              </Nav>
-              <Nav className="me-auto nav-link">
-                <Link to='/profile/signup' className='nav-link' style={{ textDecoration: 'none' }}>
-                  <Navbar.Text onClick={() => setExpanded(false)}>Sign up</Navbar.Text>
-                </Link>
-              </Nav>
               </>
             }
 
           </Navbar.Collapse>
+          
         </Container>
       </Navbar>
     </div>
