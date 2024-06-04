@@ -5,6 +5,7 @@ import { Container, Navbar, Nav, Image } from 'react-bootstrap'
 import { AuthContext } from '../../contexts/auth.context'
 import './Navigation.css'
 import { toast } from 'sonner'
+import Stripe from '../Stripe/Stripe'
 
 const Navigation = () => {
   const { loggedUser, logout } = useContext(AuthContext)
@@ -23,6 +24,16 @@ const Navigation = () => {
               />
             </Navbar.Brand>
           </Link>
+          <Nav className="userNav" onClick={() => setExpanded(false)}>
+            <Link to={loggedUser && `/profile/${loggedUser._id}`} className='nav-link' style={{ textDecoration: 'none' }}>
+              <img
+                alt=''
+                src={loggedUser ? loggedUser.image : imageIconProfile}
+                height={30}
+                className="d-inline-block align-top"
+              />
+            </Link>
+          </Nav>
           <Navbar.Toggle onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" style={{ border: 'none ' }} />
           <Navbar.Collapse id="basic-navbar-nav">
             {loggedUser ? (
@@ -42,18 +53,16 @@ const Navigation = () => {
                     <Navbar.Text onClick={() => setExpanded(false)}>See all experiences</Navbar.Text>
                   </Link>
                 </Nav>
+
+
+                <Nav className="me-auto nav-link">
+                  <Link to='/stripe' className='nav-link' style={{ textDecoration: 'none' }}>
+                    <Navbar.Text onClick={() => setExpanded(false)}>Stripe</Navbar.Text>
+                  </Link>
+                </Nav>
+
                 <Nav className="me-auto nav-link" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
                   <Navbar.Text onClick={logout}>Logout</Navbar.Text>
-                </Nav>
-                <Nav className="userNav" onClick={() => setExpanded(false)}>
-                  <Link to={loggedUser && `/profile/${loggedUser._id}`} className='nav-link' style={{ textDecoration: 'none' }}>
-                    <img
-                      alt=''
-                      src={loggedUser ? loggedUser.image : imageIconProfile}
-                      height={30}
-                      className="d-inline-block align-top"
-                    />
-                  </Link>
                 </Nav>
               </>
             ) : (

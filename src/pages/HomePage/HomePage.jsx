@@ -9,9 +9,10 @@ const HomePage = () => {
                 <source src="http://togarestaurante.com/wp-content/uploads/2021/08/toga_hero_web_video_1920_1080_.mp4" type="video/mp4" />
             </video>
             <Container>
-                <PackageList />
                 <InfoBoxHDW />
+                <PackageList />
             </Container>
+
         </>
 
     )

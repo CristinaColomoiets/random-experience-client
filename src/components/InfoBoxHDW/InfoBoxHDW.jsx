@@ -15,21 +15,21 @@ const InfoBoxHDW = ()=>{
             <Row>
                 <Col  md={{offset: 1, span: 3}}>
                     <div className="box-info">
-                        <img src={icon1} alt="icon" style={{width: '4rem'}}/>
+                        <img src={icon1} alt="icon" className="icons"/>
                         <h5 className="sub-title">step 1</h5>
                         <p>We offer you to know our promotions within Standard, Premium and Delux Packages that have different experiences.</p>
                     </div>
                 </Col>
                 <Col  md={{offset: 1,span: 3}}>
                     <div className="box-info">
-                        <img src={icon2} alt="icon" style={{width: '4rem'}}/>
+                        <img src={icon2} alt="icon" className="icons"/>
                         <h5 className="sub-title">step 2</h5>
                         <p>Choose and buy the Package that you liked the most and that seemed to correspond to your tastes and expectations</p>
                     </div>
                 </Col>
                 <Col  md={{offset: 1, span: 3}}>
                     <div className="box-info">
-                        <img src={icon3} alt="icon" style={{width: '4rem'}}/>
+                        <img src={icon3} alt="icon"className="icons"/>
                         <h5 className="sub-title">step 3</h5>
                         <p>Once you have purchased the Package you can play your lottery and luck! Click to get your unforgettable experienceand enjoy it!</p>
                     </div>
