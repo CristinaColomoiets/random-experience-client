@@ -15,13 +15,7 @@ const UserProfilePage = () => {
 
     const [userData, setUserData] = useState({})
     const [purchaseData, setPurchaseData] = useState([])
-    const { purchaseId } = useParams()
     const { userId } = useParams()
-    const navigate = useNavigate()
-
-
-
-
 
     useEffect(() => {
         loadOneUser()
@@ -29,7 +23,7 @@ const UserProfilePage = () => {
         getBalance()
     }, [])
 
-    const loadOneUser = () => {
+    const loadOneUser = () => {             
         userServices
             .getLoggedUser(userId)
             .then(({ data }) => setUserData(data))
@@ -37,7 +31,6 @@ const UserProfilePage = () => {
     }
 
     const renderPurchases = () => {
-
         purchaseServices
             .getAllPurchasesByUser()
             .then(({ data }) => setPurchaseData(data))
@@ -65,12 +58,14 @@ const UserProfilePage = () => {
                 </Row>
 
                 <Row>
-                    {purchaseData.map(purchase => (
+                    {
+                        purchaseData.map(purchase => (
 
-                        <Col key={purchase._id} md={4}>
-                            <PurchaseCard purchase={purchase} />
-                        </Col>
-                    ))}
+                            <Col key={purchase._id} md={4}>
+                                <PurchaseCard purchase={purchase} />
+                            </Col>
+                        ))
+                    }
                 </Row>
             </Container>
         </div>

@@ -24,6 +24,16 @@ const Navigation = () => {
               />
             </Navbar.Brand>
           </Link>
+          <Nav className="userNav" onClick={() => setExpanded(false)}>
+            <Link to={loggedUser && `/profile/${loggedUser._id}`} className='nav-link' style={{ textDecoration: 'none' }}>
+              <img
+                alt=''
+                src={loggedUser ? loggedUser.image : imageIconProfile}
+                height={30}
+                className="d-inline-block align-top"
+              />
+            </Link>
+          </Nav>
           <Navbar.Toggle onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" style={{ border: 'none ' }} />
           <Navbar.Collapse id="basic-navbar-nav">
             {loggedUser ? (
@@ -53,16 +63,6 @@ const Navigation = () => {
 
                 <Nav className="me-auto nav-link" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
                   <Navbar.Text onClick={logout}>Logout</Navbar.Text>
-                </Nav>
-                <Nav className="userNav" onClick={() => setExpanded(false)}>
-                  <Link to={loggedUser && `/profile/${loggedUser._id}`} className='nav-link' style={{ textDecoration: 'none' }}>
-                    <img
-                      alt=''
-                      src={loggedUser ? loggedUser.image : imageIconProfile}
-                      height={30}
-                      className="d-inline-block align-top"
-                    />
-                  </Link>
                 </Nav>
               </>
             ) : (

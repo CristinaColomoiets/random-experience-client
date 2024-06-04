@@ -24,7 +24,7 @@ const Stripe = () => {
                         aria-describedby="basic-addon2"
                     />
                     <Button variant="outline-secondary" id="button-addon2" onClick={() => addFunds(inputData)}>
-                        Add Tokens
+                        Add founds
                     </Button>
                 </InputGroup>
                 <p>Current Balance: {balance}</p>
