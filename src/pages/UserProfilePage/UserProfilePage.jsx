@@ -4,9 +4,14 @@ import { useState, useEffect, useContext } from "react"
 import { Container, Row, Col, Button, InputGroup, Form } from "react-bootstrap"
 import PurchaseCard from "../../components/PurchaseCard/PurchaseCard"
 import purchaseServices from "../../services/purchase.services"
+import { BalanceContext } from "../../contexts/balance.context"
+
 
 
 const UserProfilePage = () => {
+
+    const { balance, getBalance } = useContext(BalanceContext);
+
 
     const [userData, setUserData] = useState({})
     const [purchaseData, setPurchaseData] = useState([])
@@ -21,11 +26,12 @@ const UserProfilePage = () => {
     useEffect(() => {
         loadOneUser()
         renderPurchases()
+        getBalance()
     }, [])
 
     const loadOneUser = () => {
         userServices
-            .getOneUser(userId)
+            .getLoggedUser(userId)
             .then(({ data }) => setUserData(data))
             .catch(err => console.log(err))
     }
@@ -50,7 +56,7 @@ const UserProfilePage = () => {
                     </Col>
                     <Col md={{ span: 6 }}>
                         <h3>Name: {userData.username}</h3>
-                        <h4>Your balance: {userData.balance} tokens</h4>
+                        <h4>Your balance: {balance} tokens</h4>
                     </Col>
                 </Row>
 

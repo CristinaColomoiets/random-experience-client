@@ -4,6 +4,13 @@ import userServices from "../services/user.services";
 const BalanceContext = createContext();
 
 function BalanceProviderWrapper(props) {
+
+    const getBalance = ()=>{
+        userServices
+            .getBalance()
+            .then(({data}) => setBalance(data.balance))
+    }
+
     const [balance, setBalance] = useState(0);
 
     const addFunds = amount => {
@@ -15,13 +22,13 @@ function BalanceProviderWrapper(props) {
 
     const spendFunds = amount => {
         userServices
-            .spendBalance({ amount })
+            .editBalance({ amount })
             .then(({ data }) => setBalance(data.balance))
             .catch(err => console.log(err));
     };
 
     return (
-        <BalanceContext.Provider value={{ balance, addFunds, spendFunds }}>
+        <BalanceContext.Provider value={{ balance, addFunds, spendFunds, getBalance }}>
             {props.children}
         </BalanceContext.Provider>
     );
