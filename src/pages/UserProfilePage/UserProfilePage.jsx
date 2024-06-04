@@ -10,28 +10,21 @@ const UserProfilePage = () => {
 
     const [userData, setUserData] = useState({})
     const [purchaseData, setPurchaseData] = useState([])
-    const { purchaseId } = useParams()
     const { userId } = useParams()
-    const navigate = useNavigate()
-
-
-
-
 
     useEffect(() => {
         loadOneUser()
         renderPurchases()
     }, [])
 
-    const loadOneUser = () => {
+    const loadOneUser = () => {             // TODO la ruta de API no existe
         userServices
-            .getOneUser(userId)
+            .getLoggedUser()
             .then(({ data }) => setUserData(data))
             .catch(err => console.log(err))
     }
 
     const renderPurchases = () => {
-
         purchaseServices
             .getAllPurchasesByUser()
             .then(({ data }) => setPurchaseData(data))
@@ -59,12 +52,14 @@ const UserProfilePage = () => {
                 </Row>
 
                 <Row>
-                    {purchaseData.map(purchase => (
+                    {
+                        purchaseData.map(purchase => (
 
-                        <Col key={purchase._id} md={4}>
-                            <PurchaseCard purchase={purchase} />
-                        </Col>
-                    ))}
+                            <Col key={purchase._id} md={4}>
+                                <PurchaseCard purchase={purchase} />
+                            </Col>
+                        ))
+                    }
                 </Row>
             </Container>
         </div>

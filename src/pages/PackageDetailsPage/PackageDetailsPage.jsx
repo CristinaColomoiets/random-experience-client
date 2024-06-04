@@ -3,42 +3,25 @@ import { useNavigate, useParams } from "react-router-dom"
 import purchaseServices from "../../services/purchase.services"
 import { AuthContext } from "../../contexts/auth.context"
 import { useContext, useEffect, useState } from "react"
-import { BalanceContext } from "../../contexts/balance.context"
+// import { BalanceContext } from "../../contexts/balance.context"
 
 const PackageDetailsPage = () => {
 
-    const { balance, spendFunds } = useContext(BalanceContext);
-
-    const [packages, setPackages] = useState({})
+    // const { balance, spendFunds } = useContext(BalanceContext);
 
     const { packageId } = useParams()
     const navigate = useNavigate()
     const { loggedUser } = useContext(AuthContext)
 
-    // useEffect(() => {
-    //     loadOnePurchase()
-    // }, [])
 
     const handlePurchase = () => {
 
         purchaseServices
             .postPurchase({ package: packageId })
-            .then(({ data }) => {
-                setPackages(data)
-                navigate(`/profile/${loggedUser._id}`)
-            })
+            .then(() => navigate(`/profile/${loggedUser._id}`))
             .catch(err => console.log(err))
     }
 
-    // const loadOnePurchase = () => {
-
-    //     purchaseServices
-    //         .getOnePurchase(packageId)
-    //         .then(({ data }) => {
-    //             setPackages(data)
-    //         })
-    //         .catch(err => console.log(err))
-    // }
 
     return (
 
@@ -51,8 +34,6 @@ const PackageDetailsPage = () => {
                 </Button>
 
                 <p>hola</p>
-
-
 
             </Container>
 

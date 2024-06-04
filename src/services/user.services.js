@@ -14,12 +14,13 @@ class UserServices {
                 config.headers = { Authorization: `Bearer ${storedToken}` };
             }
 
+
             return config
         })
     }
 
-    getOneUser(id_param) {
-        return this.axiosApp.get(`/${id_param}`)
+    getLoggedUser() {
+        return this.axiosApp.get(`/user`)
     }
 
     editUser(id_param, userData_param) {
