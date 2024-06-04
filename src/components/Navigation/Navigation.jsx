@@ -1,15 +1,21 @@
 import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import imageIconProfile from './../../assets/Avatar-Profile.png'
-import { Container, Navbar, Nav, Image } from 'react-bootstrap'
+import { Container, Navbar, Nav, Image, Button, Modal } from 'react-bootstrap'
 import { AuthContext } from '../../contexts/auth.context'
 import './Navigation.css'
 import { toast } from 'sonner'
 import Stripe from '../Stripe/Stripe'
 
 const Navigation = () => {
+
   const { loggedUser, logout } = useContext(AuthContext)
   const [expanded, setExpanded] = useState(false)
+
+  const [showFundsModal, setShowFundsModal] = useState(false)
+  const handleClose = () => setShowFundsModal(false)
+  const handleShow = () => setShowFundsModal(true)
+
 
   return (
     <div className="Navigation mb-5 pb-2">
@@ -25,8 +31,28 @@ const Navigation = () => {
             </Navbar.Brand>
           </Link>
 
+          {loggedUser && (
+            <>
+              <Button variant="primary" onClick={handleShow}>
+                💲
+              </Button>
+
+              <Modal show={showFundsModal} onHide={handleClose} animation={true}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Add Money</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                  <p>Hi, {loggedUser.username}</p>
+                  <p>How much money do you need to include in your account?</p>
+                  <Stripe setShowFundsModal={setShowFundsModal} />
+                </Modal.Body>
+              </Modal>
+            </>
+          )}
+
           <Nav className="userNav" onClick={() => setExpanded(false)}>
-            <Link to={loggedUser && `/profile/${loggedUser._id}`} className='nav-link' style={{ textDecoration: 'none' }}>
+            <Link to={loggedUser ? `/profile/${loggedUser._id}` : '/profile/login'} className='nav-link' style={{ textDecoration: 'none' }}>
               <img
                 alt=''
                 src={loggedUser ? loggedUser.image : imageIconProfile}
@@ -35,6 +61,7 @@ const Navigation = () => {
               />
             </Link>
           </Nav>
+
           <Navbar.Toggle onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" style={{ border: 'none ' }} />
 
           <Navbar.Collapse id="basic-navbar-nav">

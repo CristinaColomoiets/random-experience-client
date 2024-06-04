@@ -5,10 +5,10 @@ const BalanceContext = createContext();
 
 function BalanceProviderWrapper(props) {
 
-    const getBalance = ()=>{
+    const getBalance = () => {
         userServices
             .getBalance()
-            .then(({data}) => setBalance(data.balance))
+            .then(({ data }) => setBalance(data.balance))
     }
 
     const [balance, setBalance] = useState(0);

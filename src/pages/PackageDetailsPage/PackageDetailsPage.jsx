@@ -31,7 +31,7 @@ const PackageDetailsPage = () => {
             })
             .catch(err => console.log(err))
     }
-        
+
 
 
 
