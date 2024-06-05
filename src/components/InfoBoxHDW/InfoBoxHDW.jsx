@@ -1,8 +1,8 @@
-import {Row, Col, Container} from "react-bootstrap"
+import { Row, Col, Container } from "react-bootstrap"
 import './InfoBoxHDW.css'
 
 
-const InfoBoxHDW = ()=>{
+const InfoBoxHDW = () => {
 
     const icon1 = 'https://res.cloudinary.com/drpdy7tju/image/upload/v1717350207/select_vhhqjf.png'
     const icon2 = 'https://res.cloudinary.com/drpdy7tju/image/upload/v1717350207/calendar_mrnd4b.png'

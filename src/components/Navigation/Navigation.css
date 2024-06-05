@@ -1,0 +1,58 @@
+/* Estilos para Navigation */
+.Navigation {
+    margin-bottom: 5rem;
+    padding-bottom: 2rem;
+}
+
+.logo {
+    width: 7rem;
+    height: auto;
+    padding-left: 1rem;
+}
+
+.navbar-left {
+    flex-grow: 1;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.userNav {
+    display: flex;
+    align-items: center;
+}
+
+.icon-button,
+.d-inline-block {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.icon-button:hover,
+.d-inline-block:hover {
+    color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .navbar-left {
+        flex-grow: 1;
+    }
+
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .userNav {
+        display: flex;
+        align-items: center;
+    }
+}

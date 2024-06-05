@@ -8,10 +8,10 @@ const PurchaseCard = ({ purchase }) => {
 
             <Card>
                 <Card.Body>
-                    <Card.Title>Te vas de Viaje a: {purchase.experience.country}</Card.Title>
-                    <Card.Text>En el Hotel: {purchase.experience.hotel}</Card.Text>
+                    <Card.Title>You are going to visit: {purchase.experience.country}</Card.Title>
+                    <Card.Text>You are going to stay in: {purchase.experience.hotel}</Card.Text>
                     <Card.Text>
-                        Podrás visitar de forma gratuita los siguientes lugares:
+                        You will see places like:
                         <ul>
                             {purchase.experience.places.map((eachPlace, index) => (
                                 <li key={index}>{eachPlace}</li>

@@ -7,12 +7,12 @@ import PackageDetailsPage from "../pages/PackageDetailsPage/PackageDetailsPage";
 import AddPackagePage from "../pages/AddPackagePage/AddPackagePage";
 import EditPackagePage from "../pages/EditPackagePage/EditPackagePage";
 import AddExperiencePage from "../pages/AddExperiencePage/AddExperiencePage";
-import ExperienceList from "../components/ExperienceList/ExperienceList";
 import EditExperiencePage from '../pages/EditExperiencePage/EditExperiencePage'
 import SignupFormPage from '../pages/SignupFormPage/SignupFormPage'
 import PurchasePage from "../pages/PurchasePage/PurchasePage";
 import StripePage from "../pages/StripePage/StripePage";
 import PrivateRoutes from "./PrivateRoutes";
+import AllExperiencePage from "../pages/AllExperiencePage/AllExperiencePage"
 
 const AppRoutes = () => {
 
@@ -29,7 +29,7 @@ const AppRoutes = () => {
             <Route element={<PrivateRoutes onlyAdmin={true} />} >
 
                 <Route path="/package/add" element={<AddPackagePage />} />
-                <Route path='/experiences/all' element={<ExperienceList />} />
+                <Route path='/experiences/all' element={<AllExperiencePage />} />
                 <Route path='/experiences/add' element={<AddExperiencePage />} />
                 <Route path='/experiences/edit/:experienceId' element={<EditExperiencePage />} />
 

@@ -1,40 +1,44 @@
-.InfoBoxHDW{
+.InfoBoxHDW {
     margin: 3rem 0;
     padding: 4rem 2rem;
     border-radius: 50%;
+    text-align: center;
 }
 
 .title{
     display: block;
     margin: 5rem auto;
     text-align: center;
-    /* color: var(--primary-color); */
 }
 
-.ttl-brand{
+.ttl-brand {
     color: var(--accent-color);
 }
 
-.box-info{
+.box-info {
     text-align: center;
     color: var(--neutral-color);
     padding: 0 2rem;
 
 }
 
-.sub-title{
+.sub-title {
     margin: 1rem 0;
     color: var(--txt-color);
     text-transform: uppercase;
 }
 
-p{
+p {
     color: var(--txt-color);
     margin-bottom: 0rem;
 }
 
-.icons{
+.icons {
     width: 3rem !important;
+<<<<<<< HEAD
 }
 
 
+=======
+}
+>>>>>>> 89a045d30b9fdd80990fa550705b73fe54b7ec80

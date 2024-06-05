@@ -111,7 +111,7 @@ const AddExpForm = () => {
                             <Form.Control
                                 type="number"
                                 name="latitude"
-                                placeholder="Waiting for an address to display the latitude"
+                                placeholder="Waiting for an address to display the latitude..."
                                 value={newExp.location.coordinates[1]}
                                 readOnly
                             />
@@ -122,7 +122,7 @@ const AddExpForm = () => {
                             <Form.Control
                                 type="number"
                                 name="longitude"
-                                placeholder="Waiting for an address to display the latitude"
+                                placeholder="Waiting for an address to display the latitude..."
                                 value={newExp.location.coordinates[0]}
                                 readOnly
                             />
@@ -135,8 +135,8 @@ const AddExpForm = () => {
                 )}
 
                 <Form.Group className="mb-3" controlId="package">
-                    <Form.Label>PackageID</Form.Label>
                     <Form.Control
+                        placeholder="PackageID"
                         type="text"
                         name="package"
                         value={newExp.package}
@@ -146,8 +146,8 @@ const AddExpForm = () => {
                 <Row>
                     <Col>
                         <Form.Group className="mb-3" controlId="country">
-                            <Form.Label>Country</Form.Label>
                             <Form.Control
+                                placeholder="Country"
                                 type="text"
                                 name="country"
                                 value={newExp.country}
@@ -157,8 +157,8 @@ const AddExpForm = () => {
                     </Col>
                     <Col>
                         <Form.Group className="mb-3" controlId="hotel">
-                            <Form.Label>Hotel name</Form.Label>
                             <Form.Control
+                                placeholder="Hotel name"
                                 type="text"
                                 name='hotel'
                                 value={newExp.hotel}
@@ -168,8 +168,8 @@ const AddExpForm = () => {
                     </Col>
                 </Row>
                 <Form.Group className="mb-3" controlId="places">
-                    <Form.Label>Places to see</Form.Label>
                     <Form.Control
+                        placeholder="Places to see"
                         type="text"
                         name="places"
                         value={newExp.places}
@@ -179,8 +179,8 @@ const AddExpForm = () => {
                 <Row>
                     <Col>
                         <Form.Group className="mb-3" controlId="imageUrl">
-                            <Form.Label>Cover Image</Form.Label>
                             <Form.Control
+                                placeholder="Cover image"
                                 type="file"
                                 name="imageUrl"
                                 onChange={handleFileUpload}
@@ -189,18 +189,17 @@ const AddExpForm = () => {
                     </Col>
                     <Col>
                         <Form.Group className="mb-3" controlId="imageLinks">
-                            <Form.Label>Image URLS</Form.Label>
                             <Row>
                                 <Col>
                                     <Form.Control
                                         type="text"
-                                        placeholder="Enter image URL"
+                                        placeholder="Image URLS"
                                         value={imageLink}
                                         onChange={handleImageLinkChange}
                                     />
                                 </Col>
                                 <Col xs="auto">
-                                    <Button variant="secondary" onClick={handleAddImageLink} className="mt-2">Add Image Link</Button>
+                                    <Button variant="primary" onClick={handleAddImageLink} className="mt-2">Add Image Link</Button>
                                 </Col>
                             </Row>
                         </Form.Group>
@@ -215,15 +214,27 @@ const AddExpForm = () => {
                         </li>
                     ))}
                 </ul>
-                <Button type="submit" className="btn-primary w-100 mb-4">
-                    Submit
-                </Button>
-                <Button variant="secondary" type="button" className="w-100 mb-4" onClick={handleClear}>
-                    Clear
-                </Button>
-                <Link to='/'><Button variant="dark" type="button" className="btn-neutral w-100 mb-4" onClick={handleCancel}>
-                    Cancel
-                </Button></Link>
+                <Row>
+                    <Col>
+                        <Button type="submit" className="btn-primary w-100 mb-4">
+                            Submit
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button variant="secondary" type="button" className="w-100 mb-4" onClick={handleClear}>
+                            Clear
+                        </Button>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Link to='/'>
+                            <Button variant="dark" type="button" className="btn-neutral w-100 mb-4" onClick={handleCancel}>
+                                Cancel
+                            </Button>
+                        </Link>
+                    </Col>
+                </Row>
             </Form>
         </div>
     )

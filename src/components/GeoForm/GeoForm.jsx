@@ -42,3 +42,12 @@ function GeoForm({ onLocationSelect }) {
 }
 
 export default GeoForm
+
+
+
+
+
+
+
+
+
