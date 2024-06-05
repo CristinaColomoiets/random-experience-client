@@ -12,7 +12,7 @@ const InfoBoxIncluded = ()=>{
 
     return(
     <div className="InfoBoxIncluded">
-        <h1 className="title">What is included?</h1>
+        <h1 className="title h1-gradient" >What is included?</h1>
         <Container>
             <Row>
                 <Col>

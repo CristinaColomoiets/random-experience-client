@@ -8,7 +8,7 @@
     display: block;
     margin: 5rem auto;
     text-align: center;
-    color: var(--primary-color);
+    /* color: var(--primary-color); */
 }
 
 .ttl-brand{

@@ -1,0 +1,29 @@
+.title{
+    display: block;
+    margin: 5rem auto;
+    text-align: center;
+}
+
+.accordion-button{
+    color: var(--accent-color) !important;
+    font-size: 1.2rem !important;
+    font-weight: 600;
+    border: 1px solid var(--accent-color) !important;
+    border-radius: 1rem !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--neutral-color);
+    background-color: white !important;
+    box-shadow: inset 0 calc(-1* var(--accent-color)) 0 var(--accent-color) !important;
+}
+
+.accordion-button:focus {
+    box-shadow: var(--accent-color) !important;
+}
+
+.accordion{
+    --bs-accordion-border-color: white;
+}
+
+

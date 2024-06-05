@@ -9,7 +9,6 @@ import EditPackagePage from "../pages/EditPackagePage/EditPackagePage";
 import AddExperiencePage from "../pages/AddExperiencePage/AddExperiencePage";
 import ExperienceList from "../components/ExperienceList/ExperienceList";
 import EditExperiencePage from '../pages/EditExperiencePage/EditExperiencePage'
-import LoginFormPage from '../pages/LoginFormPage/LoginFormPage'
 import SignupFormPage from '../pages/SignupFormPage/SignupFormPage'
 import PurchasePage from "../pages/PurchasePage/PurchasePage";
 import StripePage from "../pages/StripePage/StripePage";
@@ -23,7 +22,6 @@ const AppRoutes = () => {
 
             <Route path="/" element={<HomePage />} />
             <Route path="/profile/signup" element={<SignupFormPage />} />
-            <Route path="/profile/login" element={<LoginFormPage />} />
             <Route path="/aboutUs" element={<AboutUs />} />
             <Route path="*" element={<ErrorPage />} />
 

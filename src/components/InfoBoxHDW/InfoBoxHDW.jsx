@@ -10,7 +10,7 @@ const InfoBoxHDW = ()=>{
 
     return(
     <div className="InfoBoxHDW">
-        <h1 className="title">How does <span className="ttl-brand">TripBliss</span> work?</h1>
+        <h1 className="title h1-gradient">How does <span className="ttl-brand">TripBliss</span> work?</h1>
         <Container>
             <Row>
                 <Col>
