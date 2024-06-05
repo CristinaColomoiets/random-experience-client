@@ -5,9 +5,9 @@ const AddExperiencePage = () => {
 
     return (
         <div className='AddExperienceForm'>
-            <h1>Add a new experience</h1>
-            <hr />
+
             <Container>
+                <h1 className='h1-gradient'>Add Experience</h1>
                 <AddExperienceForm />
             </Container>
         </div>

@@ -135,12 +135,25 @@ img {
   color: var(--primary-color) !important;
 }
 
+.h1-neutral {
+  font-family: var(--font-primary) !important;
+  font-weight: 700 !important;
+  font-size: 2.5rem !important;
+  color: var(--neutral-color) !important;
+}
+
 /* NAV LINKS */
 
 .nav-link {
   font-size: 1.2rem !important;
   margin-right: 1.5rem !important;
   font-family: var(--font-primary) !important;
+}
+
+/* NAV */
+.icon-user {
+  color: var(--primary-color) !important;
+  cursor: pointer;
 }
 
 /* CARDS */

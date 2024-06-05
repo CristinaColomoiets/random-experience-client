@@ -4,7 +4,7 @@ import { Toaster } from 'sonner'
 const Toast = () => {
     return (
         <Toaster
-            position="top-right"
+            position="bottom-right"
             expand={false}
             richColors
             offset={50}

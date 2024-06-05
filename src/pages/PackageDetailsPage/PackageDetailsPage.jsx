@@ -54,7 +54,7 @@ const PackageDetailsPage = () => {
                         <p>{packages.extendedDescription}</p>
 
                         <Button
-                            variant="primary"
+                            variant="gradient"
                             type="button"
                             className="w-100 mt-3"
                             onClick={handlePurchase}

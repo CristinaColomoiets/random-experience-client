@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { Form, Button } from "react-bootstrap"
+import { Form, Button, Row, Col } from "react-bootstrap"
 import packageServices from "../../services/packages.services"
 import uploadServices from "../../services/upload.services"
+import './../AddPackageForm/AddPackageForm.css'
 import { toast } from "sonner"
 
 const AddPackageForm = () => {
@@ -58,7 +59,6 @@ const AddPackageForm = () => {
     const handleCancel = () => {
         setNewPackage(initialState)
         toast.info('Fields have been cleared')
-
     }
 
     return (
@@ -66,10 +66,9 @@ const AddPackageForm = () => {
             <Form onSubmit={handleFormSubmit} className="mt-4">
 
                 <Form.Group className="mb-3" controlId="title">
-                    <Form.Label>Title</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Enter a title for your new package"
+                        placeholder="Title"
                         name="title"
                         value={newPackage.title}
                         onChange={handleInputChange}
@@ -77,10 +76,9 @@ const AddPackageForm = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="sortDescription">
-                    <Form.Label>Short Description</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Enter a short description for your new package"
+                        placeholder="Short description"
                         name="sortDescription"
                         value={newPackage.sortDescription}
                         onChange={handleInputChange}
@@ -88,10 +86,9 @@ const AddPackageForm = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="extendedDescription">
-                    <Form.Label>Extended Description</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Enter an extended description for your new package"
+                        placeholder="Extended description"
                         name="extendedDescription"
                         value={newPackage.extendedDescription}
                         onChange={handleInputChange}
@@ -99,7 +96,6 @@ const AddPackageForm = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="image">
-                    <Form.Label>Image</Form.Label>
                     <Form.Control
                         type="file"
                         placeholder="Upload an image for your new package"
@@ -118,38 +114,45 @@ const AddPackageForm = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="price">
-                    <Form.Label>Price</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Enter a price for your new package"
+                        placeholder="Price"
                         name="price"
                         value={newPackage.price}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
 
-                <Button variant="success" type="submit" className="w-100 mb-4">
-                    Submit
-                </Button>
-
-                <Button
-                    variant="secondary"
-                    type="button"
-                    className="w-100 mb-4"
-                    onClick={handleCancel}
-                >
-                    Clear
-                </Button>
-
-                <Link to='/'>
-                    <Button
-                        variant="dark"
-                        type="button"
-                        className="w-100"
-                    >
-                        Cancel
-                    </Button>
-                </Link>
+                <Row>
+                    <Col>
+                        <Button variant="primary" type="submit" className="w-100 mb-4">
+                            Submit
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button
+                            variant="secondary"
+                            type="button"
+                            className="w-100 mb-4"
+                            onClick={handleCancel}
+                        >
+                            Clear
+                        </Button>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Link to='/'>
+                            <Button
+                                variant="neutral"
+                                type="button"
+                                className="w-100 mb-4"
+                            >
+                                Cancel
+                            </Button>
+                        </Link>
+                    </Col>
+                </Row>
             </Form>
         </div>
     )
