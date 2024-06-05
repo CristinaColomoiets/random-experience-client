@@ -9,14 +9,12 @@ import Stripe from '../Stripe/Stripe'
 import LoginForm from '../LoginForm/LoginForm'
 
 const Navigation = () => {
+  const { loggedUser, logout } = useContext(AuthContext);
+  const [expanded, setExpanded] = useState(false);
 
-  const { loggedUser, logout } = useContext(AuthContext)
-  const [expanded, setExpanded] = useState(false)
-
-  const [showFundsModal, setShowFundsModal] = useState(false)
-  const handleClose = () => setShowFundsModal(false)
-  const handleShow = () => setShowFundsModal(true)
-
+  const [showFundsModal, setShowFundsModal] = useState(false);
+  const handleClose = () => setShowFundsModal(false);
+  const handleShow = () => setShowFundsModal(true);
 
   const [showLoginModal, setShowLoginModal] = useState(false) 
   const handleCloseLogin = () => setShowLoginModal(false)
@@ -125,11 +123,11 @@ const Navigation = () => {
                   </Link>
                 </Nav>
 
-                <Nav className="me-auto nav-link">
-                  <Link to='/experiences/add' className='nav-link' style={{ textDecoration: 'none' }}>
-                    <Navbar.Text onClick={() => setExpanded(false)}>Add Experience</Navbar.Text>
-                  </Link>
-                </Nav>
+                  <Nav className="me-auto nav-link">
+                    <Link to='/experiences/all' className='nav-link' style={{ textDecoration: 'none' }}>
+                      <Navbar.Text onClick={() => setExpanded(false)}>See all experiences</Navbar.Text>
+                    </Link>
+                  </Nav>
 
                 <Nav className="me-auto nav-link">
                   <Link to='/experiences/all' className='nav-link' style={{ textDecoration: 'none' }}>
@@ -166,4 +164,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation
+export default Navigation;

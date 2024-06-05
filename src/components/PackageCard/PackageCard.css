@@ -1,0 +1,23 @@
+.packageCard {
+    transition: transform 0.2s;
+}
+
+.packageCard:hover {
+    transform: translateY(-10px);
+}
+
+.btnFront {
+    position: absolute;
+    bottom: 24%;
+    left: 50%;
+    width: 60%;
+}
+
+@media (max-width: 768px) {
+    .btnFront {
+        width: 55%;
+        bottom: 145px;
+        left: 75%;
+        transform: translateX(-50%);
+    }
+}
