@@ -5,7 +5,7 @@
   --primary-color: #3b1ca1 !important;
   --secondary-color: #ff7e00 !important;
   --neutral-color: #333333 !important;
-  --red-color: rgb(198, 21, 21)3 !important;
+  --red-color: #c61515 !important;
   --font-primary: 'Montserrat', sans-serif !important;
   --font-secondary: 'Roboto', sans-serif !important;
 }
@@ -17,6 +17,7 @@ img {
 .logo {
   width: 7rem !important;
   height: auto !important;
+  padding-left: 1rem;
 }
 
 /* BUTTONS */
@@ -26,16 +27,16 @@ img {
   background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)) !important;
   border: none !important;
   color: white !important;
-  padding: 10px 20px !important;
+  padding: 0.625rem 1.25rem !important;
   text-align: center !important;
   text-decoration: none !important;
   display: inline-block !important;
-  font-size: 16px !important;
-  margin: 4px 2px !important;
+  font-size: 1rem !important;
+  margin: 0.25rem 0.5rem !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  border-radius: 5px !important;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1) !important;
+  border-radius: 0.5rem !important;
 }
 
 .btn-primary {
@@ -43,16 +44,16 @@ img {
   background-color: var(--primary-color) !important;
   border: none !important;
   color: white !important;
-  padding: 10px 20px !important;
+  padding: 0.625rem 1.25rem !important;
   text-align: center !important;
   text-decoration: none !important;
   display: inline-block !important;
-  font-size: 16px !important;
-  margin: 4px 2px !important;
+  font-size: 1rem !important;
+  margin: 0.25rem 0.5rem !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  border-radius: 5px !important;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1) !important;
+  border-radius: 0.5rem !important;
 }
 
 .btn-secondary {
@@ -60,16 +61,16 @@ img {
   background-color: var(--secondary-color) !important;
   border: none !important;
   color: white !important;
-  padding: 10px 20px !important;
+  padding: 0.625rem 1.25rem !important;
   text-align: center !important;
   text-decoration: none !important;
   display: inline-block !important;
-  font-size: 16px !important;
-  margin: 4px 2px !important;
+  font-size: 1rem !important;
+  margin: 0.25rem 0.5rem !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  border-radius: 5px !important;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1) !important;
+  border-radius: 0.5rem !important;
 }
 
 .btn-neutral {
@@ -77,16 +78,16 @@ img {
   background-color: var(--neutral-color) !important;
   border: none !important;
   color: white !important;
-  padding: 10px 20px !important;
+  padding: 0.625rem 1.25rem !important;
   text-align: center !important;
   text-decoration: none !important;
   display: inline-block !important;
-  font-size: 16px !important;
-  margin: 4px 2px !important;
+  font-size: 1rem !important;
+  margin: 0.25rem 0.5rem !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  border-radius: 5px !important;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1) !important;
+  border-radius: 0.5rem !important;
 }
 
 .btn-red {
@@ -94,24 +95,25 @@ img {
   background-color: var(--red-color) !important;
   border: none !important;
   color: white !important;
-  padding: 10px 20px !important;
+  padding: 0.625rem 1.25rem !important;
   text-align: center !important;
   text-decoration: none !important;
   display: inline-block !important;
-  font-size: 16px !important;
-  margin: 4px 2px !important;
+  font-size: 1rem !important;
+  margin: 0.25rem 0.5rem !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  border-radius: 5px !important;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1) !important;
+  border-radius: 0.5rem !important;
 }
 
 .btn-gradient:hover,
 .btn-primary:hover,
 .btn-secondary:hover,
-.btn-neutral:hover {
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15) !important;
-  transform: translateY(-1px) !important;
+.btn-neutral:hover,
+.btn-red:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-0.0625rem) !important;
 }
 
 /* H1 */
@@ -138,4 +140,21 @@ img {
   font-size: 1.2rem !important;
   margin-right: 1.5rem !important;
   font-family: var(--font-primary) !important;
+}
+
+/* CARDS */
+.card,
+.modal-content,
+.form-control {
+  border-radius: 0.5rem !important;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.088) !important;
+  transition: all 0.3s ease-in-out !important;
+  background-color: #fafafa !important;
+  padding: 1rem !important;
+  margin-bottom: 1.25rem !important;
+  border: none !important;
+}
+
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2) !important;
 }
