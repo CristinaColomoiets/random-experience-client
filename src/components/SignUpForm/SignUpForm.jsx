@@ -65,7 +65,7 @@ const SignUpForm = () => {
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control
                     type="email"
-                    placeholder="Enter your email please"
+                    placeholder="Email"
                     value={signupData.email}
                     name="email"
                     onChange={handleInputChange}

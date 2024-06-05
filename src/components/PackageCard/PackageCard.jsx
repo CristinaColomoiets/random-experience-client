@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Card, Button, Row, Col } from "react-bootstrap";
+import { FaLock } from "react-icons/fa";
 import './PackageCard.css';
 
 const PackageCard = ({ _id: packageId, image, title, price, isLoggedIn }) => {
@@ -15,10 +16,10 @@ const PackageCard = ({ _id: packageId, image, title, price, isLoggedIn }) => {
 
                 <Link to={isLoggedIn ? `/package/${packageId}` : "/profile/signup"} className="btnFront">
 
-                    <Button className='overlay-button btn-gradient' disabled={!isLoggedIn}>
+                    <Button variant='primary' disabled={!isLoggedIn}>
                         {
                             isLoggedIn ?
-                                "Go to View Details" : "🔒"
+                                "View Details" : < FaLock />
                         }
                     </Button>
 
@@ -37,7 +38,7 @@ const PackageCard = ({ _id: packageId, image, title, price, isLoggedIn }) => {
 
                                 <Link to={`/package/edit/${packageId}`} className="w-100">
 
-                                    <Button className=' btn-outline-dark' variant="light" size="sm">
+                                    <Button className=' btn-outline-dark' variant="neutral" size="sm">
                                         Edit
                                     </Button>
 

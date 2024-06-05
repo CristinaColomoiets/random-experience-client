@@ -25,6 +25,7 @@ const Stripe = ({ setShowFundsModal }) => {
                         type="number"
                         name="balance"
                         value={inputData}
+                        placeholder='Add tokens'
                         onChange={handleChange}
                         aria-label="Amount"
                         aria-describedby="basic-addon2"
@@ -34,7 +35,7 @@ const Stripe = ({ setShowFundsModal }) => {
 
             </Col>
 
-            <Button variant="outline-secondary" className="pd-2" onClick={handleButtonClick}>
+            <Button variant="primary" className="pd-2" onClick={handleButtonClick}>
                 Add founds
             </Button>
 

@@ -8,12 +8,10 @@ const ExperienceList = () => {
     const [experiences, setExperiences] = useState([])
 
     useEffect(() => {
-        getAllExperiences()
-
-    }, [])
+        getAllExperiences();
+    }, []);
 
     const getAllExperiences = () => {
-
         experiencesServices
             .getAllExperiences()
             .then(({ data }) => setExperiences(data))
@@ -32,7 +30,7 @@ const ExperienceList = () => {
                 </Row>
             </Container>
         </div>
-    )
+    );
 }
 
-export default ExperienceList
+export default ExperienceList;

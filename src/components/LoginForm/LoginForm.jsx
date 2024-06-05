@@ -5,7 +5,7 @@ import authServices from "../../services/auth.services"
 import { Form, Button } from "react-bootstrap"
 import { toast } from "sonner"
 
-const LoginForm = ({ setShowLoginModal }) => { 
+const LoginForm = ({ setShowLoginModal }) => {
 
     const [loginData, setLoginData] = useState({
         email: '',
@@ -55,7 +55,7 @@ const LoginForm = ({ setShowLoginModal }) => {
             <Form.Group className="mb-3" controlId="email">
                 <Form.Control
                     type="email"
-                    placeholder="Enter your email please"
+                    placeholder="Email"
                     value={loginData.email}
                     name="email"
                     onChange={handleInputChange}
@@ -73,12 +73,12 @@ const LoginForm = ({ setShowLoginModal }) => {
             </Form.Group>
             <Form.Group>
                 <Link to='/profile/signup'>
-                    <p onClick={handleButtonClick}>Not registered yet?</p> 
+                    <p onClick={handleButtonClick}>Not registered yet?</p>
                 </Link>
             </Form.Group>
 
             <div className="d-grid">
-                <Button variant="dark" type="submit">Enter</Button>
+                <Button variant="primary" type="submit">Enter</Button>
             </div>
         </Form >
     )
