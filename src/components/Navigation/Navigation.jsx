@@ -16,7 +16,7 @@ const Navigation = () => {
   const handleClose = () => setShowFundsModal(false);
   const handleShow = () => setShowFundsModal(true);
 
-  const [showLoginModal, setShowLoginModal] = useState(false) 
+  const [showLoginModal, setShowLoginModal] = useState(false)
   const handleCloseLogin = () => setShowLoginModal(false)
   const handleShowLogin = () => setShowLoginModal(true)
 
@@ -25,7 +25,7 @@ const Navigation = () => {
     handleShowLogin()
   }
 
-  const handleBtnClickLogout = ()=>{
+  const handleBtnClickLogout = () => {
     handleCloseLogin()
     logout()
   }
@@ -49,40 +49,40 @@ const Navigation = () => {
           </Link>
 
           <Nav className="userNav" onClick={() => setExpanded(false)}>
-              <Link to={
-                loggedUser ?
+            <Link to={
+              loggedUser ?
                 `/profile/${loggedUser?._id}`
-                : 
+                :
                 '/'}>
-                <Image
-                  alt=''
-                  src={loggedUser ? loggedUser.image : imageIconProfile}
-                  height={30}
-                  className="d-inline-block align-top"
-                  roundedCircle
-                  onClick={(e) => !loggedUser && handleShowLogin()}
-                />
-              </Link>
+              <Image
+                alt=''
+                src={loggedUser ? loggedUser.image : imageIconProfile}
+                height={30}
+                className="d-inline-block align-top"
+                roundedCircle
+                onClick={(e) => !loggedUser && handleShowLogin()}
+              />
+            </Link>
           </Nav>
 
 
-          { 
+          {
             loggedUser && (
-            <>
-              <Button variant="primary" onClick={handleShow}>💲</Button>
+              <>
+                <Button variant="primary" onClick={handleShow}>💲</Button>
 
-              <Modal show={showFundsModal} onHide={handleClose} animation={true}>
-                <Modal.Header closeButton>
-                  <Modal.Title>Add Money</Modal.Title>
-                </Modal.Header>
+                <Modal show={showFundsModal} onHide={handleClose} animation={true}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Add Money</Modal.Title>
+                  </Modal.Header>
 
-                <Modal.Body>
-                  <p>Hi, {loggedUser.username}</p>
-                  <p>How much money do you need to include in your account?</p>
-                  <Stripe setShowFundsModal={setShowFundsModal} />
-                </Modal.Body>
-              </Modal>
-            </>
+                  <Modal.Body>
+                    <p>Hi, {loggedUser.username}</p>
+                    <p>How much money do you need to include in your account?</p>
+                    <Stripe setShowFundsModal={setShowFundsModal} />
+                  </Modal.Body>
+                </Modal>
+              </>
             )
           }
           <Navbar.Toggle onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" style={{ border: 'none ' }} />
@@ -98,10 +98,10 @@ const Navigation = () => {
                   </Nav>
 
                   <Nav className="me-auto nav-link">
-                      <Navbar.Text onClick={handleBtnClickLogin} style={{cursor:"pointer"}}>Login</Navbar.Text>
+                    <Navbar.Text onClick={handleBtnClickLogin} style={{ cursor: "pointer" }}>Login</Navbar.Text>
                   </Nav>
 
-                  <Modal show={showLoginModal} onHide={handleCloseLogin} animation={true}> 
+                  <Modal show={showLoginModal} onHide={handleCloseLogin} animation={true}>
                     <Modal.Header closeButton>
                       <Modal.Title>Login</Modal.Title>
                     </Modal.Header>
@@ -123,15 +123,15 @@ const Navigation = () => {
                   </Link>
                 </Nav>
 
-                  <Nav className="me-auto nav-link">
-                    <Link to='/experiences/all' className='nav-link' style={{ textDecoration: 'none' }}>
-                      <Navbar.Text onClick={() => setExpanded(false)}>See all experiences</Navbar.Text>
-                    </Link>
-                  </Nav>
-
                 <Nav className="me-auto nav-link">
                   <Link to='/experiences/all' className='nav-link' style={{ textDecoration: 'none' }}>
                     <Navbar.Text onClick={() => setExpanded(false)}>See all experiences</Navbar.Text>
+                  </Link>
+                </Nav>
+
+                <Nav className="me-auto nav-link">
+                  <Link to='/experiences/add' className='nav-link' style={{ textDecoration: 'none' }}>
+                    <Navbar.Text onClick={() => setExpanded(false)}>Add experiences</Navbar.Text>
                   </Link>
                 </Nav>
 
@@ -157,7 +157,7 @@ const Navigation = () => {
             }
 
           </Navbar.Collapse>
-          
+
         </Container>
       </Navbar>
     </div>

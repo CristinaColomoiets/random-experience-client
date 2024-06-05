@@ -8,8 +8,8 @@ const ExperienceList = () => {
     const [experiences, setExperiences] = useState([])
 
     useEffect(() => {
-
         getAllExperiences()
+
     }, [])
 
     const getAllExperiences = () => {

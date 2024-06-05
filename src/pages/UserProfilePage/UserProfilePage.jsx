@@ -1,74 +1,66 @@
-import userServices from "../../services/user.services"
-import { Link, useParams, useNavigate } from "react-router-dom"
-import { useState, useEffect, useContext } from "react"
-import { Container, Row, Col, Button, InputGroup, Form } from "react-bootstrap"
-import PurchaseCard from "../../components/PurchaseCard/PurchaseCard"
-import purchaseServices from "../../services/purchase.services"
-import { BalanceContext } from "../../contexts/balance.context"
-
-
+import { Container, Row, Col, Image } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import userServices from "../../services/user.services";
+import purchaseServices from "../../services/purchase.services";
+import PurchaseCard from "../../components/PurchaseCard/PurchaseCard";
+import { BalanceContext } from "../../contexts/balance.context";
+import "./UserProfilePage.css";
 
 const UserProfilePage = () => {
-
     const { balance, getBalance } = useContext(BalanceContext);
-
-
-    const [userData, setUserData] = useState({})
-    const [purchaseData, setPurchaseData] = useState([])
-    const { userId } = useParams()
+    const [userData, setUserData] = useState({});
+    const [purchaseData, setPurchaseData] = useState([]);
+    const { userId } = useParams();
 
     useEffect(() => {
-        loadOneUser()
-        renderPurchases()
-        getBalance()
-    }, [])
+        loadOneUser();
+        renderPurchases();
+        getBalance();
+    }, []);
 
-    const loadOneUser = () => {             
+    const loadOneUser = () => {
         userServices
             .getLoggedUser(userId)
             .then(({ data }) => setUserData(data))
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     const renderPurchases = () => {
         purchaseServices
             .getAllPurchasesByUser()
             .then(({ data }) => setPurchaseData(data))
-            .catch(err => console.log(err))
-    }
-
-
+            .catch(err => console.log(err));
+    };
 
     return (
-        <div className="ProfilePage">
+        <div className="UserProfilePage">
             <Container>
-                <h1>ProfilePage</h1>
-                <Row>
-                    <Col md={{ span: 3 }}>
-                        <img src={userData.image} alt="profile photo" />
+                <h1 className="mt-4">ProfilePage</h1>
+                <Row className="mt-4">
+                    <Col md={3}>
+                        <Image src={userData.image} alt="profile photo" fluid rounded className="profile-image" />
                     </Col>
-                    <Col md={{ span: 6 }}>
+                    <Col md={6}>
                         <h3>Name: {userData.username}</h3>
                         <h4>Your balance: {balance} tokens</h4>
                     </Col>
                 </Row>
 
-                <Row>
+                <Row className="mt-4">
                     <Col><h3>My experiences:</h3></Col>
                 </Row>
 
-                <Row>
-                    {
-                        purchaseData.map(purchase => (
-
-                            <Col key={purchase._id} md={4}>
-                                <PurchaseCard purchase={purchase} />
-                            </Col>
-                        ))
-                    }
+                <Row className="mt-4">
+                    {purchaseData.map(purchase => (
+                        <Col key={purchase._id} md={4}>
+                            <PurchaseCard purchase={purchase} />
+                        </Col>
+                    ))}
                 </Row>
             </Container>
         </div>
-    )
-}
-export default UserProfilePage
+    );
+};
+
+export default UserProfilePage;

@@ -52,19 +52,18 @@ const PackageDetailsPage = () => {
                         <h3 className="text-muted">${packages.price}</h3>
                         <p>{packages.sortDescription}</p>
                         <p>{packages.extendedDescription}</p>
-
-                        <Button
-                            variant="primary"
-                            type="button"
-                            className="w-100 mt-3"
-                            onClick={handlePurchase}
-                            disabled={balance < packages.price}
-                        >
-                            Buy your Experience
-                        </Button>
-
-
                     </Col>
+
+                    <Button
+                        variant="primary"
+                        type="button"
+                        className="w-100 mt-3"
+                        onClick={handlePurchase}
+                    >
+                        Buy your Experience
+                    </Button>
+
+
                 </Row>
             </Container>
         </div>
