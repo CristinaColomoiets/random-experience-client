@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Container, Button, Row, Col, Image } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import purchaseServices from "../../services/purchase.services";
@@ -6,6 +7,15 @@ import { AuthContext } from "../../contexts/auth.context";
 import { useContext, useEffect, useState } from "react";
 import { BalanceContext } from "../../contexts/balance.context";
 import "./PackageDetailsPage.css";
+=======
+import { Container, Button } from "react-bootstrap"
+import { useNavigate, useParams } from "react-router-dom"
+import purchaseServices from "../../services/purchase.services"
+import packageServices from "../../services/packages.services"
+import { AuthContext } from "../../contexts/auth.context"
+import { useContext, useEffect, useState } from "react"
+// import { BalanceContext } from "../../contexts/balance.context"
+>>>>>>> c44f34504dd1da034356e5277112f0849a41932e
 
 const PackageDetailsPage = () => {
     const { balance, spendFunds } = useContext(BalanceContext);
