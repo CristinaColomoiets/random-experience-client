@@ -58,7 +58,6 @@ const PackageDetailsPage = () => {
                             type="button"
                             className="w-100 mt-3"
                             onClick={handlePurchase}
-                            disabled={balance < packages.price}
                         >
                             Buy your Experience
                         </Button>

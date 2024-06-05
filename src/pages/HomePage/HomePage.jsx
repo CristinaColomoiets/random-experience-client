@@ -1,5 +1,7 @@
 import PackageList from '../../components/PackageList/PackageList'
 import InfoBoxHDW from '../../components/InfoBoxHDW/InfoBoxHDW'
+import InfoBoxIncluded from '../../components/InfoBoxIncluded/InfoBoxIncluded'
+
 import { Container } from 'react-bootstrap'
 
 const HomePage = () => {
@@ -10,6 +12,7 @@ const HomePage = () => {
             </video>
             <Container>
                 <InfoBoxHDW/>
+                <InfoBoxIncluded/>
                 <PackageList />
             </Container>
 

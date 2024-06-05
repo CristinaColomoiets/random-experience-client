@@ -5,7 +5,8 @@
 }
 
 .title{
-    margin: 3rem 0;
+    display: block;
+    margin: 5rem auto;
     text-align: center;
     color: var(--primary-color);
 }
@@ -17,6 +18,8 @@
 .box-info{
     text-align: center;
     color: var(--neutral-color);
+    padding: 0 2rem;
+
 }
 
 .sub-title{
@@ -27,9 +30,11 @@
 
 p{
     color: var(--txt-color);
+    margin-bottom: 0rem;
 }
 
 .icons{
     width: 3rem !important;
 }
+
 
