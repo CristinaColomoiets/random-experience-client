@@ -1,6 +1,7 @@
 import './Footer.css';
 import { Row, Col } from 'react-bootstrap';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -8,8 +9,8 @@ function Footer() {
             <Row className="footer-row">
                 <Col md={3}>
                     <ul className="footer-list">
-                        <li>ABOUT US</li>
-                        <li>FAQ</li>
+                        <Link to="/aboutUs" style={{ textDecoration: 'none' }}><li>ABOUT US</li></Link>
+                        <Link to="/FAQ" style={{ textDecoration: 'none' }}><li>FAQ</li></Link>
                     </ul>
                 </Col>
                 <Col md={6} className="footer-center">

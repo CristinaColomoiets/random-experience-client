@@ -2,9 +2,7 @@ import PackageList from '../../components/PackageList/PackageList'
 import InfoBoxHDW from '../../components/InfoBoxHDW/InfoBoxHDW'
 import InfoBoxIncluded from '../../components/InfoBoxIncluded/InfoBoxIncluded'
 import BtnUp from '../../components/BtnUp/BtnUp'
-
 import { Container } from 'react-bootstrap'
-import FAQ from '../../components/FAQ/FAQ'
 
 const HomePage = () => {
     return (
@@ -16,7 +14,6 @@ const HomePage = () => {
                 <InfoBoxHDW/>
                 <InfoBoxIncluded/>
                 <PackageList />
-                <FAQ/>
                 <BtnUp/>
             </Container>
 

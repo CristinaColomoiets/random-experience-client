@@ -13,6 +13,7 @@ import PurchasePage from "../pages/PurchasePage/PurchasePage";
 import StripePage from "../pages/StripePage/StripePage";
 import PrivateRoutes from "./PrivateRoutes";
 import AllExperiencePage from "../pages/AllExperiencePage/AllExperiencePage"
+import FAQPage from "../pages/FAQPage/FAQPage"
 
 const AppRoutes = () => {
 
@@ -23,6 +24,7 @@ const AppRoutes = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/profile/signup" element={<SignupFormPage />} />
             <Route path="/aboutUs" element={<AboutUs />} />
+            <Route path="/FAQ" element={<FAQPage />} />
             <Route path="*" element={<ErrorPage />} />
 
 

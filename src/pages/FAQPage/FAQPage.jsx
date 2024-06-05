@@ -1,8 +1,14 @@
+import { Container } from "react-bootstrap"
 import FAQ from "../../components/FAQ/FAQ"
+import './FAQPage.css'
 
 const FAQPage = ()=>{
     return(
-        <FAQ/>
+        <div className="FAQPage">
+            <Container>
+                <FAQ />
+            </Container>
+        </div>
     )
 }
 
