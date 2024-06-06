@@ -13,7 +13,9 @@ const HomePage = () => {
             <Container>
                 <InfoBoxHDW/>
                 <InfoBoxIncluded/>
-                <PackageList />
+                <div id="all-packages">
+                    <PackageList />
+                </div>
                 <BtnUp/>
             </Container>
 

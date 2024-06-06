@@ -23,7 +23,7 @@
 }
 
 .accordion{
-    --bs-accordion-border-color: white;
+    --bs-accordion-border-color: none !important;
 }
 
 

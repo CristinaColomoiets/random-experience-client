@@ -1,11 +1,12 @@
 import { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { Container, Navbar, Nav, Image, Modal } from 'react-bootstrap'
 import { FaDollarSign, FaUserCircle } from 'react-icons/fa'
 import { AuthContext } from '../../contexts/auth.context'
 import './Navigation.css'
 import Stripe from '../Stripe/Stripe'
 import LoginForm from '../LoginForm/LoginForm'
+import { HashLink as Link } from 'react-router-hash-link'
 
 const Navigation = () => {
 
@@ -157,7 +158,7 @@ const Navigation = () => {
             {loggedUser?.role === 'USER' && (
               <>
                 <Nav className="me-auto nav-link">
-                  <Link to="/" className="nav-link" style={{ textDecoration: 'none' }}>
+                  <Link smooth to="#all-packages" className="nav-link" style={{ textDecoration: 'none' }}>
                     <Navbar.Text onClick={() => setExpanded(false)}>All Packages</Navbar.Text>
                   </Link>
                 </Nav>

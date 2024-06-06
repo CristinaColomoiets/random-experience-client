@@ -1,5 +1,4 @@
 .InfoBoxHDW {
-    margin: 3rem 0;
     padding: 4rem 2rem;
     border-radius: 50%;
     text-align: center;
@@ -7,7 +6,7 @@
 
 .title{
     display: block;
-    margin: 5rem auto;
+    margin: 2rem auto;
     text-align: center;
 }
 
@@ -35,10 +34,6 @@ p {
 
 .icons {
     width: 3rem !important;
-<<<<<<< HEAD
 }
 
 
-=======
-}
->>>>>>> 89a045d30b9fdd80990fa550705b73fe54b7ec80
