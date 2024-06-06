@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 import './AboutUs.css';
+import Confetti from "react-confetti"
 
 const teamMembers = [
     {
@@ -11,7 +12,7 @@ const teamMembers = [
     },
     {
         name: "Samuel Pérez Morcillo",
-        role: "MonoDB",
+        role: "Monster DB",
         image: "https://res.cloudinary.com/drpdy7tju/image/upload/v1717609633/1716231063988_jqcd31.jpg",
         description: "Samuel is our backend wizard, ensuring our server-side logic runs smoothly and efficiently."
     },
@@ -26,6 +27,7 @@ const teamMembers = [
 const AboutUs = () => {
     return (
         <Container className="about-us-container">
+            <Confetti />
             <Row className="justify-content-center">
                 <h1 className='h1-gradient mb-5'>Hey its us! 👋</h1>
                 {teamMembers.map((member, index) => (
@@ -45,6 +47,9 @@ const AboutUs = () => {
                 <p>This project was a collaborative effort to create a modern web application using technologies such as React, Bootstrap, Node.js, Express and MongoDB. Our goal was to build a seamless and user-friendly experience for our users using all our knowledge adquired during our bootcamp in IronHack Madrid.</p>
             </div>
         </Container>
+
+
+
     );
 };
 

@@ -15,15 +15,15 @@ function Footer() {
                 </Col>
                 <Col md={6} className="footer-center">
                     <ul className="footer-social-icons">
-                        <li>
+                        <li className='one'>
                             Cristina Colomoiets: <a href="https://www.linkedin.com/in/cristinacolomoietscom/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
                             <a href="https://github.com/CristinaColomoiets" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
                         </li>
-                        <li>
+                        <li className='two'>
                             Samuel Pérez: <a href="https://www.linkedin.com/in/samuel-p%C3%A9rez-076553292/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
                             <a href="https://github.com/Samuel-Perez-Morcillo" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
                         </li>
-                        <li>
+                        <li className='three'>
                             Adrian Sobota: <a href="https://www.linkedin.com/in/adrian-sobota/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
                             <a href="https://github.com/Sobdev" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
                         </li>
