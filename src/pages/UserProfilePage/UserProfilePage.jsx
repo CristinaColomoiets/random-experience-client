@@ -43,12 +43,12 @@ const UserProfilePage = () => {
                     </Col>
                     <Col md={6}>
                         <h4 className="h1-gradient">{userData.username}</h4>
-                        <p  className="ttl-name">Your balance: {<span>{balance}</span>} $</p>
+                        <p className="ttl-name">Your balance: {<span className='span'>{balance}</span>} $</p>
                     </Col>
                 </Row>
 
                 <Row className="mt-4">
-                    <Col><h3 className=" h1-gradient ttl-exp">My experiences:</h3></Col>
+                    <Col><h3 className=" h1-gradient ttl-exp">My experiences</h3></Col>
                 </Row>
 
                 <Row className="mt-4">
