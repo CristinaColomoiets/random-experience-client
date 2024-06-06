@@ -1,19 +1,18 @@
-import { Container, Button, Row, Col, Image } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
-import purchaseServices from "../../services/purchase.services";
-import packageServices from "../../services/packages.services";
-import { AuthContext } from "../../contexts/auth.context";
-import { useContext, useEffect, useState } from "react";
-import { BalanceContext } from "../../contexts/balance.context";
-import "./PackageDetailsPage.css";
-import images from "./../../assets/details.png"
+import { Container, Button, Row, Col, Image } from "react-bootstrap"
+import { useNavigate, useParams } from "react-router-dom"
+import purchaseServices from "../../services/purchase.services"
+import packageServices from "../../services/packages.services"
+import { AuthContext } from "../../contexts/auth.context"
+import { useContext, useEffect, useState } from "react"
+import { BalanceContext } from "../../contexts/balance.context"
+import "./PackageDetailsPage.css"
 
 const PackageDetailsPage = () => {
-    const { balance, spendFunds } = useContext(BalanceContext);
-    const [packages, setPackages] = useState({});
-    const { packageId } = useParams();
-    const navigate = useNavigate();
-    const { loggedUser } = useContext(AuthContext);
+    const { balance, spendFunds } = useContext(BalanceContext)
+    const [packages, setPackages] = useState({})
+    const { packageId } = useParams()
+    const navigate = useNavigate()
+    const { loggedUser } = useContext(AuthContext)
 
     const icon1 = "https://res.cloudinary.com/drpdy7tju/image/upload/v1717658941/descarga_wmzfc3.png"
     const icon2 = "https://res.cloudinary.com/drpdy7tju/image/upload/v1717658940/our-identity-1.q55BdGC-_p4k8ws.png"
@@ -21,7 +20,7 @@ const PackageDetailsPage = () => {
     const icon4 = "https://res.cloudinary.com/drpdy7tju/image/upload/v1717658940/our-identity-4.ChFyEPou_m7cr04.png"
 
     useEffect(() => {
-        loadOnePackage();
+        loadOnePackage()
     }, []);
 
     const handlePurchase = () => {
@@ -111,7 +110,7 @@ const PackageDetailsPage = () => {
                 </Row>
             </Container>
         </div>
-    );
-};
+    )
+}
 
-export default PackageDetailsPage;
+export default PackageDetailsPage

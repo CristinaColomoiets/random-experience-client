@@ -99,13 +99,13 @@ const Navigation = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             {!loggedUser && (
               <>
-                <Nav className="me-auto nav-link">
+                <Nav onClick={() => setExpanded(false)} className="me-auto nav-link">
                   <Link to="/profile/signup" className="nav-link" style={{ textDecoration: 'none' }}>
-                    <Navbar.Text onClick={() => setExpanded(false)}>Sign up</Navbar.Text>
+                    <Navbar.Text>Sign up</Navbar.Text>
                   </Link>
                 </Nav>
 
-                <Nav className="me-auto nav-link">
+                <Nav onClick={() => setExpanded(false)} className="me-auto nav-link">
                   <Navbar.Text onClick={handleBtnClickLogin} style={{ cursor: 'pointer' }}>
                     Login
                   </Navbar.Text>
@@ -125,46 +125,47 @@ const Navigation = () => {
 
             {loggedUser?.role === 'ADMIN' && (
               <>
-                <Nav className="me-auto nav-link">
+                <Nav onClick={() => setExpanded(false)} className="me-auto nav-link">
                   <Link to="/package/add" className="nav-link" style={{ textDecoration: 'none' }}>
-                    <Navbar.Text onClick={() => setExpanded(false)}>Add Package</Navbar.Text>
+                    <Navbar.Text>Add Package</Navbar.Text>
                   </Link>
                 </Nav>
 
-                <Nav className="me-auto nav-link">
+                <Nav onClick={() => setExpanded(false)} className="me-auto nav-link">
                   <Link to="/experiences/add" className="nav-link" style={{ textDecoration: 'none' }}>
-                    <Navbar.Text onClick={() => setExpanded(false)}>Add Experience</Navbar.Text>
+                    <Navbar.Text>Add Experience</Navbar.Text>
                   </Link>
                 </Nav>
 
-                <Nav className="me-auto nav-link">
-                  <Link to="/experiences/all" className="nav-link" style={{ textDecoration: 'none' }}>
-                    <Navbar.Text onClick={() => setExpanded(false)}>See all experiences</Navbar.Text>
-                  </Link>
-                </Nav>
-
-                <Nav className="me-auto nav-link">
+                <Nav onClick={() => setExpanded(false)} className="me-auto nav-link">
                   <Link to='/experiences/add' className='nav-link' style={{ textDecoration: 'none' }}>
-                    <Navbar.Text onClick={() => setExpanded(false)}>Add experiences</Navbar.Text>
+                    <Navbar.Text>All Packages</Navbar.Text>
                   </Link>
                 </Nav>
 
-                <Nav className="me-auto nav-link" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
-                  <Navbar.Text onClick={handleBtnClickLogout}>Logout</Navbar.Text>
+                <Nav onClick={() => setExpanded(false)} className="me-auto nav-link">
+                  <Link to="/experiences/all" className="nav-link" style={{ textDecoration: 'none' }}>
+                    <Navbar.Text>All experiences</Navbar.Text>
+                  </Link>
+                </Nav>
+
+
+                <Nav onClick={() => setExpanded(false)} className="me-auto nav-link" style={{ cursor: 'pointer' }}>
+                  <Navbar.Text>Logout</Navbar.Text>
                 </Nav>
               </>
             )}
 
             {loggedUser?.role === 'USER' && (
               <>
-                <Nav className="me-auto nav-link">
+                <Nav onClick={() => setExpanded(false)} className="me-auto nav-link">
                   <Link smooth to="#all-packages" className="nav-link" style={{ textDecoration: 'none' }}>
-                    <Navbar.Text onClick={() => setExpanded(false)}>All Packages</Navbar.Text>
+                    <Navbar.Text>All Packages</Navbar.Text>
                   </Link>
                 </Nav>
 
                 <Nav className="me-auto nav-link" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
-                  <Navbar.Text onClick={handleBtnClickLogout}>Logout</Navbar.Text>
+                  <Navbar.Text>Logout</Navbar.Text>
                 </Nav>
               </>
             )}
