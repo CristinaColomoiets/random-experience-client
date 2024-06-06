@@ -8,7 +8,7 @@ const teamMembers = [
         name: "Cristina Colomoiets",
         role: "Git merge Queen",
         image: "https://res.cloudinary.com/drpdy7tju/image/upload/v1717609633/1653902628078_qqcjnx.jpg",
-        description: "Cristina is a skilled frontend developer with a passion for creating stunning UI/UX designs."
+        description: "Cristina is a talented frontend developer passionate about crafting stunning web experiences."
     },
     {
         name: "Samuel Pérez Morcillo",

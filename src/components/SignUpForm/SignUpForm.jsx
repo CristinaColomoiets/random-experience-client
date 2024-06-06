@@ -107,6 +107,8 @@ const SignUpForm = () => {
             </Form.Group>
 
             <div className="d-grid">
+                <Link to="">
+                </Link>
                 <Button variant="dark" type="submit">Submit</Button>
             </div>
         </Form>
