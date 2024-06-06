@@ -72,8 +72,9 @@ const Navigation = () => {
                   <Image
                     alt=""
                     src={loggedUser.image}
-                    size={30}
+                    size={5}
                     className="d-inline-block align-top"
+                    roundedCircle
                     onClick={(e) => !loggedUser && handleShowLogin()}
                   />
                 ) : (
