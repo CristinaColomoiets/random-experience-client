@@ -28,7 +28,6 @@ function GeoForm({ onLocationSelect }) {
 
     return (
         <form>
-            <h3>Address</h3>
             <GooglePlacesAutocomplete
                 selectProps={{
                     value: addressValue,

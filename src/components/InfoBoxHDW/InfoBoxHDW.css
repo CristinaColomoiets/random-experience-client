@@ -34,10 +34,16 @@ p {
 
 .icons {
     width: 3rem !important;
-<<<<<<< HEAD
 }
 
+@media (max-width: 768px) {
+    .InfoBoxHDW {
+        padding: 0rem;
+    }
 
-=======
+    .title {
+        margin: 0rem auto;
+    }
+
+
 }
->>>>>>> 262d31734c57f6f98d7de704e57e4dbedd3e4067

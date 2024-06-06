@@ -65,7 +65,7 @@ const PackageDetailsPage = () => {
 
                         <Row className="mt-5 mb-5">
 
-                            <Col className="mt-5 ">
+                            <Col md={6} className="mt-5 ">
                                 <div className="box-info">
                                     <img src={icon3} alt="icon" className="icons" />
                                     <h5 className="sub-title">SURPRISE FACTOR</h5>
@@ -79,7 +79,7 @@ const PackageDetailsPage = () => {
                             </Col>
 
 
-                            <Col className="mt-5 ">
+                            <Col md={6} className="mt-5 ">
 
                                 <div className="box-info">
                                     <img src={icon4} alt="icon" className="icons" />

@@ -138,7 +138,7 @@ const Navigation = () => {
                 </Nav>
 
                 <Nav onClick={() => setExpanded(false)} className="me-auto nav-link">
-                  <Link to='/experiences/add' className='nav-link' style={{ textDecoration: 'none' }}>
+                  <Link smooth to="#all-packages" className='nav-link' style={{ textDecoration: 'none' }}>
                     <Navbar.Text>All Packages</Navbar.Text>
                   </Link>
                 </Nav>
@@ -151,7 +151,7 @@ const Navigation = () => {
 
 
                 <Nav onClick={() => setExpanded(false)} className="me-auto nav-link" style={{ cursor: 'pointer' }}>
-                  <Navbar.Text>Logout</Navbar.Text>
+                  <Navbar.Text onClick={handleBtnClickLogout}>Logout</Navbar.Text>
                 </Nav>
               </>
             )}
@@ -165,7 +165,7 @@ const Navigation = () => {
                 </Nav>
 
                 <Nav className="me-auto nav-link" onClick={() => setExpanded(false)} style={{ cursor: 'pointer' }}>
-                  <Navbar.Text>Logout</Navbar.Text>
+                  <Navbar.Text onClick={handleBtnClickLogout}>Logout</Navbar.Text>
                 </Nav>
               </>
             )}

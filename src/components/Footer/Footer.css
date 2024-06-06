@@ -84,16 +84,6 @@ body {
     margin: 0.5rem 0;
 }
 
-@media only screen and (max-width: 768px) {
-    .one {
-        display: block;
-    }
-
-    .two {
-        display: block;
-    }
-
-    .three {
-        display: block;
-    }
+.copyrights {
+    font-size: .7rem;
 }

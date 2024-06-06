@@ -13,25 +13,33 @@ function Footer() {
                         <Link to="/FAQ" style={{ textDecoration: 'none' }}><li>FAQ</li></Link>
                     </ul>
                 </Col>
+
                 <Col md={6} className="footer-center">
                     <ul className="footer-social-icons">
-                        <li className='one'>
-                            Cristina Colomoiets: <a href="https://www.linkedin.com/in/cristinacolomoietscom/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-                            <a href="https://github.com/CristinaColomoiets" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                        <li className='one'>Cristina Colomoiets:
+                            <div className="box-icons">
+                                <a href="https://www.linkedin.com/in/cristinacolomoietscom/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                                <a href="https://github.com/CristinaColomoiets" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                            </div>
                         </li>
-                        <li className='two'>
-                            Samuel Pérez: <a href="https://www.linkedin.com/in/samuel-p%C3%A9rez-076553292/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-                            <a href="https://github.com/Samuel-Perez-Morcillo" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                        <li className='two'>Samuel Pérez:
+                            <div className="box-icons">
+                                <a href="https://www.linkedin.com/in/samuel-p%C3%A9rez-076553292/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                                <a href="https://github.com/Samuel-Perez-Morcillo" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                            </div>
                         </li>
-                        <li className='three'>
-                            Adrian Sobota: <a href="https://www.linkedin.com/in/adrian-sobota/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-                            <a href="https://github.com/Sobdev" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                        <li className='three'>Adrian Sobota:
+                            <div className="box-icons">
+                                <a href="https://www.linkedin.com/in/adrian-sobota/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                                <a href="https://github.com/Sobdev" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                            </div>
                         </li>
                     </ul>
                 </Col>
+
                 <Col md={3} className="footer-rights">
-                    <p>2024 TripBliss © All rights reserved</p>
-                    <p>IronHack, 28039, Madrid, Spain</p>
+                    <p className='copyrights'>2024 TripBliss © All rights reserved</p>
+                    <p className='copyrights'>IronHack, 28039, Madrid, Spain</p>
                 </Col>
             </Row>
         </footer>
