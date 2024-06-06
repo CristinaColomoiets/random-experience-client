@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Form, Button, Col, Row } from "react-bootstrap";
 import packageServices from "../../services/packages.services";
-import { FaCheck, FaTimes, FaTrashAlt, FaBan } from 'react-icons/fa';
 import './EditPackageForm.css';
 
 const EditPackageForm = () => {
