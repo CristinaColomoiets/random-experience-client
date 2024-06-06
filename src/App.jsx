@@ -7,13 +7,17 @@ import './App.css'
 
 function App() {
   return (
+
     <>
       <Navigation />
-      <AppRoutes />
-      <Toast />
+      <div id="content">
+        <AppRoutes />
+        <Toast />
+      </div>
       <Footer />
     </>
   )
+
 }
 
 export default App

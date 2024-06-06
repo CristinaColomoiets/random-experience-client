@@ -21,6 +21,13 @@ img {
   padding-left: 1rem;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 /* BUTTONS */
 
 .btn-gradient {
@@ -41,11 +48,7 @@ img {
 }
 
 .btn-gradient-up {
-  /* font-family: var(--font-primary) !important;
-  font-size: .5rem !important;
-  padding: .5rem .7rem !important; */
-  /* border-radius: 50% !important; */
-  color:#d6695e;
+  color: #d6695e;
   width: 1.5rem;
   height: 1.5rem;
   position: fixed !important;
@@ -184,4 +187,8 @@ img {
 
 .card:hover {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2) !important;
+}
+
+#content {
+  min-height: calc(100vh - 180px)
 }

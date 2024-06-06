@@ -3,14 +3,16 @@ import EditPackageForm from "../../components/EditPackageForm/EditPackageForm"
 
 const EditPackagePage = () => {
     return (
-        <div className="EditPackagePage">
+
+        <div className="EditPackagePage mt-5 mb-5">
 
             <Container>
-                <h1>Edit Package</h1>
+                <h1 className='h1-gradient' >Edit Package</h1>
                 <EditPackageForm />
             </Container>
 
         </div>
+
     )
 }
 

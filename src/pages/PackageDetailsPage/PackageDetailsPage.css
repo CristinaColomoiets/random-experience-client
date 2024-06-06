@@ -6,3 +6,12 @@
     max-width: 100%;
     height: auto;
 }
+
+.alignTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* @media (max-width: 768px) {
+    .colum {}
+} */
