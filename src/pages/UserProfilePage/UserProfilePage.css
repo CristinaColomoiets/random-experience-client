@@ -8,10 +8,10 @@
     color: var( --secondary-color);
 }
 
-span{
+.span{
     font-weight: 900;
 }
 
 .ttl-exp{
     text-align: center;
-}
+} 
