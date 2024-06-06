@@ -4,8 +4,7 @@ import { Container } from "react-bootstrap"
 const EditExperiencePage = () => {
     return (
         <div className='EditExperienceForm'>
-            <h1>Experiences List</h1>
-            <hr />
+            <h1 className='h1-gradient'>Edit Experience</h1>
             <Container>
                 <EditExperienceForm />
             </Container>

@@ -1,148 +1,144 @@
-import { useEffect, useState } from "react"
-import { Link, useNavigate, useParams } from "react-router-dom"
-import { Form, Button } from "react-bootstrap"
-import packageServices from "../../services/packages.services"
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Form, Button, Col, Row } from "react-bootstrap";
+import packageServices from "../../services/packages.services";
+import { FaCheck, FaTimes, FaTrashAlt, FaBan } from 'react-icons/fa';
+import './EditPackageForm.css';
 
 const EditPackageForm = () => {
-
     const initialState = {
         title: "",
         price: "",
         image: "",
         sortDescription: "",
         extendedDescription: "",
+    };
 
-    }
-
-    const [editPackage, setEditPackage] = useState(initialState)
-
-    const navigate = useNavigate()
-
-    const { packageId } = useParams()
+    const [editPackage, setEditPackage] = useState(initialState);
+    const navigate = useNavigate();
+    const { packageId } = useParams();
 
     useEffect(() => {
-        fetchFormData()
-    }, [])
+        fetchFormData();
+    }, []);
 
     const fetchFormData = () => {
-
         packageServices
             .getOnePackage(packageId)
             .then(({ data }) => {
-                setEditPackage(data)
+                setEditPackage(data);
             })
-            .catch((err) => console.log(err))
-    }
-
+            .catch((err) => console.log(err));
+    };
 
     const handleInputChange = e => {
-        const { name, value } = e.target
-        setEditPackage({ ...editPackage, [name]: value })
-    }
-
+        const { name, value } = e.target;
+        setEditPackage({ ...editPackage, [name]: value });
+    };
 
     const handleFormSubmit = e => {
-        e.preventDefault()
-
+        e.preventDefault();
         packageServices
-
             .putPackage(packageId, editPackage)
             .then(() => navigate('/'))
-            .catch(err => console.log(err))
-    }
+            .catch(err => console.log(err));
+    };
 
     const handleDelete = () => {
-
         packageServices
             .deletePackage(packageId)
-            .then(({ data }) => { setEditPackage(data) })
-            .catch(err => console.log(err))
-    }
+            .then(({ data }) => {
+                setEditPackage(data);
+                navigate('/')
+            })
+            .catch(err => console.log(err));
+    };
 
     const handleClear = () => {
-        setEditPackage(initialState)
-    }
+        setEditPackage(initialState);
+    };
+
+    const handleCancel = () => {
+        navigate('/');
+    };
 
     return (
-        <div className="EditPackageForm">
-
+        <div className="EditPackageForm mt-5">
             <Form onSubmit={handleFormSubmit} className="mt-4">
-
                 <Form.Group className="mb-3" controlId="title">
-                    <Form.Label>Title</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="enter a title for your new package"
+                        placeholder="Package title"
                         name="title"
                         value={editPackage.title}
                         onChange={handleInputChange}
                     />
-
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="sortDescription">
-                    <Form.Label>Sort Description</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="introduce a sort description for your new Package"
+                        placeholder="Short description"
                         name='sortDescription'
                         value={editPackage.sortDescription}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="extendedDescription">
-                    <Form.Label>Extended Description</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="introduce a sort description for your new Package"
+                        placeholder="Extended description"
                         name='extendedDescription'
                         value={editPackage.extendedDescription}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="image">
-                    <Form.Label>Image</Form.Label>
                     <Form.Control
                         type="url"
-                        placeholder="introduce a image for your new Package"
+                        placeholder="Upload a image"
                         name='image'
                         value={editPackage.image}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="price">
-                    <Form.Label>Price</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="enter a price for your new package"
+                        placeholder="Price"
                         name="price"
                         value={editPackage.price}
                         onChange={handleInputChange}
                     />
                 </Form.Group>
-
-                <hr />
-
-                <Button variant="dark" type="submit" className="w-100 mb-4">
-                    Apply Changes
-                </Button>
-
-                <Button variant="secondary" type="button" className="w-100 mb-4" onClick={handleClear}>
-                    Clear
-                </Button>
-
-                <Button variant="danger" type="button" className="w-100 mb-4" onClick={handleDelete}>
-                    Delete
-                </Button>
-
-
-
+                <Row className="mb-4">
+                    <Col>
+                        <Button variant="primary" type="submit" className="w-100">
+                            Apply
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button variant="secondary" type="button" className="w-100" onClick={handleClear}>
+                            Clear
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button variant="red" type="button" className="w-100" onClick={handleDelete}>
+                            Delete
+                        </Button>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Link to='/'>
+                            <Button variant="neutral" type="button" className="w-100 mb-4" onClick={handleCancel}>
+                                Cancel
+                            </Button>
+                        </Link>
+                    </Col>
+                </Row>
             </Form>
-
         </div>
-    )
-}
-export default EditPackageForm
+    );
+};
+
+export default EditPackageForm;

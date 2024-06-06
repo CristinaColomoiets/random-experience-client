@@ -41,16 +41,12 @@ img {
 }
 
 .btn-gradient-up {
-  /* font-family: var(--font-primary) !important;
-  font-size: .5rem !important;
-  padding: .5rem .7rem !important; */
-  /* border-radius: 50% !important; */
-  color:#d6695e;
+  color: #d6695e;
   width: 1.5rem;
   height: 1.5rem;
   position: fixed !important;
-  bottom: 1% !important;
-  right: 1% !important;
+  bottom: 5% !important;
+  right: 5% !important;
 }
 
 .btn-primary {

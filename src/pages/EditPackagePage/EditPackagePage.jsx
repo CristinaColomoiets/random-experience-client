@@ -6,7 +6,7 @@ const EditPackagePage = () => {
         <div className="EditPackagePage">
 
             <Container>
-                <h1>Edit Package</h1>
+                <h1 className='h1-gradient'>Edit Package</h1>
                 <EditPackageForm />
             </Container>
 

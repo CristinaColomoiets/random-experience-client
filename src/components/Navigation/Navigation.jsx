@@ -21,18 +21,18 @@ const Navigation = () => {
   const handleShowLogin = () => setShowLoginModal(true)
 
   const handleBtnClickLogin = () => {
-    setExpanded(false);
-    handleShowLogin();
+    setExpanded(false)
+    handleShowLogin()
   };
 
   const handleBtnClickLogout = () => {
-    handleCloseLogin();
-    logout();
+    handleCloseLogin()
+    logout()
   };
 
   return (
     <div className="Navigation mb-5 pb-2">
-      <Navbar expand="" expanded={expanded} className="bg-body-tertiary fixed-top">
+      <Navbar expand="" expanded={expanded} className="bg-body-tertiary fixed-top shadow-navbar">
         <Container>
           <div className="navbar-left">
             <Link to="/">
@@ -174,4 +174,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default Navigation
