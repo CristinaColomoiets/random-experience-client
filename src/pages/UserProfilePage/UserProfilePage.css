@@ -1,0 +1,17 @@
+.ttl-name{
+    color: var(--neutral-color);
+    /* text-transform: uppercase; */
+    font-weight: 700;
+}
+
+.user-name{
+    color: var( --secondary-color);
+}
+
+span{
+    font-weight: 900;
+}
+
+.ttl-exp{
+    text-align: center;
+}
