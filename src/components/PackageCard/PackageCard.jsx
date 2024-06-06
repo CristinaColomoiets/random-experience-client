@@ -14,22 +14,22 @@ const PackageCard = ({ _id: packageId, image, title, price, isLoggedIn }) => {
                     <Card.Img variant="top" src={image} />
                 </Link>
 
-                <Link to={isLoggedIn ? `/package/${packageId}` : "/profile/signup"} className="btnFront">
-
-                    <Button variant='primary' disabled={!isLoggedIn}>
-                        {
-                            isLoggedIn ?
-                                "View Details" : < FaLock />
-                        }
-                    </Button>
-
-                </Link>
 
 
                 <Card.Body>
 
-                    <Card.Title className='title mt-4'>{title}</Card.Title>
+                    <Card.Title className='h1-primary'>{title}</Card.Title>
                     <Card.Text className="text-muted">From: ${price}</Card.Text>
+                    <Link to={isLoggedIn ? `/package/${packageId}` : "/profile/signup"} className="btnFront">
+
+                        <Button variant='gradient' className='w-100' disabled={!isLoggedIn}>
+                            {
+                                isLoggedIn ?
+                                    "View Details" : < FaLock />
+                            }
+                        </Button>
+
+                    </Link>
 
                     {isLoggedIn && (
                         <Row>
@@ -38,7 +38,7 @@ const PackageCard = ({ _id: packageId, image, title, price, isLoggedIn }) => {
 
                                 <Link to={`/package/edit/${packageId}`} className="w-100">
 
-                                    <Button className=' btn-outline-dark' variant="neutral" size="sm">
+                                    <Button className='w-100' variant="neutral">
                                         Edit
                                     </Button>
 

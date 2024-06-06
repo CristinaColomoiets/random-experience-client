@@ -39,6 +39,10 @@
     color: var(--secondary-color);
 }
 
+.shadow-navbar {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 768px) {
     .navbar-left {
         flex-grow: 1;

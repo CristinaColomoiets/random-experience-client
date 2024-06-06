@@ -1,0 +1,24 @@
+.error-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.error img {
+    width: 50%;
+    max-width: 300px;
+    margin-bottom: 1rem;
+}
+
+.error div {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.error h4,
+.error p {
+    margin-bottom: 1rem;
+}
