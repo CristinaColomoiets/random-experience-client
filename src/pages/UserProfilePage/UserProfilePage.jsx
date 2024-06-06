@@ -53,9 +53,7 @@ const UserProfilePage = () => {
 
                 <Row className="mt-4">
                     {purchaseData.map(purchase => (
-                        <Col key={purchase._id} md={4}>
-                            <PurchaseCard purchase={purchase} />
-                        </Col>
+                        <PurchaseCard purchase={purchase} />
                     ))}
                 </Row>
             </Container>

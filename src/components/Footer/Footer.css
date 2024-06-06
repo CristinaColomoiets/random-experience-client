@@ -43,7 +43,7 @@ body {
     color: white;
 }
 
-.footer-list li:hover{
+.footer-list li:hover {
     color: var(--secondary-color);
 }
 
@@ -82,4 +82,18 @@ body {
 
 .footer-rights p {
     margin: 0.5rem 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .one {
+        display: block;
+    }
+
+    .two {
+        display: block;
+    }
+
+    .three {
+        display: block;
+    }
 }
