@@ -66,18 +66,30 @@ const Navigation = () => {
                 </Modal>
               </>
             )}
+
             <Nav className="userNav" onClick={() => setExpanded(false)}>
               <Link to={loggedUser ? `/profile/${loggedUser?._id}` : '/'}>
                 {loggedUser ? (
-                  <Image
-                    alt=""
-                    src={loggedUser.image}
-                    height={30}
-                    width={30}
-                    className="d-inline-block align-top small-image"
-                    roundedCircle
-                    onClick={(e) => !loggedUser && handleShowLogin()}
-                  />
+                  <>
+                    {loggedUser.image ? (
+                      <Image
+                        alt=""
+                        src={loggedUser.image}
+                        height={30}
+                        width={30}
+                        className="d-inline-block align-top small-image"
+                        roundedCircle
+                        onClick={(e) => !loggedUser && handleShowLogin()}
+                      />
+                    ) : (
+                      <FaUserCircle
+                        size={30}
+                        className="d-inline-block align-top"
+                        onClick={handleShowLogin}
+                        style={{ cursor: 'pointer' }}
+                      />
+                    )}
+                  </>
                 ) : (
                   <FaUserCircle
                     size={30}
@@ -154,6 +166,7 @@ const Navigation = () => {
                 <Nav onClick={() => setExpanded(false)} className="me-auto nav-link" style={{ cursor: 'pointer' }}>
                   <Navbar.Text onClick={handleBtnClickLogout}>Logout</Navbar.Text>
                 </Nav>
+
               </>
             )}
 
