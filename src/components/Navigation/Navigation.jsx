@@ -1,5 +1,4 @@
 import { useContext, useState } from 'react'
-// import { Link } from 'react-router-dom'
 import { Container, Navbar, Nav, Image, Modal } from 'react-bootstrap'
 import { FaDollarSign, FaUserCircle } from 'react-icons/fa'
 import { AuthContext } from '../../contexts/auth.context'
