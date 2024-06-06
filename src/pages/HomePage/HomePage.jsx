@@ -8,7 +8,7 @@ const HomePage = () => {
     return (
         <>
             <video autoPlay loop playsInline muted className="mb-5 w-100 h-80">
-                <source src="http://togarestaurante.com/wp-content/uploads/2021/08/toga_hero_web_video_1920_1080_.mp4" type="video/mp4" />
+                <source src="https://res.cloudinary.com/drpdy7tju/video/upload/v1717662947/CleanShot_2024-06-06_at_10.34.05_rooa28.mp4" type="video/mp4" />
             </video>
             <Container>
                 <InfoBoxHDW/>
@@ -18,7 +18,6 @@ const HomePage = () => {
                 </div>
                 <BtnUp/>
             </Container>
-
         </>
 
     )

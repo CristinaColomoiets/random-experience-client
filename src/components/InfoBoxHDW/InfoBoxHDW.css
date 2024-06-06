@@ -4,7 +4,7 @@
     text-align: center;
 }
 
-.title{
+.title {
     display: block;
     margin: 2rem auto;
     text-align: center;
@@ -34,6 +34,10 @@ p {
 
 .icons {
     width: 3rem !important;
+<<<<<<< HEAD
 }
 
 
+=======
+}
+>>>>>>> 262d31734c57f6f98d7de704e57e4dbedd3e4067

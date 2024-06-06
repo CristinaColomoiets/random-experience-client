@@ -8,7 +8,7 @@ const ExperienceCard = ({ _id: experienceId, country, hotel, imageUrl, imageLink
 
     return (
 
-        <article className='ExperienceCard mb-3'>
+        <article className='ExperienceCard'>
             <Card className="fixed-card-size">
 
                 <Card.Body>

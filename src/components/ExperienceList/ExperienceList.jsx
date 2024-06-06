@@ -23,7 +23,7 @@ const ExperienceList = () => {
             <Container>
                 <Row>
                     {experiences.map((experience) => (
-                        <Col key={experience._id} md={4} className='mb-4'>
+                        <Col key={experience._id} md={4} >
                             <ExperienceCard {...experience} />
                         </Col>
                     ))}

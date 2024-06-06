@@ -16,7 +16,8 @@ function Footer() {
                 <Col md={6} className="footer-center">
                     <ul className="footer-social-icons">
                         <li>
-                            Cristina Colomoiets: <a href="https://www.linkedin.com/in/cristinacolomoietscom/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a><a href="https://github.com/CristinaColomoiets" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                            Cristina Colomoiets: <a href="https://www.linkedin.com/in/cristinacolomoietscom/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                            <a href="https://github.com/CristinaColomoiets" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
                         </li>
                         <li>
                             Samuel Pérez: <a href="https://www.linkedin.com/in/samuel-p%C3%A9rez-076553292/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>

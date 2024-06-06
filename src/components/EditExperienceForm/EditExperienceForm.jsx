@@ -242,7 +242,7 @@ const EditExpForm = () => {
                 <Row className="mb-4">
                     <Col>
                         <Button variant="primary" type="submit" className="w-100">
-                            Apply Changes
+                            Apply
                         </Button>
                     </Col>
                     <Col>

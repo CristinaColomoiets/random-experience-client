@@ -7,7 +7,7 @@ const AddExperiencePage = () => {
         <div className='AddExperienceForm'>
 
             <Container>
-                <h1 className='h1-gradient'>Add Experience</h1>
+                <h1 className='h1-gradient mt-5 mb-5'>Add Experience</h1>
                 <AddExperienceForm />
             </Container>
         </div>
