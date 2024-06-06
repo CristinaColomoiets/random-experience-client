@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react'
+// import { Link } from 'react-router-dom'
 import { Container, Navbar, Nav, Image, Modal } from 'react-bootstrap'
 import { FaDollarSign, FaUserCircle } from 'react-icons/fa'
 import { AuthContext } from '../../contexts/auth.context'
@@ -65,15 +66,15 @@ const Navigation = () => {
                 </Modal>
               </>
             )}
-
             <Nav className="userNav" onClick={() => setExpanded(false)}>
               <Link to={loggedUser ? `/profile/${loggedUser?._id}` : '/'}>
                 {loggedUser ? (
                   <Image
                     alt=""
                     src={loggedUser.image}
-                    size={5}
-                    className="d-inline-block align-top"
+                    height={30}
+                    width={30}
+                    className="d-inline-block align-top small-image"
                     roundedCircle
                     onClick={(e) => !loggedUser && handleShowLogin()}
                   />
@@ -87,6 +88,7 @@ const Navigation = () => {
                 )}
               </Link>
             </Nav>
+
 
             <Navbar.Toggle
               onClick={() => setExpanded(!expanded)}

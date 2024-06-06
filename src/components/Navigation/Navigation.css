@@ -43,6 +43,13 @@
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
+.small-image {
+    height: 30px !important;
+    width: 30px !important;
+    object-fit: cover;
+}
+
+
 @media (max-width: 768px) {
     .navbar-left {
         flex-grow: 1;
@@ -57,6 +64,12 @@
     .userNav {
         display: flex;
         align-items: center;
+    }
+
+    .small-image {
+        height: 30px !important;
+        width: 30px !important;
+        object-fit: cover;
     }
 }
 
